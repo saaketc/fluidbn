@@ -84,4 +84,13 @@ class TheoryController extends Controller
         $theory->delete();
          return redirect()->route('feed')->with('success','Your Theory successfully deleted !');
     }
+    
+    // to report 
+     public function report(Request $request){
+                  $theory_id = $request['thid'];
+                  $theory = Theory::find($theory_id);
+                  $theory->report = 1;
+                  $theory->save();
+               
+    }
 }

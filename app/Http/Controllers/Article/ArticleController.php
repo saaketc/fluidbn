@@ -161,12 +161,10 @@ class ArticleController extends Controller
                 $article->finished =1;
                 $article->save();
          
-                //$id = base_convert($article->id,10,36);
-               // $url = 'https://www.fluidbn.com/story/'.$id.'/'.str_slug($article->title);
-                
+              
      //notify all followers for new story
                 Notification::send($allFollowers,new UserFollowedStory($user,$article));
-                // Mail::to($allFollowers)->send(new StoryAdded($user,$article,$url));
+                
                  return redirect()->route('show-article',['article'=>$article,'slug'=>str_slug($article->title)])->with('success',ucfirst($user->fname).' your story is successfully posted !');
 
             }
@@ -182,7 +180,7 @@ class ArticleController extends Controller
              'content'=>'required'
             ]);
             
-            if($request->has('title') && $request->has('content')){
+             if($request->has('title') && $request->has('content')){
             $user = Auth::user();
             $allFollowers = $user->followedBy()->wherePivot('follower_id','!=',$user->id)->get();
             $theory = new Theory;
@@ -192,12 +190,12 @@ class ArticleController extends Controller
             $theory->save();
             
              //notify all followers for new theory
-                Notification::send($allFollowers,new UserFollowedTheory($user,$theory));
+               Notification::send($allFollowers,new UserFollowedTheory($user,$theory));
  
             return redirect()->route('show-theory',['theory'=>$theory,'slug'=>str_slug($theory->title)])->with('success',ucfirst($user->fname).' your theory is successfully posted !');
-                
-            }
-            else{
+             }   
+            
+             else{
                 return redirect()->back()->with('error','Please fill in all the fields !');
             }
         
@@ -625,5 +623,12 @@ public function sameUserTheories(User $user){
             
             
       */
-
+ // to report 
+     public function report(Request $request){
+                  $story_id = $request['stid'];
+                  $story = Article::find($story_id);
+                  $story->report = 1;
+                  $story->save();
+               
+    }
 }

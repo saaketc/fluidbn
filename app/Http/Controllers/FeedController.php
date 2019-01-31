@@ -54,13 +54,13 @@ class FeedController extends Controller
        else{
            $heading = '';
        } 
-        $theory = Theory::latest()->where('user_id','!=',$user->id)->with('writtenBy')->paginate(12);
-        $article = Article::latest()->where('finished',1)->where('user_id','!=',$user->id)->whereNotIn('genre_id',$id)->where('views','>=',5)->with(['writtenBy','ofGenre'])->paginate(12);
-        $tailored = Article::latest()->where('finished',1)->where('user_id','!=',$user->id)->whereIn('genre_id',$id)->where('views','>=',5)->with(['writtenBy','ofGenre'])->paginate(12);
+        $theory = Theory::latest()->where('user_id','!=',$user->id)->where('report',0)->with('writtenBy')->paginate(12);
+        $article = Article::latest()->where('finished',1)->where('user_id','!=',$user->id)->where('report',0)->whereNotIn('genre_id',$id)->with(['writtenBy','ofGenre'])->paginate(12);
+        $tailored = Article::latest()->where('finished',1)->where('user_id','!=',$user->id)->where('report',0)->whereIn('genre_id',$id)->with(['writtenBy','ofGenre'])->paginate(12);
  $story = StudioStories::orderBy('id','desc')->get();
         $followed_users = $user->follows()->wherePivot('follower_id',$user->id)->get();
         $latest_studio_story = StudioStories::orderBy('id','desc')->first();
-        $latest_story = Article::orderBy('id','desc')->where('views','>=',5)->first();
+        $latest_story = Article::orderBy('id','desc')->where('report',0)->first();
         $latest_theory = Theory::orderBy('id','desc')->first();
        // to genre selection 
        $genres = Genre::with(['genreOf','hasArticles','hasStories'])->get();
