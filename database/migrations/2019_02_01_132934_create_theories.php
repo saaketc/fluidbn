@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUserIdNArticleIdToLike extends Migration
+class CreateTheories extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,15 @@ class AddUserIdNArticleIdToLike extends Migration
      */
     public function up()
     {
-        Schema::table('like', function ($table) {
+        Schema::create('theories',function(Blueprint $table){
+            $table->increments('id');
+            $table->string('title');
+           
+            
+            $table->longText('content');
             $table->integer('user_id');
-            $table->integer('article_id');
+            $table->boolean('report')->default(FALSE);
+            $table->timestamps();
         });
     }
 
@@ -26,9 +32,6 @@ class AddUserIdNArticleIdToLike extends Migration
      */
     public function down()
     {
-        Schema::table('like', function ($table) {
-            $table->dropColumn('user_id');
-            $table->dropColumn('article_id');
-        });
+        Schema::dropIfExists('theories');
     }
 }
