@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html>
+<head>
+
 <title>fluidbN - A place to read write learn way better with fun</title>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133705211-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-133705211-1');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="/storage/logo/favicon2.png" sizes="48x48">
@@ -69,6 +81,7 @@ a{
   text-decoration:none;
 }
 </style>
+</head>
 <body>
 
 <!-- Navbar (sit on top) -->

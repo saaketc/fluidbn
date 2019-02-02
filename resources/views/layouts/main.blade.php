@@ -2,18 +2,16 @@
         <!DOCTYPE html>
         <html lang="{{ app()->getLocale() }}">
         <head>
-         {{--   
-           <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122327691-1"></script>
-
+     <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133705211-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-122327691-1');
+  gtag('config', 'UA-133705211-1');
 </script>
---}}
+
  <link rel="icon" href="/storage/logo/favicon2.png" sizes="48x48">
        
             <meta charset="utf-8">
