@@ -9,10 +9,17 @@
 
 @section('content')
 
+  <div class="w3-container w3-hide-small w3-hide-medium">
 
+<h2 class="featurette-heading" style="margin-top:20px; color:black;font-weight:bold;font-size:6rem;">{{ucfirst($article->title)}}</h2>
+  </div>
+  <div class="w3-container w3-hide-large" style="margin-top:20%;" >
+
+<h2 class="featurette-heading w3-xxxlarge" style="margin-top:20px; color:black;font-weight:bold;">{{ucfirst($article->title)}}</h2>
+  </div>
 <div class="container">
-<h2 class="featurette-heading" style="margin-top:20px; color:black;font-size:3rem;font-weight:bold;font-size:6rem;">{{ucfirst($article->title)}}</h2>
-         
+
+
     <div class="row featurette">
    
 
