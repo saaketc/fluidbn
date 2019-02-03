@@ -60,7 +60,7 @@ $.ajaxSetup({
             userId = $(this).attr('data-userid');
             if($('button.fol').text()=="Follow"){
                 $('button.fol').text('Following');
-               
+                $("button.fol").addClass("pressed");
                 $.post(urlFollow,{
                  userId:userId,
                  _token :token
@@ -71,7 +71,7 @@ $.ajaxSetup({
                     }
                     
                     $("#fol_sugg").html(data.output);
-                    $("button.fol").addClass("pressed");
+                   
                   
                     $('button.fol').text('Following');
                 }
@@ -79,6 +79,7 @@ $.ajaxSetup({
             }
             else if($('button.fol').text()=="Following"){
                 $('button.fol').text('Follow');
+                 $("button.fol").removeClass("pressed");
                 $("#fol-sugg-tab").addClass("w3-hide");
                 $.post(urlUnfollow,{
                  userId:userId,
@@ -88,7 +89,7 @@ $.ajaxSetup({
                    // $("#f_sugg").removeClass("w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-show")
                  
                     $("#fol_sugg").html(data)
-                    $("button.fol").removeClass("pressed");
+                   
                   
                     $('button.fol').text('Follow');
                 }
