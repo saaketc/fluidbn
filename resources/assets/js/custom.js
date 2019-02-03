@@ -333,7 +333,7 @@ $(document).ready(function(){
    $('#search-p').on('keyup',function(){
        $('#tab-p').removeClass('w3-hide');
    });  
-   $('#search-p').on('blur',function(){
+   $('#search-p').on('click',function(){
     $('#tab-p').addClass('w3-hide');
 }); 
 });
