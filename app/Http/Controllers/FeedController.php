@@ -49,8 +49,8 @@ class FeedController extends Controller
            $id[] = $g->id;
        }
        if(!($user->remember_token)){
-       // $heading = ucfirst($user->fname) .", enjoy feed curated for you with ";
-            $heading = '';
+        $heading = ucfirst($user->fname) .", enjoy feed curated for you with ";
+            
     }
        else{
            $heading = '';
