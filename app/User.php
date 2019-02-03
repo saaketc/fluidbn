@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'fname','lname', 'email', 'password'
+        'fname', 'lname', 'email', 'password'
     ];
 
     /**
@@ -34,73 +34,91 @@ class User extends Authenticatable
     {
        return 'identifier'; // use the 'user.identifier' column for look ups within the database
     }*/
-    public function hasProfile(){
-        return $this->hasOne('App\Profile','user_id');
+    public function hasProfile()
+    {
+        return $this->hasOne('App\Profile', 'user_id');
     }
 
-    public function hasGenre(){
-        return $this->belongsToMany('App\Genre','has_genres','user_id','genre_id')->withTimestamps();
+    public function hasGenre()
+    {
+        return $this->belongsToMany('App\Genre', 'has_genres', 'user_id', 'genre_id')->withTimestamps();
     }
 
-    public function writes(){
-        return $this->hasMany('App\Article','user_id');
+    public function writes()
+    {
+        return $this->hasMany('App\Article', 'user_id');
     }
-    public function writesTheory(){
-        return $this->hasMany('App\Theory','user_id');
-    }
-     
-    public function saves(){
-        return $this->hasMany('App\SavedArticle','user_id');
+    public function writesTheory()
+    {
+        return $this->hasMany('App\Theory', 'user_id');
     }
 
-    public function follows(){
-        return $this->belongsToMany('App\User','follow','follower_id','following_id')->withTimestamps();
+    public function saves()
+    {
+        return $this->hasMany('App\SavedArticle', 'user_id');
     }
-     public function followedBy(){
-        return $this->belongsToMany('App\User','follow','following_id','follower_id')->withTimestamps();
+
+    public function follows()
+    {
+        return $this->belongsToMany('App\User', 'follow', 'follower_id', 'following_id')->withTimestamps();
     }
-     public function likes(){
-        return $this->belongsToMany('App\Article','like','user_id','article_id')->withTimestamps();
-    
+    public function followedBy()
+    {
+        return $this->belongsToMany('App\User', 'follow', 'following_id', 'follower_id')->withTimestamps();
     }
-     public function bookmarks(){
-        return $this->belongsToMany('App\Article','bookmark','user_id','article_id')->withTimestamps();
+    public function likes()
+    {
+        return $this->belongsToMany('App\Article', 'like', 'user_id', 'article_id')->withTimestamps();
+
     }
-     public function views(){
-        return $this->belongsToMany('App\Article','user_views','viewer_id','article_id')->withTimestamps();
+    public function bookmarks()
+    {
+        return $this->belongsToMany('App\Article', 'bookmark', 'user_id', 'article_id')->withTimestamps();
+    }
+    public function views()
+    {
+        return $this->belongsToMany('App\Article', 'user_views', 'viewer_id', 'article_id')->withTimestamps();
     }
     // for theory 
-     
 
-    public function likesTheory(){
-        return $this->belongsToMany('App\Theory','like_theory','user_id','theory_id')->withTimestamps();
-    
+
+    public function likesTheory()
+    {
+        return $this->belongsToMany('App\Theory', 'like_theory', 'user_id', 'theory_id')->withTimestamps();
+
     }
-     public function bookmarksTheory(){
-        return $this->belongsToMany('App\Theory','bookmark_theory','user_id','theory_id')->withTimestamps();
+    public function bookmarksTheory()
+    {
+        return $this->belongsToMany('App\Theory', 'bookmark_theory', 'user_id', 'theory_id')->withTimestamps();
     }
-     public function viewsTheory(){
-        return $this->belongsToMany('App\Article','user_views_theory','viewer_id','theory_id')->withTimestamps();
+    public function viewsTheory()
+    {
+        return $this->belongsToMany('App\Article', 'user_views_theory', 'viewer_id', 'theory_id')->withTimestamps();
     }
     
     // for fbn stories
-     public function likesFs(){
-        return $this->belongsToMany('App\Studio\StudioStories','likeFs','user_id','story_id')->withTimestamps();
-    
+    public function likesFs()
+    {
+        return $this->belongsToMany('App\Studio\StudioStories', 'likeFs', 'user_id', 'story_id')->withTimestamps();
+
     }
-    public function bookmarksFs(){
-        return $this->belongsToMany('App\Studio\StudioStories','bookmarkfs','user_id','story_id')->withTimestamps();
+    public function bookmarksFs()
+    {
+        return $this->belongsToMany('App\Studio\StudioStories', 'bookmarkfs', 'user_id', 'story_id')->withTimestamps();
     }
 
-    public function searches(){
-        return $this->belongsToMany('App\Search','search_words','user_id','search_id')->withTimestamps();
+    public function searches()
+    {
+        return $this->belongsToMany('App\Search', 'search_words', 'user_id', 'search_id')->withTimestamps();
     }
-    public function hasWindow(){
-        return $this->hasMany('App\Window','user_id');
+    public function hasWindow()
+    {
+        return $this->hasMany('App\Window', 'user_id');
     }
-   
-    public function comments(){
-        return $this->hasMany('App\Comments','user_id');
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comments', 'user_id');
     }
 
 }
