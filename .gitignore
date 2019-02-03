@@ -14,3 +14,4 @@ yarn-error.log
 .phpunit.result.cache
 /domainracer_server_ip.txt
 /htaccessfile.txt
+/htaccess_old.txt
