@@ -11,8 +11,8 @@ Signup - choose-category | fluidbN
 @section('content')
  
 <div class="container">
-<div class="box lower-margin" style="">
-   <h1 class="featurette-heading-title" style="font-size:35px;">Hi {{ucfirst(Auth::user()->fname)}}, choose categories you <i class="fa fa-heart" style="font-size:40px;color:red;"></i></h1> 
+<div class="box lower-margin" style="margin-top:10%;">
+   <h1 class="featurette-heading-title" style="font-size:50px;">Hi {{ucfirst(Auth::user()->fname)}}, choose categories you <i class="fa fa-heart" style="font-size:40px;color:red;"></i></h1> 
    {{--
    <img class="featurette-image img-fluid mx-auto" style="box-shadow:5px 5px 5px #888888;"src="/storage/general/category.png" alt="choose category">
   --}} 
