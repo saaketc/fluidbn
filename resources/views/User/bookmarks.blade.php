@@ -4,10 +4,12 @@
 @endsection
 
 @section('content')
-<div class="box lower-margin">
+<div class="lower-margin w3-hide-large" style="margin-top:25%">
 <h2 class="featurette-heading" style="font-weight:bold;font-size:50px;color:black;">My favourite stories</h2>
 </div>
-
+<div class="box lower-margin w3-hide-small w3-hide-medium" >
+<h2 class="featurette-heading" style="font-weight:bold;font-size:5rem;color:black;">My favourite stories</h2>
+</div>
 <div class="row">
   @if(count($user_studio_bookmarks)>0)
 

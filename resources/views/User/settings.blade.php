@@ -5,10 +5,12 @@ Settings | fluidbN
 
 @section('content')
 
-  <div class=" lower-margin" style="text-align:center;">
+  <div class=" lower-margin w3-hide-large" style="text-align:center;margin-top:35%;">
   <h1 class="featurette-heading-title"> Your profile settings </h2> 
 </div>
-
+<div class=" lower-margin w3-hide-small w3-hide-medium" style="text-align:center;">
+  <h1 class="featurette-heading-title" style="font-size:4rem;"> Your profile settings </h2> 
+</div>
 <div class="row">
     
 
