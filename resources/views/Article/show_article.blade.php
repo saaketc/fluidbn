@@ -13,7 +13,7 @@
 
 <h2 class="featurette-heading" style="margin-top:20px; color:black;font-weight:bold;font-size:6rem;">{{ucfirst($article->title)}}</h2>
   </div>
-  <div class="w3-container w3-hide-large" style="margin-top:20%;" >
+  <div class="w3-container w3-hide-large" style="margin-top:15%;" >
 
 <h2 class="featurette-heading w3-xxxlarge" style="margin-top:20px; color:black;font-weight:bold;">{{ucfirst($article->title)}}</h2>
   </div>
@@ -31,7 +31,7 @@
           
          
               <a href="{{route('profile',['user'=>$article->writtenBy,'slug'=>str_slug($article->writtenBy->fname." ".$article->writtenBy->lname)])}}">
-              <img class="featurette-image img-fluid mx-auto  propic" src="/storage/profile_images/thumbnails/{{$article->writtenBy->hasProfile->profile_image}}" alt=""><h5 class="writer">{{ucfirst($article->writtenBy->fname)}}
+              <img class=" featurette-image img-fluid mx-auto  propic" src="/storage/profile_images/thumbnails/{{$article->writtenBy->hasProfile->profile_image}}" alt=""><h5 class="writer">{{ucfirst($article->writtenBy->fname)}}
                
                 {{ucfirst($article->writtenBy->lname)}}</h5></a>
           
@@ -70,16 +70,16 @@
                   </div>
       </div>
       
-     <div class="col-sm-4">
+     <div class="col-sm-6">
      
               <div class="frame"  style="margin-top:5rem;">    
-            <img class="featurette-image img-fluid mx-auto" src="/storage/article_images/{{$article->title_image}}"alt=""  onclick="document.getElementById('modal02').style.display='block'">
+            <img class=" zoom  featurette-image img-fluid mx-auto" src="/storage/article_images/{{$article->title_image}}"alt=""  onclick="document.getElementById('modal02').style.display='block'">
             
           </div>
           <div id="modal02" class="w3-modal" onclick="this.style.display='none'">
             <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
             <div class="w3-modal-content w3-animate-zoom">
-              <img src="/storage/article_images/{{$article->title_image}}" style="width:100%">
+              <img src="/storage/article_images/{{$article->title_image}}"  class="zoom" style="width:100%">
             </div>
           </div>    
      </div>
@@ -124,7 +124,7 @@
           @foreach($articleImages as $ai)
       <div class="col-md-4">
       
-          <img class="featurette-image img-fluid mx-auto" src="/storage/article_images/{{$ai->image}}" id="multi-img"alt="" style="box-shadow: 5px 5px 5px #888888;width:auto;height:auto;">
+          <img class=" featurette-image img-fluid mx-auto" src="/storage/article_images/{{$ai->image}}" id="multi-img"alt="" style="box-shadow: 5px 5px 5px #888888;width:auto;height:auto;">
           
           </div>
           @endforeach
@@ -163,13 +163,13 @@
             
                 <a href="{{route('show-article',['article'=>$ra,'slug'=>str_slug($ra->title)])}}">
                 <div class="card-related" style="width:100%;">
-                  <img class="featurette-image img-fluid mx-auto img-card" src="/storage/article_images/{{$ra->title_image}}" alt="">
+                  <img class="  featurette-image img-fluid mx-auto img-card" src="/storage/article_images/{{$ra->title_image}}" alt="">
                   <div class="container-related lower-margin" style="width:100%;">
                     <h2  class="featurette-heading-small"style="font-size:25px;font-weight:bold;">{{ucfirst($ra->title)}}</h2>
                    
                     <p class="lead">{!!wordwrap(str_limit($ra->content,50),20,"<br>\n",TRUE)!!}</p> @if($ra->views>0)<small class="views"> {{ '   '.$ra->views.' views'}}</small>@endif
                     <div class="">
-                      <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$ra->writtenBy->hasProfile->profile_image}}" alt=""> <small class="writer-small"><a href="{{route('profile',['user'=>$ra->writtenBy,'slug'=>str_slug($ra->writtenBy->fname." ".$ra->writtenBy->lname)])}}">{{ucfirst($ra->writtenBy->fname).' '. ucfirst($ra->writtenBy->lname)}}</a></small><div class=""><small class="margin writer-small">{{$ra->writtenBy->hasProfile->about }}</small></div>
+                      <img class=" featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$ra->writtenBy->hasProfile->profile_image}}" alt=""> <small class="writer-small"><a href="{{route('profile',['user'=>$ra->writtenBy,'slug'=>str_slug($ra->writtenBy->fname." ".$ra->writtenBy->lname)])}}">{{ucfirst($ra->writtenBy->fname).' '. ucfirst($ra->writtenBy->lname)}}</a></small><div class=""><small class="margin writer-small">{{$ra->writtenBy->hasProfile->about }}</small></div>
                        </div>  
                   </div>
                 </div>
@@ -202,7 +202,7 @@
                
                 <a href="{{route('show-article',['article'=>$ra,'slug'=>str_slug($ra->title)])}}">
                 <div class="card-related" style="width:100%;">
-                  <img class="featurette-image img-fluid mx-auto img-card" src="/storage/article_images/{{$ra->title_image}}" alt="">
+                  <img class="  featurette-image img-fluid mx-auto img-card" src="/storage/article_images/{{$ra->title_image}}" alt="">
                   <div class="container-related lower-margin" style="width:100%;">
                     <h2  class="featurette-heading-small"style="font-size:25px;font-weight:bold;">{{ucfirst($ra->title)}}</h2>
                    
@@ -289,7 +289,7 @@
         $(function() {
             $('.infinite').jscroll({
                 autoTrigger: true,
-                loadingHtml: '<img class="center-block" src="/loader_images/image_1212462.gif" alt="Loading..." />',
+                loadingHtml: '<img class="  center-block" src="/loader_images/image_1212462.gif" alt="Loading..." />',
                 padding: 0,
                 nextSelector: '.pagination li.active + li a',
                 contentSelector: 'div.infinite',

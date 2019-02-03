@@ -66,7 +66,17 @@ input[type=text], input[type=password] {
 }
  .coolhead{font-family: 'Atma', cursive;}
  .decent{font-family: "Raleway", sans-serif}
-.footer-story {
+ 
+img {cursor:pointer;}
+
+ /*zoom in icon
+ img{
+    cursor: -moz-zoom-in; 
+    cursor: -webkit-zoom-in; 
+    cursor: zoom-in;
+}
+*/
+ .footer-story {
     position:fixed;
     left: 0;
     bottom: 0;
