@@ -14,9 +14,5 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 
-    #RewriteCond %{HTTPS} off
-#RewriteCond %{HTTP:X-Forwarded-SSL} !on
-#RewriteCond %{HTTP_HOST} ^fluidbn\.com$ [OR]
-#RewriteCond %{HTTP_HOST} ^www\.fluidbn\.com$
-#RewriteRule ^/?$ "https\:\/\/www\.fluidbn\.com\/" [R=301,L]
+    
 </IfModule>
