@@ -11,7 +11,7 @@
 |
 */
 if (env('APP_ENV') === 'production') {
-    URL::forceScheme('https');
+    URL::forceSchema('https');
 }
    Route::get('/','WelcomeController@welcome')->name('welcome');
    // Route::get('/feed','Article\ArticleController@welcome')->name('welcome');
