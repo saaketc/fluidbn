@@ -10,9 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-if (env('APP_ENV') === 'production') {
-    URL::forceSchema('https');
-}
+
    Route::get('/','WelcomeController@welcome')->name('welcome');
    // Route::get('/feed','Article\ArticleController@welcome')->name('welcome');
 
