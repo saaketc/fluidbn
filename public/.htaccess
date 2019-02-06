@@ -90,40 +90,20 @@ ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
 </IfModule> 
 #END EXPIRES HEADERS
 
-# BEGIN Cache-Control Headers 
-<ifModule mod_headers.c> 
- <filesMatch "\.(ico|jpe?g|png|gif|swf)$"> 
- Header set Cache-Control "public" 
- </filesMatch> 
- <filesMatch "\.(css)$"> 
- Header set Cache-Control "public" 
- </filesMatch> 
- <filesMatch "\.(js)$"> 
- Header set Cache-Control "private" 
- </filesMatch> 
- <filesMatch "\.(x?html?|php)$"> 
- Header set Cache-Control "private, must-revalidate" 
- </filesMatch> 
-</ifModule> 
-# END Cache-Control Headers 
+
 
 RewriteCond %{HTTP_REFERER} !^http://fluidbn.com/.*$      [NC]
 RewriteCond %{HTTP_REFERER} !^http://fluidbn.com$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://lab.fluidbn.com/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://lab.fluidbn.com$      [NC]
+
 RewriteCond %{HTTP_REFERER} !^http://www.fluidbn.com/.*$      [NC]
 RewriteCond %{HTTP_REFERER} !^http://www.fluidbn.com$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://www.lab.fluidbn.com/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://www.lab.fluidbn.com$      [NC]
+
 RewriteCond %{HTTP_REFERER} !^https://fluidbn.com/.*$      [NC]
 RewriteCond %{HTTP_REFERER} !^https://fluidbn.com$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://lab.fluidbn.com/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://lab.fluidbn.com$      [NC]
+
 RewriteCond %{HTTP_REFERER} !^https://www.fluidbn.com/.*$      [NC]
 RewriteCond %{HTTP_REFERER} !^https://www.fluidbn.com$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://www.lab.fluidbn.com/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://www.lab.fluidbn.com$      [NC]
-RewriteRule .*\.(jpg|jpeg|gif|png|bmp)$ - [F,NC]
+
 
 # php -- BEGIN cPanel-generated handler, do not edit
 # Set the “ea-php72” package as the default “PHP” programming language.
@@ -141,18 +121,7 @@ RewriteRule .*\.(jpg|jpeg|gif|png|bmp)$ - [F,NC]
 # Manual editing of this file may result in unexpected behavior.
 # To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
 # For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
-<IfModule php7_module>
-   php_value upload_max_filesize 100M
-   php_flag display_errors On
-   php_value max_execution_time 90
-   php_value max_input_time 60
-   php_value max_input_vars 1000
-   php_value memory_limit 512M
-   php_value post_max_size 128M
-   php_value session.gc_maxlifetime 1440
-   php_value session.save_path "/var/cpanel/php/sessions/ea-php71"
-   php_flag zlib.output_compression On
-</IfModule>
+
 # END cPanel-generated php ini directives, do not edit
 RewriteCond %{HTTPS} off
 RewriteCond %{HTTP:X-Forwarded-SSL} !on
