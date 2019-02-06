@@ -94,16 +94,16 @@ class ArticleController extends Controller
            $thumbnailImage = Image::make($originalImage)->orientate();
            // $Path =public_path('storage').'/article_images/';
            
-           $thumbnailImage->save(public_path('/storage/article_images/'.$user->id.'_'.str_slug($request->input('title')).'_'.$originalImage->getClientOriginalName()));
+          $filename= $thumbnailImage->save(public_path('/storage/article_images/'.$user->id.'_'.str_slug($request->input('title')).'_'.$originalImage->getClientOriginalName()));
              
               $imageName = $user->id.'_'.str_slug($request->input('title')).'_'.$originalImage->getClientOriginalName();
             
               try {
     // Use the Tinify API client.
     \Tinify\setKey("MkBl4JHJDFTpvBh4m9yJJsVG0VLg49XC");
-                $source = \Tinify\fromFile($imageName);
-                $source->toFile($imageName);
-                
+                $source = \Tinify\fromFile($filename);
+                $source->toFile($filename);
+
 } catch(\Tinify\AccountException $e) {
     print("The error message is: " . $e->getMessage());
     // Verify your API key and account limit.
