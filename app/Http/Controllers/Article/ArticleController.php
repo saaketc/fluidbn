@@ -98,6 +98,7 @@ class ArticleController extends Controller
              
               $imageName = $user->id.'_'.str_slug($request->input('title')).'_'.$originalImage->getClientOriginalName();
             
+             /*
               try {
     // Use the Tinify API client.
     \Tinify\setKey("MkBl4JHJDFTpvBh4m9yJJsVG0VLg49XC");
@@ -116,6 +117,7 @@ class ArticleController extends Controller
 } catch(Exception $e) {
     // Something else went wrong, unrelated to the Tinify API.
 }
+*/
            }
         
            else{
