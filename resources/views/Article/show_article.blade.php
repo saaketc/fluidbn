@@ -153,8 +153,11 @@
   
          
           @if(count($related_articles)>0)
-          <div class="lower-margin">
+          <div class="w3-container lower-margin w3-hide-small w3-hide-medium">
           <h2 class="featurette-heading"style="color:black;margin-left:5rem;font-size:2.5rem;font-weight:bold;">More wonderful stories in {{ucfirst($article->ofGenre->name)}}...!   @if(count($related_articles)==3) <a href="{{route('stories-genre',['genre'=>$article->ofGenre])}}">See all</a>@endif</h2>
+          </div>
+           <div class="w3-container w3-hide-large" style="margin-top:10%;">
+          <h2 class="featurette-heading"style="color:black;margin-left:5rem;font-size:1.5rem;font-weight:bold;">More wonderful stories in {{ucfirst($article->ofGenre->name)}}...!   @if(count($related_articles)==3) <a href="{{route('stories-genre',['genre'=>$article->ofGenre])}}">See all</a>@endif</h2>
           </div>
           <div class="row featurette" style="margin-left:6px;">
             @foreach ( $related_articles as $ra )
@@ -188,8 +191,11 @@
          
             @if(Auth::user()->id != $article->writtenBy->id)
           @if(count($articles_of_samewriter)>0)
-          <div class="lower-margin">
+          <div class="w3-container lower-margin w3-hide-small w3-hide-medium">
           <h2 class="featurette-heading"style="color:black;margin-left:5rem;font-size:2.5rem;font-weight:bold;">More cool stories from {{ucfirst($article->writtenBy->fname)}}...!  @if(count($articles_of_samewriter)==3)<a href="{{route('stories-user',['user'=>$article->writtenBy])}}">See all</a>@endif</h2>
+          </div>
+          <div class="w3-container w3-hide-large" style="margin-top:10%;">
+          <h2 class="featurette-heading"style="color:black;margin-left:5rem;font-size:1.5rem;font-weight:bold;">More cool stories from {{ucfirst($article->writtenBy->fname)}}...!  @if(count($articles_of_samewriter)==3)<a href="{{route('stories-user',['user'=>$article->writtenBy])}}">See all</a>@endif</h2>
           </div>
           <div class="row featurette"  style="margin-left:6px;">
             @foreach ( $articles_of_samewriter as $ra )
