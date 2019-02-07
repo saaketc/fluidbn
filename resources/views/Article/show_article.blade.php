@@ -165,8 +165,8 @@
               <div class="col-md-4">
             
                 <a href="{{route('show-article',['article'=>$ra,'slug'=>str_slug($ra->title)])}}">
-                <div class="card-related" style="width:100%;">
-                  <img class="  featurette-image img-fluid mx-auto img-card" src="/storage/article_images/{{$ra->title_image}}" alt="">
+                <div class="card-related" style="">
+                  <img class=" featurette-image img-fluid mx-auto" src="/storage/article_images/{{$ra->title_image}}" alt="">
                   <div class="container-related lower-margin" style="width:100%;">
                     <h2  class="featurette-heading-small"style="font-size:25px;font-weight:bold;">{{ucfirst($ra->title)}}</h2>
                    
