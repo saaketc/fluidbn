@@ -109,7 +109,7 @@
       <div class="col-md-12" id ="{{'st-'.$article->id}}">
          
           <small class="writer">{{$article->created_at->format('d F Y')}}</small> <small class="views right-wow"> {{$v}}</small> <small class="views right-wow" id="wow"> {{$w}}</small>       <hr class="featurette-divider">
-          <blockquote class="blockquote lead" style="font-size:1rem;">
+          <blockquote class="blockquote lead" style="font-size:1.5rem;">
           <p>{!!$article->content!!}</p>
          
            
