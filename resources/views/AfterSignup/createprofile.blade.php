@@ -19,6 +19,8 @@ Signup - create-profile | fluidbN
     @php
     $selectedu = ["B.Tech"=>"B.Tech","B.Des"=>"B.Des","M.Tech"=>"M.Tech","M.Des"=>"M.Des","Other"=>"Other"];
     $selectyear = ["First year"=>"First year","Second year"=>"Second year","Third year"=>"Third year","Fourth year"=>"Fourth year"];
+    $selectcollege = ["PDPM IIITDMJ"=>"PDPM IIITDMJ"];
+    
     @endphp
     
         <div class="col-sm-6">
@@ -77,7 +79,7 @@ Signup - create-profile | fluidbN
         
 <div class="form-group">
 {{--{{Form::label('college','Your college',['class'=>'pro_info form-control'])}}--}}
-{{Form::text('college','',['class'=>'form-control','placeholder'=>'Your college','id'=>'col'])}}
+{{Form::select('college',$selectcollege,null,['class'=>'form-control','placeholder'=>'Your college','id'=>'col'])}}
 </div>
 <div class="form-group">
 {{Form::label('startup','If running a startup',['class'=>'pro_info form-control'])}}
