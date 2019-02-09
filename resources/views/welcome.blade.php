@@ -84,6 +84,7 @@ a{
 </head>
 <body>
 
+
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-card" id="myNavbar">

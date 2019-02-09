@@ -1,9 +1,3 @@
 {
-    "/js/app.js": "/js/app.js?id=bafcc95ed5ff7eb9066d",
-    "/css/app.css": "/css/app.css?id=dd4199230dd2382991a9",
-    "/css/custom.css": "/css/custom.css?id=7b8238989f7a1560d190",
-    "/css/carousel.css": "/css/carousel.css?id=90e8575caf1e123a70e5",
-    "/css/welcome.css": "/css/welcome.css?id=ce638ab964aa87990c06",
-    "/js/functions.js": "/js/functions.js?id=b3949a3e0a1120cf9c05",
-    "/js/custom.js": "/js/custom.js?id=8bbcd7444cdea42b9401"
+    "/js/custom.js": "/js/custom.js"
 }
