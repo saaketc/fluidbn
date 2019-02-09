@@ -22,4 +22,8 @@
     RewriteCond %{HTTP:X-Forwarded-Proto} !https
     RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
+<<<<<<< HEAD
 </IfModule>
+=======
+</IfModule>
+>>>>>>> a1634beddf029050f47589e9866d8111be168f92
