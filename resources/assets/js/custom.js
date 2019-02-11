@@ -220,6 +220,10 @@ $(document).ready(function(){
                });
      // curated story accordion
 
+$(document).ready(function () {
+    $('#fbn-story').removeClass('w3-hide');   
+});
+
      // story
      $(document).ready(function(){
 
