@@ -110,6 +110,7 @@ class User extends Authenticatable
     public function searches()
     {
         return $this->belongsToMany('App\Search', 'search_words', 'user_id', 'search_id')->withTimestamps();
+    
     }
     public function hasWindow()
     {
@@ -120,6 +121,10 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Comments', 'user_id');
     }
-
+// report an article
+    public function reports(){
+        return $this->belongsToMany('App\Article', 'story_report', 'reported_by_id', 'article_id')->withTimestamps();
+    
+    }
 }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddReportArticles extends Migration
+class Report extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class AddReportArticles extends Migration
      */
     public function up()
     {
-        Schema::table('articles', function ($table) {
-            $table->boolean('report')->default(FALSE);
-            
+        Schema::create('story_report',function(Blueprint $table){
+            $table->increments('id');
+            $table->integer('reported_by_id');
+            $table->integer('article_id');
+            $table->timestamps();
         });
     }
 
@@ -26,8 +28,6 @@ class AddReportArticles extends Migration
      */
     public function down()
     {
-        Schema::table('articles', function ($table) {
-            $table->dropColumn('report');
-    });
- }
+        Schema::dropIfExists('story_report');
+    }
 }

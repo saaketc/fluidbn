@@ -290,7 +290,19 @@ span.psw {
     <div style="margin-top:3%;">
         @yield('content')
         </div>
-   
+   <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCWy8dZ5iP1UAGxYKyznRdzMqIQItCBgnU",
+    authDomain: "fluidbn-707bf.firebaseapp.com",
+    databaseURL: "https://fluidbn-707bf.firebaseio.com",
+    projectId: "fluidbn-707bf",
+    storageBucket: "fluidbn-707bf.appspot.com",
+    messagingSenderId: "630710104401"
+  };
+  firebase.initializeApp(config);
+</script>
            
 
         

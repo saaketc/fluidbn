@@ -41,4 +41,10 @@ public function viewedBy(){
 public function hasComents(){
     return $this->hasMany('App\Comments','article_id');
 }
+// report an article
+    public function reportedBy()
+    {
+        return $this->belongsToMany('App\User', 'story_report','article_id' ,'reported_by_id')->withTimestamps();
+
+    }
 }
