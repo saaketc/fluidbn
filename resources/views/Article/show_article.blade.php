@@ -31,7 +31,7 @@
           
          
               <a href="{{route('profile',['user'=>$article->writtenBy,'slug'=>str_slug($article->writtenBy->fname." ".$article->writtenBy->lname)])}}">
-              <img class=" featurette-image img-fluid mx-auto  propic" src="/storage/profile_images/thumbnails/{{$article->writtenBy->hasProfile->profile_image}}" alt=""><h5 class="writer">{{ucfirst($article->writtenBy->fname)}}
+              <img class=" featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$article->writtenBy->hasProfile->profile_image}}" alt=""><h5 class="writer">{{ucfirst($article->writtenBy->fname)}}
                
                 {{ucfirst($article->writtenBy->lname)}}</h5></a>
           
@@ -110,7 +110,7 @@
          
           <small class="writer">{{$article->created_at->format('d F Y')}}</small> <small class="views right-wow"> {{$v}}</small> <small class="views right-wow" id="wow"> {{$w}}</small>       <hr class="featurette-divider">
           <blockquote class="blockquote lead" style="font-size:1.3rem;">
-          <p>{!!$article->content!!}</p>
+          <p class="lead">{!!$article->content!!}</p>
          
            
         </blockquote>   

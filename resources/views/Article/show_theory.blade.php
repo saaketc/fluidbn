@@ -12,7 +12,14 @@
 
 <div class="container">
 
-  
+  <div class="w3-container w3-hide-small w3-hide-medium">
+
+<h2 class="featurette-heading" style="margin-top:20px; color:black;font-weight:bold;font-size:6rem;">{{ucfirst($theory->title)}}</h2>
+  </div>
+  <div class="w3-container w3-hide-large" style="margin-top:15%;" >
+
+<h2 class="featurette-heading w3-xxxlarge" style="margin-top:20px; color:black;font-weight:bold;">{{ucfirst($theory->title)}}</h2>
+  </div>
           
           <div class="box" id="mainView" data-theoryid="{{$theory->id}}" >
               
@@ -20,7 +27,7 @@
           
          
               <a href="{{route('profile',['user'=>$theory->writtenBy,'slug'=>str_slug($theory->writtenBy->fname." ".$theory->writtenBy->lname)])}}">
-              <img class="featurette-image img-fluid mx-auto  propic" src="/storage/profile_images/thumbnails/{{$theory->writtenBy->hasProfile->profile_image}}" alt=""><h5 class="writer">{{ucfirst($theory->writtenBy->fname)}}
+              <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$theory->writtenBy->hasProfile->profile_image}}" alt=""><h5 class="writer">{{ucfirst($theory->writtenBy->fname)}}
               {{ucfirst($theory->writtenBy->lname)}}</h5></a>
           
              
@@ -107,11 +114,11 @@
       
       
       <div class="col-md-12" id = {{'th-'.$theory->id}}>
-          <h2 class="featurette-heading" style="margin-top:20px; color:black;">{{ucfirst($theory->title)}}</h2>
+          
           <small class="writer">{{$theory->created_at->format('d F Y')}}</small> 
           <hr class="featurette-divider">
           <blockquote class="blockquote">
-          <p>{!!$theory->content!!}</p>
+          <p class="lead">{!!$theory->content!!}</p>
          
            
         </blockquote> 

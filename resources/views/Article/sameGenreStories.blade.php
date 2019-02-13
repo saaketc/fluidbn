@@ -8,7 +8,7 @@
 
 <div class="container">
                      <div class="lower-margin">
-                     <h2 class="featurette-heading"> All stories in {{ucfirst($genre->name)}}</h2>
+                     <h2 class="featurette-heading" style="font-size:50px;font-weight:bold;color:black;"> All stories in {{ucfirst($genre->name)}}</h2>
                      </div>
                   
                        
