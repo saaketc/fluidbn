@@ -8,7 +8,7 @@
 
 <div class="container">
                      <div class="lower-margin">
-                     <h2 class="featurette-heading" style="font-size:50px;font-weight:bold;color:black;"> All stories from {{ucfirst($user->fname).' '.ucfirst($user->lname)}}</h2>
+                     <h2 class="featurette-heading" style="font-size:50px;font-weight:bold;color:black;"> Stories from {{ucfirst($user->fname).' '.ucfirst($user->lname)}}</h2>
                      </div>
                   
                        
