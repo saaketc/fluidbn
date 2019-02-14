@@ -8,8 +8,8 @@ Signup - create-profile | fluidbN
 <div class="container">
 <div class="box lower-margin"> 
 
-<h1 style="color:mediumvioletred;">Welcome to fluidbN family {{ucfirst(Auth::user()->fname)}} !!</h1>
-<h2 >Just one more step to go </h2>
+<h1 >Welcome to fluidbN family {{ucfirst(Auth::user()->fname)}} !!</h1>
+<h2 >Just one more step to go !</h1>
 </div>
 <div class="row">
     
@@ -27,7 +27,7 @@ Signup - create-profile | fluidbN
 {!! Form::open(['route'=>'get-me-in','method'=>'POST','files'=>true,'enctype'=>'multipart/form-data']) !!}  
 
 <div class="form-group">
-    {{Form::label('image','Upload profile pic',['class'=>'btn   btn-login'])}}
+    {{Form::label('image','Upload profile pic',['class'=>'w3-button w3-flat-pomegranate'])}}
     {{Form::file('image',['accept'=>"image/*",'onchange'=>'loadFile(event)'])}}
         </div>
             <div class="" id="">   
@@ -41,55 +41,58 @@ Signup - create-profile | fluidbN
             </div>
              
             <div class="form-group">
-            {{Form::label('dob','Your birthdate',['class'=>'pro_info btn btn-login'])}} 
-              {{Form::date('dob',"",[ 'class'=>'form-control','id'=>'dob'])}}
+            {{Form::label('dob','Your birthdate',['class'=>'pro_info w3-button w3-flat-pomegranate'])}} 
+              {{Form::date('dob',"",[ 'class'=>'pro_info form-control','id'=>'dob'])}}
       </div>
     
         <div class="form-group">
-{{Form::label('about','A line about you',['class'=>'pro_info form-control'])}}
-{{Form::text('about','',['class'=>'form-control','placeholder'=>'','required'=>'required'])}}
+
+{{Form::text('about','',['class'=>'pro_info form-control','placeholder'=>'A line about you','required'=>'required'])}}
 </div>
-{{Form::label('student','Student',['class'=>'pro_info form-control'])}}
+{{--  {{Form::label('student','Student',['class'=>'pro_info'])}}
 <label class="switch">
  
   {{Form::checkbox('student','',null,['placeholder'=>'','id'=>'s-f'])}}
+  
   <span class="slider round"></span>
+  <br/>
 
-</label>
+</label>  --}}
+{{--
 {{Form::label('professional','Professional',['class'=>'pro_info form-control'])}}
 <label class="switch">
 
   {{Form::checkbox('professional','',null,['placeholder'=>'','id'=>'p-f'])}}
   <span class="slider round"></span>
-
+--}}
 </label>
-  <div class="student" id="student-form">
-
+  {{--  <div class="student" id="student-form">  --}}
+<div>
    <div class="form-group">
       {{-- {{Form::label('education','Your current education',['class'=>'pro_info form-control'])}}--}}
-        {{Form::select('education',$selectedu , null, ['placeholder' => 'Your current education','id'=>'edu', 'class'=>'form-control'])}}                              
+        {{Form::select('education',$selectedu , null, ['placeholder' => 'Your current education','id'=>'edu', 'class'=>'pro_info form-control','required'=>'required'])}}                              
                                 
    </div>
         
  <div class="form-group">
      {{--  {{Form::label('yos','Year of study',['class'=>'pro_info form-control'])}}--}}
-        {{Form::select('yos',$selectyear , null, ['placeholder' => 'Year of study','id'=>'yos', 'class'=>'form-control'])}}                              
+        {{Form::select('yos',$selectyear , null, ['placeholder' => 'Year of study','id'=>'yos', 'class'=>'pro_info form-control','required'=>'required'])}}                              
                                 
    </div>
         
 <div class="form-group">
 {{--{{Form::label('college','Your college',['class'=>'pro_info form-control'])}}--}}
-{{Form::select('college',$selectcollege,null,['class'=>'form-control','placeholder'=>'Your college','id'=>'col'])}}
+{{Form::select('college',$selectcollege,null,['class'=>'pro_info form-control','placeholder'=>'Your college','id'=>'col','required'=>'required'])}}
 </div>
 <div class="form-group">
-{{Form::label('startup','If running a startup',['class'=>'pro_info form-control'])}}
-{{Form::text('startup','',['class'=>'form-control','placeholder'=>'Position @ Company name'])}}
+{{Form::label('startup','If you are running a startup or a blog',['class'=>'pro_info'])}}
+{{Form::text('startup','',['class'=>'pro_info form-control','placeholder'=>'Position @ Company name/blog name'])}}
 
 </div>
 <div class="form-group">
-  {{Form::text('weburl','',['class'=>'form-control','placeholder'=>'Web address of company'])}}  
+  {{Form::text('weburl','',['class'=>'pro_info form-control','placeholder'=>'Web address of company/blog'])}}  
     </div>
-   {{Form::submit('Get me in',['class'=>'btn   btn-login'])}}
+   {{Form::submit('Take me in',['class'=>'w3-button w3-flat-pomegranate'])}}
     </div> 
 <div class="professional" id="professional-form">
 
@@ -102,7 +105,7 @@ Signup - create-profile | fluidbN
 {{Form::label('company','Your workplace ',['class'=>'pro_info form-control'])}}
 {{Form::text('company','',['id'=>'',  'class'=>'form-control','placeholder'=>'','id'=>'comp'])}}
 </div>
-{{Form::submit('Get me in',['class'=>'btn   btn-login'])}}
+{{Form::submit('Take me in',['class'=>'btn   btn-login'])}}
 </div>
 
  {!! Form::close() !!}

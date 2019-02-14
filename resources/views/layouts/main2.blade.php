@@ -29,7 +29,8 @@
                    <link href="{{asset('css/custom.css')}}" rel="stylesheet">
                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
                    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-                   
+                    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+                    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
 
         
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

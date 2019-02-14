@@ -290,20 +290,8 @@ span.psw {
     <div style="margin-top:3%;">
         @yield('content')
         </div>
-   <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCWy8dZ5iP1UAGxYKyznRdzMqIQItCBgnU",
-    authDomain: "fluidbn-707bf.firebaseapp.com",
-    databaseURL: "https://fluidbn-707bf.firebaseio.com",
-    projectId: "fluidbn-707bf",
-    storageBucket: "fluidbn-707bf.appspot.com",
-    messagingSenderId: "630710104401"
-  };
-  firebase.initializeApp(config);
-</script>
-           
+ 
+
 
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
