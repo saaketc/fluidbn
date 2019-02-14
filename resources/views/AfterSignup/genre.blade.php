@@ -52,9 +52,9 @@ else{
   </div>
 <div>
    @if($slug!=NULL)
-  <button class="btn   btn-login" onclick="location.href='{{route('user-categories',['user'=>Auth::user(),'slug'=>str_slug(Auth::user()->fname.".".Auth::user()->lname)])}}'">Save</button>
+  <button class="w3-button w3-flat-pomegranate w3-padding-large" onclick="location.href='{{route('user-categories',['user'=>Auth::user(),'slug'=>str_slug(Auth::user()->fname.".".Auth::user()->lname)])}}'">Save</button>
   @else
-  <button class="btn   btn-login"onclick="location.href='{{route('create-profile')}}'" id="">Save and continue</button>
+  <button class="w3-button w3-flat-pomegranate w3-padding-large"onclick="location.href='{{route('create-profile')}}'" id="">Save and continue</button>
 @endif
 </div>
 </div>

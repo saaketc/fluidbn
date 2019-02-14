@@ -27,7 +27,7 @@ Signup - create-profile | fluidbN
 {!! Form::open(['route'=>'get-me-in','method'=>'POST','files'=>true,'enctype'=>'multipart/form-data']) !!}  
 
 <div class="form-group">
-    {{Form::label('image','Upload profile pic',['class'=>'w3-button w3-flat-pomegranate'])}}
+    {{Form::label('image','Upload profile pic',['class'=>'w3-button w3-flat-pomegranate w3-padding-large'])}}
     {{Form::file('image',['accept'=>"image/*",'onchange'=>'loadFile(event)'])}}
         </div>
             <div class="" id="">   
@@ -92,7 +92,7 @@ Signup - create-profile | fluidbN
 <div class="form-group">
   {{Form::text('weburl','',['class'=>'pro_info form-control','placeholder'=>'Web address of company/blog'])}}  
     </div>
-   {{Form::submit('Take me in',['class'=>'w3-button w3-flat-pomegranate'])}}
+   {{Form::submit('Take me in',['class'=>'w3-button w3-flat-pomegranate w3-padding-large'])}}
     </div> 
 <div class="professional" id="professional-form">
 

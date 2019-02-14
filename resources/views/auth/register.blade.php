@@ -82,12 +82,12 @@ Signup | fluidbN
 
                         <div class="form-group row mb-0">
                             <div class="col-lg-6 offset-lg-4">
-                                <button type="submit" class="btn btn-outline-success btn-login">
+                                <button type="submit" class="w3-button w3-flat-pomegranate w3-padding-large">
                                     {{ __('Signup') }}
                                 </button>
                                
                             </div>
-                             <small>By signing up you are agreeing to our <a href="{{route('terms')}}" style="color:mediumvioletred">Terms of use</a> and <a href="{{route('privacy')}}" style="color:mediumvioletred">Privacy policy</a></small>
+                             <small>By signing up you are agreeing to our <a href="{{route('terms')}}" style="color:mediumvioletred">Terms</a> and <a href="{{route('privacy')}}"style="color:mediumvioletred">Privacy</a></small>
                         </div>
                     </form>
                 </div>

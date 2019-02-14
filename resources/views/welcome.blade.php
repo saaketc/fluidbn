@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>fluidbN - A place to read write learn way better with fun</title>
+<title>fluidbN - Connecting stories & experiences to perceive the world better</title>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133705211-1"></script>
 <script>
@@ -18,6 +18,7 @@
 <link rel="icon" href="/storage/logo/favicon2.png" sizes="48x48">
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
 <link href="https://fonts.googleapis.com/css?family=Atma:700" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -95,8 +96,8 @@ a{
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small w3-hide-medium">
       {{--<a href="#about" class="w3-bar-item w3-button">About</a>--}}
-      <button onclick="location.href='{{route('login')}}'"  class="w3-bar-item w3-button">Login</button>
-  <button onclick="location.href='{{route('register')}}'"  class="w3-bar-item w3-button">Signup</button>
+      <button onclick="location.href='{{route('login')}}'"  class="w3-bar-item w3-button w3-flat-pomegranate">Login</button>
+  <button onclick="location.href='{{route('register')}}'"  class="w3-bar-item w3-button w3-flat-pomegranate">Signup</button>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -123,10 +124,10 @@ a{
     <span class="w3-jumbo w3-hide-small coolhead" style="margin-top:30%;color:black;">Welcome to fluidbN</span><br>
    
    
-    <span class="w3-large" style="color:black;">A place to read write learn way better with fun !</span>
+    <span class="w3-xlarge coolhead" style="color:black;"> Connecting stories & experiences<br/> to perceive the world better <i class="fa fa-heart" style="color:red;font-size:30px;"></i></span>
 
-    <p><button onclick="location.href='{{route('register')}}'" class="w3-button w3-black w3-padding-large w3-large">Get Started</button>
-   <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black w3-padding-large w3-large">Login</button></p>
+    <p><button onclick="location.href='{{route('register')}}'" class="w3-button w3-flat-pomegranate w3-padding-large w3-large">Get Started</button>
+   <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-flat-pomegranate w3-padding-large w3-large">Login</button></p>
 
      
        
@@ -141,14 +142,14 @@ a{
      
       <span class="w3-xxlarge w3-hide-large  coolhead " style="color:black;">Welcome to fluidbN</span><br>
    
-      <span class="w3-large" style="color:black;">A place to read write learn way better with fun !</span>
+      <span class="w3-large coolhead" style="color:black;"> Connecting stories & experiences<br/> to perceive the world better <i class="fa fa-heart" style="color:red;font-size:30px;"></i></span>
       
     
     </div> 
     
     <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
-        <p><button onclick="location.href='{{route('register')}}'" class="w3-button w3-black w3-padding-medium w3-medium">Get Started</button>
-        <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black w3-padding-medium w3-medium">Login</button></p>
+        <p><button onclick="location.href='{{route('register')}}'" class="w3-button w3-flat-pomegranate w3-padding-medium w3-medium">Get Started</button>
+        <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-flat-pomegranate w3-padding-medium w3-medium">Login</button></p>
 
     </div>
    
@@ -193,7 +194,7 @@ a{
         
       <span class="w3-large w3-hide-large w3-display-topright coolhead" style="color:black;">A place where information is<br> structured, more interactive and <br>presented interestingly.</span><br>
       <div class=" w3-display-middle" style="padding:24px 48px;margin-top:20%;">
-        <p><button onclick="location.href='{{route('register')}}'" class="w3-button w3-black w3-padding-large w3-large">Get Started</button>
+        <p><button onclick="location.href='{{route('register')}}'" class="w3-button w3-flat-pomegranate w3-padding-large w3-large">Get Started</button>
        
       </div>
     </div> 
@@ -235,9 +236,7 @@ a{
       </div>
     </div>
     
-
-    {{--  
- 
+{{--  
 <div class="w3-container" style="padding:128px 16px" id="about">
   <h3 class="w3-center">ABOUT THE COMPANY</h3>
   <p class="w3-center w3-large">Key features of our company</p>
@@ -263,9 +262,9 @@ a{
      
     </div>
   </div>
-</div>
+</div>  --}}
 
---}}
+
 
 <!-- Modal for full size images on click-->
 <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">

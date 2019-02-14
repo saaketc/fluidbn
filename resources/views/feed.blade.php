@@ -11,10 +11,20 @@ My feed | fluidbN
     
 <div style="margin-bottom:50px;margin-top:5rem;">
   @if($heading!='')
- <h1 class="featurette-heading-title" style="font-size:40px;">{{$heading}} <i class="fa fa-heart" style="font-size:40px;color:red;"></i></h1>
-@else
+  <div class="w3-hide-small w3-hide-medium">
+ <h1 class="featurette-heading-title">{{$heading}} <i class="fa fa-heart" style="font-size:40px;color:red;"></i></h1>
+  </div>
+  <div class="w3-hide-large">
+ <h1 class="featurette-heading-title w3-xxlarge">{{$heading}} <i class="fa fa-heart" style="font-size:30px;color:red;"></i></h1>
+  </div>
+ @else
+  <div class="w3-hide-small w3-hide-medium">
 <h1 class="featurette-heading-title">Curated with <i class="fa fa-heart" style="font-size:40px;color:red;"></i> for you</h1>
- @endif
+  </div> 
+  <div class="w3-hide-large">
+<h1 class="featurette-heading-title w3-xxlarge">Curated with <i class="fa fa-heart" style="font-size:30px;color:red;"></i> for you</h1>
+  </div> 
+@endif
 </div>
 
             {{-- Button to write --}}
