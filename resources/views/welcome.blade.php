@@ -137,10 +137,10 @@ a{
 </header>
 
 <header class="bgimg-2 w3-display-container w3-hide-large" id="home">
-    <div style="margin-top:6%;">
-    <div class=" w3-text-white w3-display-left" style="padding:35px;">
+    <div style="margin-top:5%;">
+    <div class=" w3-text-white w3-display-left" style="padding:15px;">
         
-     <div style="margin-top:20%;">
+     <div style="margin-top:1%;">
       <span class="w3-xxlarge w3-hide-large  coolhead " style="color:black;">Welcome to fluidbN</span><br>
      </div>
       <span class="w3-large coolhead" style="color:black;"> Connecting stories & experiences<br/> to perceive the world better <i class="fa fa-heart" style="color:red;font-size:30px;"></i></span>
