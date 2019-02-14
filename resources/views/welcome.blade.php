@@ -135,13 +135,14 @@ a{
   
 
 </header>
+
 <header class="bgimg-2 w3-display-container w3-hide-large" id="home">
-    
-    <div class=" w3-text-white w3-display-left" style="padding:28px;">
+    <div style="margin-top:6%;">
+    <div class=" w3-text-white w3-display-left" style="padding:35px;">
         
-     
+     <div style="margin-top:20%;">
       <span class="w3-xxlarge w3-hide-large  coolhead " style="color:black;">Welcome to fluidbN</span><br>
-   
+     </div>
       <span class="w3-large coolhead" style="color:black;"> Connecting stories & experiences<br/> to perceive the world better <i class="fa fa-heart" style="color:red;font-size:30px;"></i></span>
       
     
@@ -152,9 +153,9 @@ a{
         <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-flat-pomegranate w3-padding-medium w3-medium">Login</button></p>
 
     </div>
-   
+   </div>
   </header>
-  
+
 
 
 <div class="bgimg-3 w3-display-container w3-hide-small w3-hide-medium " id="" style="margin-top:0.05%;">
