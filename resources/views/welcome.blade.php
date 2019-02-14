@@ -182,7 +182,7 @@ a{
         
       <span class="w3-xxlarge w3-hide-small  w3-hide-medium w3-display-left coolhead" style="color:black;">A place where information is<br> structured, more interactive and <br>presented interestingly.</span><br>
       <div class="w3-display-middle" style="padding:24px 48px">
-        <p><button onclick="location.href='{{route('register')}}'" class="w3-button w3-black w3-padding-xlarge w3-xlarge">Get Started</button>
+        <p><button onclick="location.href='{{route('register')}}'" class="w3-button w3-flat-pomegranate w3-padding-xlarge w3-xlarge">Get Started</button>
       
       </div>
     </div> 
@@ -284,7 +284,7 @@ a{
            
   <div class="w3-xlarge w3-section">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
+   <a href="https://www.instagram.com/fluid_bn/"> <i class="fa fa-instagram w3-hover-opacity"></i></a>
     <i class="fa fa-snapchat w3-hover-opacity"></i>
     <i class="fa fa-pinterest-p w3-hover-opacity"></i>
     <i class="fa fa-twitter w3-hover-opacity"></i>
