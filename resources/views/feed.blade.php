@@ -37,11 +37,11 @@ My feed | fluidbN
        <button  class="btn-login btn-feed" id="theory-feed" style="margin-top:5px;">
         Featured Theories </button>
  --}}
-    <button  class=" btn-login btn-feed"  onclick="location.href='{{route('write')}}'" style="margin-top:5px;">
+    <button  class="w3-button w3-flat-pomegranate w3-padding-large "  onclick="location.href='{{route('write')}}'" style="margin-top:5px;">
       Create a story
     </button>
-     <button  class="btn-login btn-feed" onclick="location.href='{{route('write-theory')}}'" style="margin-top:5px;">
-    Share your theory
+     <button  class="w3-button w3-flat-pomegranate w3-padding-large " onclick="location.href='{{route('write-theory')}}'" style="margin-top:5px;">
+    Share a theory
     </button>
   </div>
  
@@ -107,8 +107,10 @@ My feed | fluidbN
                 
                   <div class="col-md-6" id = "{{'th-'.$a->id}}">
                    
-                   <div class="w3-card-white"><button class="report w3-button w3-flat-pomegranate w3-right" data-theoId="{{$a->id}}">Report theory</button> 
-                    </div>
+                   {{--  <div class="w3-card-white"><button class="report w3-button w3-flat-pomegranate w3-right" data-theoId="{{$a->id}}">Report theory</button> 
+                  
+                  </div>
+                  --}}
                   <br/>
                     <a href="{{route('show-theory',['theory'=>$a,'slug'=>str_slug($a->title)])}}">
                      

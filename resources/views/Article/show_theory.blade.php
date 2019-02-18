@@ -122,9 +122,10 @@
          
            
         </div> 
-        <div class="w3-card-white"><button class="report w3-button w3-flat-pomegranate w3-right" data-theoId="{{$theory->id}}">Report theory</button> 
-                    </div>
-          </div
+        {{--  <div class="w3-card-white"><button class="report w3-button w3-flat-pomegranate w3-right" data-theoId="{{$theory->id}}">Report theory</button> 
+                    </div>  --}}
+                  
+                  </div>
           
                   
            </div>
@@ -139,7 +140,7 @@
           <button class="btn   btn-login bookmark" style="margin-top:5px;" data-articleId="{{$theory->id}}">Bookmark</button>
           
         </div>
-  --}}
+
          {{--
          
             @if(Auth::user()->id != $theory->writtenBy->id)

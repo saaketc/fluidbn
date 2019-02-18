@@ -114,9 +114,10 @@
           <p>{!! htmlspecialchars_decode($article->content) !!}</p>
           </div>
            
-   
+{{--     
         <div class="w3-card-white"><button class=" w3-button w3-flat-pomegranate w3-right" data-storyId="{{$article->id}}" id="report">Report story</button> 
-                    </div>
+                    
+        </div>  --}}
           </div
           
            </div>
