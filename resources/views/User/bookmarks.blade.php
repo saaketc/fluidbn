@@ -106,13 +106,13 @@ $c = Auth::user()->bookmarks()->wherePivot('user_id',Auth::user()->id)->count();
 
 @else
 <div class="box" style="margin-top:10%;">
-    <h2 class="featurette-heading-feed" style="color:black">{{ucfirst(Auth::user()->fname).' your user story bookmarks live here !'}}</h2>
+    <h2 class="featurette-heading-feed" style="color:black">{{ucfirst(Auth::user()->fname).' your people story bookmarks here !'}}</h2>
     <i class="material-icons" style="font-size:48px;color:red;">cloud</i>
     <i class="fa fa-cloud"></i>
     
 </div>
 <div class="box">
-  <a href="{{route('feed')}}" class="writer"><strong>Read now !</strong></a>
+  <a href="{{route('feed')}}" class="writer w3-button w3-flat-pomegranate"><strong>Read now</strong></a>
 
 </div>
 

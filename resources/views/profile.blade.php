@@ -223,9 +223,9 @@
         @endif
         @endif
         <div style="margin-left:35px; margin-bottom:30px;" >
-        <button  class="w3-button w3-black" id="story-btn-p">
+        <button  class="w3-button w3-flat-pomegranate" id="story-btn-p">
             Stories </button>
-             <button  class="w3-button w3-black" id="theory-btn-p">
+             <button  class="w3-button w3-flat-pomegranate" id="theory-btn-p">
               Theories </button>
             </div>
           {{-- stories --}}

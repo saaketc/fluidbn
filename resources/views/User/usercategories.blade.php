@@ -8,9 +8,9 @@
 <div class="container" style="align:center;">
     <div class="lower-margin">
     @if(Auth::user()->id==$user->id)
-    <h1 class="featurette-heading">Your story choices</h1>
+    <h1 class="featurette-heading" style="color:black;font-weight:bold;">Your story choices</h1>
     @if($count<$totalGenres)
-     <button class="btn btn-outline-success btn-login box" onclick="location.href='{{route('choosegenre',['slug'=>uniqid()])}}'" >Add more</button>
+     <button class="w3-button w3-flat-pomegranate box" onclick="location.href='{{route('choosegenre',['slug'=>uniqid()])}}'" >Add more</button>
    @endif
     @else
     <h2 class="featurette-heading">{{ucfirst($user->fname)."'s story choices"}}</h2>

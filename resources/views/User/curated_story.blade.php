@@ -10,9 +10,9 @@ Curated stories | fluidbN
 <small class="writer">from the people you follow </small> <i class="fa fa-heart" style="font-size:20px;color:red;"></i>
 </div>
 <div>
-<button  class="w3-button w3-black" id="story-btn">
+<button  class="w3-button w3-flat-pomegranate" id="story-btn">
    Stories </button>
-    <button  class="w3-button w3-black" id="theory-btn">
+    <button  class="w3-button w3-flat-pomegranate" id="theory-btn">
      Theories </button>
 </div>
 

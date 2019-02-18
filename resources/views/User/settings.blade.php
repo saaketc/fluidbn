@@ -30,11 +30,11 @@ Settings | fluidbN
          </div>
     </div>       
     <div class="form-group">
-            {{Form::label('profile_image','Change profile pic',['class'=>'btn   btn-login'])}} 
+            {{Form::label('profile_image','Change profile pic',['class'=>'w3-button w3-flat-pomegranate'])}} 
             {{Form::file('profile_image',['accept'=>"image/*",'onchange'=>'loadFile(event)'])}}
     </div>
     <div style="margin-top:32px;">
-    {{Form::submit('Save changes',['class'=>'btn   btn-login'])}}      
+    {{Form::submit('Save changes',['class'=>'w3-button w3-flat-pomegranate'])}}      
     </div>
     {!! Form::close() !!}    
    </div>
@@ -152,7 +152,7 @@ $s = ucfirst(Auth::user()->hasProfile->startup);
               
             </div>
               {!! Form::close() !!}
-              <button class="btn   btn-login form-control" id="pro_update">Save changes</button>
+              <button class="w3-button w3-flat-pomegranate form-control" id="pro_update">Save changes</button>
      
    </div>
 
@@ -161,10 +161,10 @@ $s = ucfirst(Auth::user()->hasProfile->startup);
   {{--edit profile modal end--}}
   <div class="row">
       <div class="col-md-3">
-         <a href="{{route('terms')}}"><h4>See Terms of use</h4></a>
+         <a href="{{route('terms')}}"><h4>Terms</h4></a>
           </div>
             <div class="col-md-3">
-         <a href="{{route('privacy')}}"><h4>See Privacy policy</h4></a>
+         <a href="{{route('privacy')}}"><h4> Privacy</h4></a>
           </div>
       </div>
 
