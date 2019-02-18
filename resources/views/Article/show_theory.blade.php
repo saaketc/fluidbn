@@ -117,11 +117,11 @@
           
           <small class="writer">{{$theory->created_at->format('d F Y')}}</small> 
           <hr class="featurette-divider">
-          <blockquote class="blockquote">
-          <p class="lead">{!!$theory->content!!}</p>
+          <div style="font-size:1.3rem;color:black;">
+          <p class="lead">{!! htmlspecialchars_decode($theory->content) !!}</p>
          
            
-        </blockquote> 
+        </div> 
         <div class="w3-card-white"><button class="report w3-button w3-flat-pomegranate w3-right" data-theoId="{{$theory->id}}">Report theory</button> 
                     </div>
           </div

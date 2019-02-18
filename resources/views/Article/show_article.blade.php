@@ -109,11 +109,12 @@
       <div class="col-md-12" id ="{{'st-'.$article->id}}">
          
           <small class="writer">{{$article->created_at->format('d F Y')}}</small> <small class="views right-wow"> {{$v}}</small> <small class="views right-wow" id="wow"> {{$w}}</small>       <hr class="featurette-divider">
-          <blockquote class="blockquote lead" style="font-size:1.3rem;">
-          <p class="lead">{!!$article->content!!}</p>
-         
+          <div style="font-size:1.3rem;color:black;">
+
+          <p>{!! htmlspecialchars_decode($article->content) !!}</p>
+          </div>
            
-        </blockquote>   
+   
         <div class="w3-card-white"><button class=" w3-button w3-flat-pomegranate w3-right" data-storyId="{{$article->id}}" id="report">Report story</button> 
                     </div>
           </div

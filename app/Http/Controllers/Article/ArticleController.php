@@ -158,7 +158,7 @@ class ArticleController extends Controller
             if( $alreadyArticle){
                 
                 $alreadyArticle->title = $request->input('title');
-                $alreadyArticle->content = $request->input('content');
+                $alreadyArticle->content = htmlspecialchars($request->input('content'));
                 $alreadyArticle->title_image =  $imageName;
                 $alreadyArticle->user_id = $user->id;
                 $alreadyArticle->genre_id = $request->input('genre');
@@ -175,7 +175,7 @@ class ArticleController extends Controller
 
                 $article = New Article;
                 $article->title = $request->input('title');
-                $article->content = $request->input('content');
+                $article->content = htmlspecialchars($request->input('content'));
                 $article->title_image =  $imageName;
                 $article->user_id = $user->id;
                 $article->genre_id = $request->input('genre');
@@ -206,7 +206,7 @@ class ArticleController extends Controller
             $allFollowers = $user->followedBy()->wherePivot('follower_id','!=',$user->id)->get();
             $theory = new Theory;
             $theory->title = $request->input('title');
-            $theory->content = $request->input('content');
+            $theory->content = htmlspecialchars($request->input('content'));
             $theory->user_id = Auth::user()->id;
             $theory->save();
             
