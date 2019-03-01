@@ -96,7 +96,7 @@ a{
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small w3-hide-medium">
       {{--<a href="#about" class="w3-bar-item w3-button">About</a>--}}
-       <button onclick="location.href='/aerepad/newsfeed"  class="w3-bar-item w3-button w3-flat-pomegranate">Abhikalpan feed</button>
+       <button onclick="location.href='/aerepad/newsfeed'"  class="w3-bar-item w3-button w3-flat-pomegranate">Abhikalpan feed</button>
   
       <button onclick="location.href='{{route('login')}}'"  class="w3-bar-item w3-button w3-flat-pomegranate">Login</button>
   
