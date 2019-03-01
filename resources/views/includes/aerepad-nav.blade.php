@@ -6,7 +6,7 @@
       <i class="fa fa-bars"></i>
     </a>
    
-    <a href="#" class="w3-bar-item  w3-wide "><img class="featurette-image img-fluid mx-auto" src="/storage/logo/logow.png" style=""></a>
+    <a href="https://www.fluidbn.com" class="w3-bar-item  w3-wide "><img class="featurette-image img-fluid mx-auto" src="/storage/logo/logow.png" style=""></a>
     
     <div class="w3-display-right">  
     <button class="w3-button w3-flat-pomegranate"onClick="window.location.reload()">Check new updates </button>
