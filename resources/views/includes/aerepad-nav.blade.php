@@ -42,8 +42,8 @@
       @auth('aerepad')
       <button onclick="location.href='/aerepad/login'" class="w3-bar-item w3-button">Desk</button>
       @endauth
-  <button onclick=""  class="w3-bar-item w3-button">Events</button>
-  <button onclick=""  class="w3-bar-item w3-button">Informals</button>
+  {{--  <button onclick=""  class="w3-bar-item w3-button">Events</button>
+  <button onclick=""  class="w3-bar-item w3-button">Informals</button>  --}}
   @auth('aerepad')
   <a href="{{ route('logout') }}"
         onclick="event.preventDefault();
@@ -85,8 +85,8 @@
   @auth('aerepad') 
   <a href='/aerepad/login' class="w3-bar-item hov-a-white">Desk </a>
   @endauth
-  <a href=""  class="w3-bar-item hov-a-white">Events</a>
-  <a href="" class="w3-bar-item hov-a-white">Informals</a>
+  {{--  <a href=""  class="w3-bar-item hov-a-white">Events</a>
+  <a href="" class="w3-bar-item hov-a-white">Informals</a>  --}}
     @auth('aerepad')
   <a href="{{ route('logout') }}"
         onclick="event.preventDefault();
