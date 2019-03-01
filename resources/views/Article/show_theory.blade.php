@@ -72,11 +72,11 @@
    
               {{Form::hidden('_method','DELETE')}} {{-- to make route method delete--}}
                   
-                 {{Form::submit('Yes, delete story',['class'=>'btn  btn-login'])}}
+                 {{Form::submit('Yes, delete story',['class'=>'w3-button w3-flat-pomegranate'])}}
           {!!Form::close()!!}   
           
           
-           <button type="button" class=" btn  btn-login" data-dismiss="modal">No, take me back</button>
+           <button type="button" class=" w3-button w3-flat-pomegranate" data-dismiss="modal">No, take me back</button>
          </div> 
           </div>
                 
