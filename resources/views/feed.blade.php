@@ -120,7 +120,7 @@ My feed | fluidbN
                       <div class="container-related" style="width:100%;">
                         <h2 class="featurette-heading-feed">{{ucfirst($a->title)}}</h2>
                         
-                        <p class="lead">{!!wordwrap(str_limit($a->content,100),50,"<br>\n",TRUE)!!}</p>
+                        {{--  <p class="lead">{!!wordwrap(str_limit($a->content,100),50,"<br>\n",TRUE)!!}</p>  --}}
                        
                          <div class="" style="margin-botton:5px;">
                             
@@ -203,7 +203,7 @@ My feed | fluidbN
                           
                           $bookmark = Auth::user()->bookmarks()->wherePivot('user_id',Auth::user()->id)->wherePivot('article_id', $a->id)->first();
                        @endphp
-                        <p class="lead">{!!wordwrap(str_limit($a->content,100),50,"<br>\n",TRUE)!!}</p>
+                        {{--  <p class="lead">{!! wordwrap(str_limit($a->content,100),50,"<br>\n",TRUE)!!}</p>  --}}
                         <div class="" style="margin-botton:5px;">
                        <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$a->writtenBy->hasProfile->profile_image}}" alt="">
                        <div class="w3-dropdown-hover"><small class="writer-small">{{ucfirst($a->writtenBy->fname).' '. ucfirst($a->writtenBy->lname)}}</small>
@@ -298,7 +298,7 @@ My feed | fluidbN
                           
                           $bookmark = Auth::user()->bookmarks()->wherePivot('user_id',Auth::user()->id)->wherePivot('article_id', $a->id)->first();
                        @endphp
-                        <p class="lead">{!!wordwrap(str_limit($a->content,100),50,"<br>\n",TRUE)!!}</p>
+                        {{--  <p class="lead">{!!wordwrap(str_limit($a->content,100),50,"<br>\n",TRUE)!!}</p>  --}}
                         <div class="" style="margin-botton:5px;">
                             <a href="{{route('profile',['user'=>$a->writtenBy,'slug'=>str_slug($a->writtenBy->fname." ".$a->writtenBy->lname)])}}">
                           <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$a->writtenBy->hasProfile->profile_image}}" alt=""></a> 
