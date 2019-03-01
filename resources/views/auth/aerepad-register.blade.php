@@ -77,7 +77,7 @@ Signup for AerePad
 
         <div class="form-group">
             
-                <button type="submit" class="btn btn-outline-success btn-login btn-block">
+                <button type="submit" class="w3-button w3-flat-pomegranate w3-padding-large">
                     Get my desk
                 </button>
                </div>

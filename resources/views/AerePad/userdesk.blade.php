@@ -10,10 +10,10 @@
 <div class="container">
 <div class="box">
  
-<h1>Hey {{Auth::guard('aerepad')->user()->deskname}}</h1>
+<h1 class="w3-xxxlarge" style="color:black;font-weight:bold;">Hey, {{Auth::guard('aerepad')->user()->deskname}} !</h1>
 </div>
 <div class="row">
-    <button  class="btn btn-outline-success btn-login" style="width:auto; margin-top:5px;margin-left:5px;" data-toggle="modal" data-target="#broadcast">Broadcast news or message</button>
+    <button  class="w3-button w3-flat-pomegranate w3-padding-large" style="width:auto; margin-top:5px;margin-left:5px;" data-toggle="modal" data-target="#broadcast">Broadcast news or message</button>
        
     <!-- The Modal -->
     <div class="modal fade" id="broadcast">
@@ -37,11 +37,11 @@
                        
                              
                                <div class="form-group">
-                                       {{Form::label('title','Title of news or message ','')}}
+                                       {{Form::label('title','Title of news or message ',['class'=>'pro-info'])}}
                                        {{Form::text('title','',['class'=>'form-control'])}}
                                        </div>
                                        <div class="form-group">
-                                        {{Form::label('title_image','Upload title image if any',['class'=>'btn btn-outline-success btn-login'])}}     {{Form::file('title_image')}}
+                                        {{Form::label('title_image','Upload title image if any',['class'=>'w3-button w3-flat-pomegranate w3-padding-large'])}}     {{Form::file('title_image')}}
             
                                         </div>
                                        <div class="form-group">
@@ -50,7 +50,7 @@
                                         </div>
                                       
                                        <div class="form-group">
-                                       {{Form::submit('Broadcast', ['class'=>'btn btn-outline-success btn-login'])}}
+                                       {{Form::submit('Broadcast', ['class'=>'w3-button w3-flat-pomegranate w3-padding-large'])}}
                                        </div>
                                      @csrf
           
@@ -77,7 +77,7 @@
 </div>
 @if(count($news)>0)
 <div class="box">
-        <h2>Your broadcasted news</h2>
+        <h2 style="color:black;font-weight:bold;" class="w3-xxlarge">Your broadcasted news</h2>
 </div>
 
     <div class="newsscroll box">
@@ -108,11 +108,13 @@
                     
                     $bookmark = Auth::user()->bookmarks()->wherePivot('user_id',Auth::user()->id)->wherePivot('article_id', $a->id)->first();
                  @endphp --}}
-                  <p class="lead">{!!wordwrap(str_limit($a->content,100),50,"<br>\n",TRUE)!!}</p>
-                  <div class="" style="margin-botton:5px;">
-               <div class=""><small class="margin writer-small" style="font-size:20px;font-weight:bold;">{{$a->broadcastedBy->deskname }}</small></div>
-                 
-                </div>
+                  {{--  <p class="lead">{!!wordwrap(str_limit($a->content,100),50,"<br>\n",TRUE)!!}</p>  --}}
+                 <div class="" style="margin-botton:5px;">
+
+                          <button onclick="document.getElementById('{{ $a->id }}').style.display='block'" class="w3-button w3-flat-pomegranate">Full info</button>
+                       
+                        </div>
+                         
                  
                   
                   {{--
@@ -126,7 +128,24 @@
               </div>
 
 </div>     
-   
+   <div id={{ $a->id}} class="w3-modal">
+    <div class="w3-modal-content w3-card-4">
+      <header class="w3-container "> 
+        <span onclick="document.getElementById({{ $a->id }}).style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+  
+        <div>
+             <img class="featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/aerepad_images/{{$a->title_image}}" alt="">
+                      
+        </div>
+      </header>
+      <div class="w3-container w3-large" style="color:black;margin-top:2%;">
+                       
+              <p>{!! $a->content!!}         
+      </div>
+      
+    </div>
+  </div>
     @endforeach
     
  

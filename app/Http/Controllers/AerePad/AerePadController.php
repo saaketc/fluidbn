@@ -19,7 +19,7 @@ class AerePadController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('aerepad')->except('show');
+        $this->middleware('aerepad')->except('newsFeed');
     }
 
 
@@ -30,7 +30,7 @@ class AerePadController extends Controller
    public function userDesk(){
     $user = Auth::guard('aerepad')->user();
     if($user){
-        $news = News::where('aere_pad_user_id',$user->id)->latest()->paginate(1);
+        $news = News::where('aere_pad_user_id',$user->id)->latest()->paginate(10);
         $data = [
             'news'=>$news,
         ];
@@ -64,14 +64,24 @@ class AerePadController extends Controller
         $news->save();
         return redirect()->back()->with('success','News broadcasted successfully ');
    }
-   public function newsFeed(){
-    $user = Auth::guard('aerepad')->user();
-    if($user){
-    $news = News::latest()->paginate(1);
-    $data = [
-        'news'=>$news
-    ];
-    return view('AerePad.feed')->with($data);
-    }
-   }
+//    public function newsFeed(){
+//     $user = Auth::guard('aerepad')->user();
+//     if($user){
+//     $news = News::latest()->paginate(1);
+//     $data = [
+//         'news'=>$news
+//     ];
+//     return view('AerePad.feed')->with($data);
+//     }
+//    }
+    public function newsFeed()
+    {
+      
+            $news = News::latest()->paginate(10);
+            $data = [
+                'news' => $news
+            ];
+            return view('AerePad.feed')->with($data);
+        }
+
 }
