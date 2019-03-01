@@ -1,4 +1,7 @@
 @extends('layouts.aerepadmain')
+@section('title')
+login
+@endsection
 
 @section('content')
 <div class="container">

@@ -1,6 +1,6 @@
 @extends('layouts.aerepadmain')
 @section('title')
-Signup for AerePad
+Signup
 @endsection
 
 @section('content')
