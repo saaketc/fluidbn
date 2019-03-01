@@ -96,7 +96,7 @@ a{
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small w3-hide-medium">
       {{--<a href="#about" class="w3-bar-item w3-button">About</a>--}}
-       <button onclick="location.href='/aerepad/newsfeed"  class="w3-bar-item w3-button w3-flat-pomegranate">Abhikalpan news feed/button>
+       <button onclick="location.href='/aerepad/newsfeed"  class="w3-bar-item w3-button w3-flat-pomegranate">Abhikalpan feed</button>
   
       <button onclick="location.href='{{route('login')}}'"  class="w3-bar-item w3-button w3-flat-pomegranate">Login</button>
   
@@ -115,6 +115,7 @@ a{
 <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left  w3-hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close &times;</a>
   {{--<a href="#about" class="w3-bar-item w3-button">About</a>--}}
+    <button onclick="location.href='/aerepad/newsfeed"  class="w3-bar-item w3-button">Abhikalpan feed</button>
   <button onclick="location.href='{{route('login')}}'"  class="w3-bar-item w3-button">Login</button>
   <button onclick="location.href='{{route('register')}}'"  class="w3-bar-item w3-button">Signup</button>
 </nav>
