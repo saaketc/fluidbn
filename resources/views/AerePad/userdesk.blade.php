@@ -13,9 +13,57 @@
 <h1 class="w3-xxxlarge" style="color:black;font-weight:bold;">Hey, {{Auth::guard('aerepad')->user()->deskname}} !</h1>
 </div>
 <div class="row">
-    <button  class="w3-button w3-flat-pomegranate w3-padding-large" style="width:auto; margin-top:5px;margin-left:5px;" data-toggle="modal" data-target="#broadcast">Broadcast news or message</button>
+
+    <button  class="w3-button w3-flat-pomegranate w3-padding-large" style="width:auto; margin-top:5px;margin-left:5px;" onclick="document.getElementById('broadcast').style.display='block'">Broadcast news or message</button>
        
-    <!-- The Modal -->
+    {{-- modal --}}
+     <div id='broadcast' class="w3-modal">
+    <div class="w3-modal-content w3-card-4">
+      <header class="w3-container "> 
+        <span onclick="document.getElementById('broadcast').style.display='none'" 
+        class="w3-button w3-medium w3-red w3-display-topright">&times;</span>
+        <h2 style="color:black;">Broadcast your message here</h2>
+        <div>
+             {{--  <img class="featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/aerepad_images/{{$a->title_image}}" alt="">
+                        --}}
+        </div>
+      </header>
+      <div class="w3-container w3-large" style="color:black;margin-top:2%;">
+                       
+            
+            {!! Form::open(['route'=>'storeNews','method'=>'POST','files'=>true,'enctype'=>'multipart/form-data']) !!}
+                          
+                          
+                       
+                             
+                               <div class="form-group">
+                                       {{Form::label('title','Title of news or message ')}}
+                                       {{Form::text('title','',['class'=>'form-control'])}}
+                                       </div>
+                                       <div class="form-group">
+                                        {{Form::label('title_image','Upload title image if any',['class'=>'w3-button w3-flat-pomegranate w3-padding-large'])}}     {{Form::file('title_image',['accept'=>"image/*",'onchange'=>'loadFile(event)'])}}
+            
+                                        </div>
+                                          <div class="" id="output-frame">   
+<img id="output" class=" img-fluid mx-auto" style="width:100%;">
+</div>
+                                       <div class="form-group">
+                                       {{Form::label('content','Content','')}}
+                                       {{Form::textarea('content','',['class'=>'form-control'])}}
+                                        </div>
+                                      
+                                       <div class="form-group">
+                                       {{Form::submit('Broadcast', ['class'=>'w3-button w3-flat-pomegranate w3-padding-large'])}}
+                                       </div>
+                                     @csrf
+          
+                                     {!! Form::close() !!}        
+      </div>
+      
+    </div>
+  </div>
+    {{--  --}}
+    {{--  <!-- The Modal -->
     <div class="modal fade" id="broadcast">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -66,7 +114,7 @@
                                                       
                                         {!! Form::close() !!}
                                         </div>  
-                        --}}
+                        
                             
                                       
                         </div>
@@ -76,7 +124,7 @@
         </div>
       </div>
     
-    </div>
+    </div>  --}}
 </div>
 @if(count($news)>0)
 <div class="box">
@@ -135,8 +183,8 @@
     <div class="w3-modal-content w3-card-4">
       <header class="w3-container "> 
         <span onclick="document.getElementById({{ $a->id }}).style.display='none'" 
-        class="w3-button w3-large w3-red w3-display-topright">&times;</span>
-  
+        class="w3-button w3-medium w3-red w3-display-topright">&times;</span>
+  <h2 style="color:black;">From you</h2>
         <div>
              {{--  <img class="featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/aerepad_images/{{$a->title_image}}" alt="">
                         --}}

@@ -288,7 +288,7 @@ span.psw {
     
     <div class="container">
         <div class="row featurette">
-     <div class="col-sm-4">
+     <div class="col-sm-4"  style="margin-top:2%;">
      @include('includes.flashmsg')
      </div>
      </div>
