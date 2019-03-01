@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>fluidbN - Connecting stories & experiences to perceive the world better</title>
+<title>fluidbN - Making information interesting and impactful to perceive the world better</title>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133705211-1"></script>
 <script>
@@ -143,7 +143,7 @@ a{
      <div style="margin-top:1%;">
       <span class="w3-xxlarge w3-hide-large  coolhead " style="color:black;">Welcome to fluidbN</span><br>
      </div>
-      <span class="w3-large coolhead" style="color:black;"> Connecting stories & experiences<br/> to perceive the world better <i class="fa fa-heart" style="color:red;font-size:30px;"></i></span>
+      <span class="w3-large coolhead" style="color:black;"> Making information interesting and impactful<br/> to perceive the world better <i class="fa fa-heart" style="color:red;font-size:30px;"></i></span>
       
     
     </div> 
