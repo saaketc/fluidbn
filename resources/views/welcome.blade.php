@@ -96,9 +96,13 @@ a{
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small w3-hide-medium">
       {{--<a href="#about" class="w3-bar-item w3-button">About</a>--}}
+       <button onclick="location.href='/aerepad/newsfeed"  class="w3-bar-item w3-button w3-flat-pomegranate">Abhikalpan news feed/button>
+  
       <button onclick="location.href='{{route('login')}}'"  class="w3-bar-item w3-button w3-flat-pomegranate">Login</button>
-  <button onclick="location.href='{{route('register')}}'"  class="w3-bar-item w3-button w3-flat-pomegranate">Signup</button>
-    </div>
+  
+      <button onclick="location.href='{{route('register')}}'"  class="w3-bar-item w3-button w3-flat-pomegranate">Signup</button>
+    
+</div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large" onclick="w3_open()">
