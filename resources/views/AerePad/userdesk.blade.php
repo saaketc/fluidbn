@@ -163,7 +163,9 @@
                  <div class="" style="margin-botton:5px;">
 
                           <button onclick="document.getElementById('{{ $a->id }}').style.display='block'" class="w3-button w3-flat-pomegranate">Full info</button>
-                       
+                        <button  class="w3-button w3-flat-pomegranate" style="margin-left:15px;" id="del"  data-toggle="modal" data-target="#delete">
+             Delete
+           </button>   
                         </div>
                          
                  
@@ -197,11 +199,48 @@
       
     </div>
   </div>
+  {{-- delete msg --}}
+
+          
+             
+         
+           <!-- The Modal -->
+           <div class="modal fade" id="delete">
+             <div class="modal-dialog modal-sm">
+               <div class="modal-content">
+               
+                 <!-- Modal Header -->
+                 <div class="modal-header">
+                   <h4 class="modal-title writer" style="font-weight:bold;font-size:15px;">Are you sure to delete this message ? It will be permanently deleted</h4>
+                  
+
+                 </div>
+                 <div class="col-sm-4">
+                 <!-- Modal body -->
+                 <div class="modal-body">
+                  
+                 {!! Form::open(['action'=>['AerePad\aerepadDel@destroy',$a->id],'method'=>'POST'])!!}
+   
+              {{Form::hidden('_method','DELETE')}} {{-- to make route method delete--}}
+              
+                 {{Form::submit('Yes, delete',['class'=>'w3-button w3-flat-pomegranate'])}}
+          {!!Form::close()!!}   
+          </div>
+          <div class="col-sm-4">
+           <button type="button" class=" w3-button w3-flat-pomegranate" data-dismiss="modal">No, take me back</button>
+         </div>
+          </div>
+                 
+           
+                 
+               </div>
+             </div>
+           </div>
+           
     @endforeach
     
  
-   </div>
-  
+   
 {{$news->links()}}
 </div>
 @endif

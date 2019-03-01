@@ -163,7 +163,7 @@ Route::post('aerepad/register','Auth\AerePadRegisterController@register')->name(
 Route::get('/aerepad/desk', 'AerePad\AerePadController@userDesk')->name('userdesk');
 Route::get('/aerepad/newsfeed', 'AerePad\AerePadController@newsFeed')->name('newsfeed');
 Route::post('aerepad/store','AerePad\AerePadController@storeNews')->name('storeNews'); 
-
+Route::resource('aerepad','AerePad\aerepadDel');
 
 // studio interface
 Route::get('/workstation/fbn.studio/','Auth\StudioLoginController@showLoginForm')->name('studioLoginForm');
