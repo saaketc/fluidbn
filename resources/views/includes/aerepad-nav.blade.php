@@ -39,9 +39,23 @@
       {{--<a href="#about" class="w3-bar-item w3-button">About</a>--}}
     
       <button onclick="location.href='/aerepad/newsfeed'" class="w3-bar-item w3-button">News feed</button>
+      @auth('aerepad')
       <button onclick="location.href='/aerepad/login'" class="w3-bar-item w3-button">Desk</button>
+      @endauth
   <button onclick=""  class="w3-bar-item w3-button">Events</button>
   <button onclick=""  class="w3-bar-item w3-button">Informals</button>
+  @auth('aerepad')
+  <a href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+                 document.getElementById('logout-form').submit();" class="w3-bar-item w3-button">
+        Logout
+    </a>
+      </div>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        {{ csrf_field() }}
+        @csrf
+    </form> 
+    @endauth
 
  
 
@@ -73,7 +87,18 @@
   @endauth
   <a href=""  class="w3-bar-item hov-a-white">Events</a>
   <a href="" class="w3-bar-item hov-a-white">Informals</a>
-  
+    @auth('aerepad')
+  <a href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+                 document.getElementById('logout-form').submit();" class="w3-bar-item">
+        Logout
+    </a>
+      </div>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        {{ csrf_field() }}
+        @csrf
+    </form> 
+    @endauth
 
  
 
