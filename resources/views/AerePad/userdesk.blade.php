@@ -24,7 +24,7 @@
           <div class="modal-header">
               
          
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <button type="button" class="close w3-large w3-red" data-dismiss="modal">&times;</button>
           </div>
           
           <!-- Modal body -->
@@ -37,13 +37,16 @@
                        
                              
                                <div class="form-group">
-                                       {{Form::label('title','Title of news or message ',['class'=>'pro-info'])}}
+                                       {{Form::label('title','Title of news or message ')}}
                                        {{Form::text('title','',['class'=>'form-control'])}}
                                        </div>
                                        <div class="form-group">
-                                        {{Form::label('title_image','Upload title image if any',['class'=>'w3-button w3-flat-pomegranate w3-padding-large'])}}     {{Form::file('title_image')}}
+                                        {{Form::label('title_image','Upload title image if any',['class'=>'w3-button w3-flat-pomegranate w3-padding-large'])}}     {{Form::file('title_image',['accept'=>"image/*",'onchange'=>'loadFile(event)'])}}
             
                                         </div>
+                                          <div class="" id="output-frame">   
+<img id="output" class=" img-fluid mx-auto" style="width:100%;">
+</div>
                                        <div class="form-group">
                                        {{Form::label('content','Content','')}}
                                        {{Form::textarea('content','',['class'=>'form-control'])}}
@@ -132,11 +135,11 @@
     <div class="w3-modal-content w3-card-4">
       <header class="w3-container "> 
         <span onclick="document.getElementById({{ $a->id }}).style.display='none'" 
-        class="w3-button w3-display-topright">&times;</span>
+        class="w3-button w3-large w3-red w3-display-topright">&times;</span>
   
         <div>
-             <img class="featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/aerepad_images/{{$a->title_image}}" alt="">
-                      
+             {{--  <img class="featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/aerepad_images/{{$a->title_image}}" alt="">
+                        --}}
         </div>
       </header>
       <div class="w3-container w3-large" style="color:black;margin-top:2%;">
@@ -155,7 +158,15 @@
 </div>
 @endif
 </div>
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+   
+   output.src = URL.createObjectURL(event.target.files[0]);
+    
 
+  };
+</script>
 <script>
         $('ul.pagination').hide();
         $(function() {

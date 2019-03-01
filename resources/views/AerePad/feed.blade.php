@@ -30,11 +30,11 @@ fluidbN | News Feed
                 </div>
            
            
-                <div class="card-related lower-margin featured-article">
+                <div class="card-related lower-margin">
                                 
                         <img class="featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/aerepad_images/{{$a->title_image}}" alt="">
                       
-                        <div class="container-related featured-article">
+                        <div class="container-related">
                           <h2 class="featurette-heading-feed">{{ucfirst($a->title)}}</h2>
                          {{--  @php
                             $wows = $a->likedBy()->wherePivot('article_id',$a->id)->count();
@@ -72,11 +72,11 @@ fluidbN | News Feed
     <div class="w3-modal-content w3-card-4">
       <header class="w3-container "> 
         <span onclick="document.getElementById({{ $a->id }}).style.display='none'" 
-        class="w3-button w3-display-topright">&times;</span>
+        class="w3-button w3-large w3-red w3-display-topright">&times;</span>
         <h2 style="color:black;">{{ $a->broadcastedBy->deskname}}</h2>
         <div>
-             <img class="featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/aerepad_images/{{$a->title_image}}" alt="">
-                      
+             {{--  <img class="featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/aerepad_images/{{$a->title_image}}" alt="">
+                        --}}
         </div>
       </header>
       <div class="w3-container w3-large" style="color:black;margin-top:2%;">
