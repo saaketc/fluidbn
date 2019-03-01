@@ -129,7 +129,7 @@ a{
     <span class="w3-jumbo w3-hide-small coolhead" style="margin-top:30%;color:black;">Welcome to fluidbN</span><br>
    
    
-    <span class="w3-xlarge coolhead" style="color:black;"> Connecting stories & experiences<br/> to perceive the world better <i class="fa fa-heart" style="color:red;font-size:30px;"></i></span>
+    <span class="w3-xlarge coolhead" style="color:black;"> Making information interesting and impactful<br/> to perceive the world better <i class="fa fa-heart" style="color:red;font-size:30px;"></i></span>
 
     <p><button onclick="location.href='{{route('register')}}'" class="w3-button w3-flat-pomegranate w3-padding-large w3-large">Get Started</button>
    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-flat-pomegranate w3-padding-large w3-large">Login</button></p>
