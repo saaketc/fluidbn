@@ -54,7 +54,7 @@ class AerePadController extends Controller
          
         }
         else{
-         $imageName = 'aere.png';
+         $imageName = '';
         }
         $news = new News;
         $news->title = $request->input('title');
