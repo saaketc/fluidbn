@@ -152,7 +152,7 @@
      {{-- for mobile view --}}
   <div class="w3-hide-large">
        {{--user--}}
-          <div class="w3-display-right"  style="margin-right:27%;">
+          <div class="w3-display-right"  style="margin-right:35%;">
 <div class="w3-dropdown-hover">
     <button onclick="myFunction2()" class="w3-button" style="background-color:white;"> 
   @auth 
