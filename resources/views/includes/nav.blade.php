@@ -157,7 +157,7 @@
     <button onclick="myFunction2()" class="w3-button" style="background-color:white;"> 
   @auth 
     <img class="img-fluid mx-auto propic-small" style="width:30px;height:30px;"src="/storage/profile_images/thumbnails/{{Auth::user()->hasProfile->profile_image}}" alt="" >
-    <small  style="color:black; font-size:15px;"> {{'   '.ucfirst(Auth::user()->fname)}}</small>
+    {{--  <small  style="color:black; font-size:15px;"> {{'   '.ucfirst(Auth::user()->fname)}}</small>  --}}
   @endauth
     </button>
   <div id="" class="w3-dropdown-content w3-bar-block w3-card-4 w3-animate-zoom">
