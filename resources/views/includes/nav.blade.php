@@ -283,7 +283,7 @@
       <footer class="w3-container">
           <table class="table table-bordered table-hover ">
                
-                <tbody class="sys" style="color:black;">
+                <tbody class="sys w3-small" style="color:black;">
                 
                 </tbody>
                  
