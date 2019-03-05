@@ -9,7 +9,7 @@ My feed | fluidbN
 
 <main role="main">
     
-<div style="margin-bottom:50px;margin-top:5rem;">
+<div style="">
   @if($heading!='')
   <div class="w3-hide-small w3-hide-medium">
  <h1 class="featurette-heading-title">{{$heading}} <i class="fa fa-heart" style="font-size:40px;color:red;"></i></h1>

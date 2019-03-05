@@ -6,43 +6,48 @@
       <i class="fa fa-bars"></i>
     </a>
    
-    <a href="{{ url('/feed') }}" class="w3-bar-item  w3-wide "><img class="featurette-image img-fluid mx-auto" src="/storage/logo/logow.png" style=""></a>
-    
- 
-   
- 
-    <!-- Right-sided navbar links -->
-     
-     {!! Form::open(['route'=>'search','method'=>'GET']) !!}  
-       
-   
-    {{Form::text('search','',['id'=>'search-p','class'=>'w3-large w3-flat-pomegranate search ','placeholder'=>'Search for stories, theories & people here...','autocomplete'=>'off'])}}
+    <a href="{{ url('/feed') }}" class="w3-bar-item  w3-wide "><img class="featurette-image img-fluid mx-auto" src="/storage/logo/logow.png" style="margin-left:0;"></a>
+     <div class="w3-hide-small w3-hide-medium">
+          {{--user--}}
+          <div class="w3-display-right"  style="margin-right:30%;">
+<div class="w3-dropdown-hover">
+    <button onclick="myFunction2()" class="w3-button" style="background-color:white;"> 
+  @auth 
+    <img class="img-fluid mx-auto propic-small" style="width:30px;height:30px;"src="/storage/profile_images/thumbnails/{{Auth::user()->hasProfile->profile_image}}" alt="" >
+    <small  style="color:black; font-size:15px;"> {{'   '.ucfirst(Auth::user()->fname)}}</small>
+  @endauth
+    </button>
+  <div id="" class="w3-dropdown-content w3-bar-block w3-card-4 w3-animate-zoom">
+      <a href="{{route('profile',['user'=>Auth::user(),'slug'=>str_slug(Auth::user()->fname.' '.Auth::user()->lname)])}}" class="dropdown-item"  >Profile</a>
+      <a href="{{route('write')}}" id="write"class="dropdown-item">Write a story</a>
+         <a href="{{route('write-theory')}}" id="write-theory"class="dropdown-item">Share your theory</a>
+      <a href="{{route('show-bookmark')}}" id="show-bookmark" class="dropdown-item"> My bookmarks</a>
+     <a href="{{route('user-categories',['user'=>Auth::user(),'slug'=>str_slug(Auth::user()->fname.".".Auth::user()->lname)])}}" id="mycategories" class="dropdown-item"> My story choices</a>
 
-    {!! Form::close() !!}
-     <div class="w3-container w3-hide" id="tab-p" style="">
-         
-      <table class="table table-bordered table-hover ">
-               
-                <tbody id="sys" style="color:black;">
-                
-                </tbody>
-                 
-                </table>
-  
-    
+      <a href="{{route('settings')}}" id="settings" class="dropdown-item"> Settings</a>
+      <a href="{{ route('logout') }}"
+      onclick="event.preventDefault();
+               document.getElementById('logout-form').submit();" class="dropdown-item">
+      Logout
+  </a>
+
+  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+      {{ csrf_field() }}
+      @csrf
+  </form> 
   </div>
-    
-    <div class="w3-display-topmiddle w3-hide-small w3-hide-medium" id="nav-p" style="margin-top:0.5%;">
-      {{--<a href="#about" class="w3-bar-item w3-button">About</a>--}}
-    
-      <button onclick="location.href='/feed'" class="w3-bar-item ">Feed</button>
-  <button onclick="location.href='{{route('curated-story')}}'"  class="w3-bar-item w3-button">Curated stories</button>
-  <button onclick="location.href='{{route('all-story-choices')}}'"  class="w3-bar-item w3-button">All story choices</button>
-  {{--notis--}}
-  <div class="w3-dropdown-hover">
+</div>
+  </div>
+    {{-- end user --}}
+
+    {{--notis--}}
+     
+  <div class="w3-dropdown-hover ">
+   <div class="w3-display-right" style="margin-right:25%;" >
       <button onclick="myFunction1()" class="w3-button"> @auth
         <span class="fa fa-bell" id="notifications" style="color:black;font-size:25px;"></span>@if(Auth::user()->unreadNotifications->count()>0)<span class="w3-badge w3-red w3-large noti_count"  id="">{{Auth::user()->unreadNotifications->count()}}</span>@endif
         @endauth</button>
+ 
       <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-animate-zoom" style="text-align:center;">
       
         @auth
@@ -110,9 +115,46 @@
     </div>
 
       </div>
-      {{--user--}}
+  </div>
+  
+    {{-- search --}}
+   <div class="w3-display-right" style="margin-right:20%;">
+     <button onclick="document.getElementById('id01').style.display='block'" class="w3-button" style="background-color:white;"><i class="fa fa-search" style="font-size:30px;"></i></button>
+  </div>
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-flat-pomegranate"> 
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-display-topright w3-black w3-padding-medium">&times;</span>
+        <h2>fluidbN search !</h2>
+      </header>
+      <div class="w3-container">
+          {!! Form::open(['route'=>'search','method'=>'GET']) !!}  
+       
+   
+    {{Form::text('search','',['id'=>'search-p','class'=>'w3-large search ','placeholder'=>'Search for stories, theories & people here...','autocomplete'=>'off'])}}
+
+    {!! Form::close() !!}
+    
+      </div>
+      <footer class="w3-container">
+          <table class="table table-bordered table-hover ">
+               
+                <tbody class="sys" style="color:black;">
+                
+                </tbody>
+                 
+                </table>
+      </footer>
+    </div>
+  </div>
+     </div>
+     {{-- for mobile view --}}
+  <div class="w3-hide-large">
+       {{--user--}}
+          <div class="w3-display-right"  style="margin-right:27%;">
 <div class="w3-dropdown-hover">
-    <button onclick="myFunction2()" class="w3-button"> 
+    <button onclick="myFunction2()" class="w3-button" style="background-color:white;"> 
   @auth 
     <img class="img-fluid mx-auto propic-small" style="width:30px;height:30px;"src="/storage/profile_images/thumbnails/{{Auth::user()->hasProfile->profile_image}}" alt="" >
     <small  style="color:black; font-size:15px;"> {{'   '.ucfirst(Auth::user()->fname)}}</small>
@@ -138,16 +180,128 @@
   </form> 
   </div>
 </div>
-{{--end user--}}
+  </div>
+    {{-- end user --}}
+
+    {{--notis--}}
+     
+  <div class="w3-dropdown-hover ">
+   <div class="w3-display-right" style="margin-right:15%;" >
+      <button onclick="myFunction1()" class="w3-button"> @auth
+        <span class="fa fa-bell" id="notifications" style="color:black;font-size:25px;"></span>@if(Auth::user()->unreadNotifications->count()>0)<span class="w3-badge w3-red w3-large noti_count"  id="">{{Auth::user()->unreadNotifications->count()}}</span>@endif
+        @endauth</button>
+ 
+      <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-animate-zoom" style="text-align:center;">
+      
+        @auth
+        @if(Auth::user()->unreadNotifications->count()>0)
+                         @foreach (Auth::user()->unreadNotifications->take(10) as $n )
+                        
+                        @if($n->type=="App\Notifications\UserFollowed")
+                         @php
+                         $u = $n->data['follower_id'];
+                         $user = App\User::find($u);
+                         $f = $n->data['follower_fname'];
+                         $l = $n->data['follower_lname'];
+                       
+                         @endphp
+     
+<div style="border:1px solid black;background-color:white;">
+       <a href="{{route('profile',['user'=>$user,'slug'=>str_slug($f.' '.$l)])}}" class="dropdown-item notify" data-m={{$n->id}}> <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$user->hasProfile->profile_image}}" alt=""><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
+       </div>
    
-{{--search--}}
-{{--
-<form class="form-inline my-2 my-lg-0 mx-auto" action="{{route('search')}}">
-    <input class="form-control mr-sm-2 search" id ="search-p" type="search" placeholder="Search fluidbN..." aria-label="Search"name= "search" autocomplete="off"  style="">
-    <button class="btn-login my-2 my-sm-0" type="submit" style="border:none;"><i class="fa fa-search " ></i></button>
-</form>
---}}
-{{--end search--}}
+                     
+                        @elseif($n->type=="App\Notifications\UserWelcome")
+                        <div style="border:1px solid black;background-color:white;">
+                        <a href="" class="dropdown-item notify" data-m={{$n->id}}><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
+                        </div>
+                   
+                         
+                          @elseif($n->type=="App\Notifications\UserFollowedTheory")
+                          @php 
+                          $id = $n->data['theory_id']; 
+                         
+                         
+                          $art = App\Theory::find($id);
+                          $title = $n->data['theory_title']; 
+                          @endphp
+                          <div style="border:1px solid black;background-color:white;">
+                          <a href="{{route('show-theory',['theory'=>$art,'slug'=>str_slug($title)])}}" class="dropdown-item notify" data-m={{$n->id}}><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
+                          </div>
+                    
+                          @else
+                          @php 
+                          $id = $n->data['article_id']; 
+                         
+                         
+                          $art = App\Article::find($id);
+                          $title = $n->data['article_title']; 
+                          @endphp
+                          <div style="border:1px solid black;background-color:white;">
+                          <a href="{{route('show-article',['article'=>$art,'slug'=>str_slug($title)])}}" class="dropdown-item notify dropNot" data-m={{$n->id}}><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
+                          </div>
+                     
+                          @endif
+                         @endforeach
+                        
+                       @if(Auth::user()->unreadNotifications->count()>10)
+                         <a href="{{route('all-notifications')}}"><p style="color:black;text-align:center;font-weight:500;font-size:25px;"> See all </p></a>
+                        @endif
+                       
+                         @else
+                     
+                        <a href=""class="dropdown-item"> No new notifications</a>
+                         <a href="{{route('all-notifications')}}" class="dropdown-item">All notifications</a>
+                       
+                         @endif 
+                         @endauth
+    </div>
+
+      </div>
+  </div>
+  
+    {{-- search --}}
+   <div class="w3-display-right" style="margin-right:1%;">
+     <button onclick="document.getElementById('id02').style.display='block'" class="w3-button" style="background-color:white;"><i class="fa fa-search" style="font-size:30px;"></i></button>
+  </div>
+  <div id="id02" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-flat-pomegranate"> 
+        <span onclick="document.getElementById('id02').style.display='none'" 
+        class="w3-button w3-display-topright w3-black w3-padding-medium">&times;</span>
+        <h2>fluidbN search !</h2>
+      </header>
+      <div class="w3-container">
+          {!! Form::open(['route'=>'search','method'=>'GET']) !!}  
+       
+   
+    {{Form::text('search','',['id'=>'search-p','class'=>'w3-small search ','placeholder'=>'Search for stories, theories & people here...','autocomplete'=>'off'])}}
+
+    {!! Form::close() !!}
+    
+      </div>
+      <footer class="w3-container">
+          <table class="table table-bordered table-hover ">
+               
+                <tbody class="sys" style="color:black;">
+                
+                </tbody>
+                 
+                </table>
+      </footer>
+    </div>
+  </div>
+  </div>
+ 
+    <div class="w3-display-topmiddle w3-hide-small w3-hide-medium" id="nav-p" style="margin-top:0.5%;">
+      {{--<a href="#about" class="w3-bar-item w3-button">About</a>--}}
+    
+      <button onclick="location.href='/feed'" class="w3-bar-item ">Feed</button>
+  <button onclick="location.href='{{route('curated-story')}}'"  class="w3-bar-item w3-button">Curated stories</button>
+  <button onclick="location.href='{{route('all-story-choices')}}'"  class="w3-bar-item w3-button">All story choices</button>
+ 
+
+
    
 
 
@@ -275,30 +429,8 @@
     
   {{--end user--}}
     
-{{--search--}}
-{{--
-<form class="form-inline my-2 my-lg-0 mx-auto" action="{{route('search')}}">
-    <input class="form-control mr-sm-2 search" id ="" type="search" placeholder="Search fluidbN..." aria-label="Search"name= "search" autocomplete="off"  style="">
-    <button class="btn-login my-2 my-sm-0" type="submit" style="border:none;"><i class="fa fa-search " ></i></button>
-</form>
---}}
-{{--end search--}}
 
 
-<div class="w3-container w3-hide-large w3-hover-black">
-             
-    <table class="table table-bordered ">
-             
-              <tbody id="sy" style="color:white;" class="hov-a-white">
-              
-              </tbody>
-               
-              </table>
-
-  
-</div>
-
-    </div>
     
 </nav>
 

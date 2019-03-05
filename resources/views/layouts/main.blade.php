@@ -53,7 +53,10 @@
 
          <script charset="utf-8" src="https://ucarecdn.com/libs/widget/3.6.1/uploadcare.full.min.js"></script>
          --}}
-      <style>      
+      <style>  
+          body{
+              background-color:#f8f8ff;
+          }    
             html, body, h1, h2, h3, h4, h5 {font-family: "Raleway", sans-serif}                       
   /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -282,12 +285,12 @@ span.psw {
     
     <div class="container">
         <div class="row featurette">
-     <div class="col-sm-4" style="margin-top:11%;margin-left:20%;">
+     <div class="col-sm-4" style="margin-left:20%;">
      @include('includes.flashmsg')
      </div>
      </div>
     </div>
-    <div style="margin-top:3%;">
+    <div style="margin-top:4%;">
         @yield('content')
         </div>
  
