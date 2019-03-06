@@ -149,15 +149,15 @@
     </div>
   </div>
      </div>
-     {{-- for mobile view --}}
+     {{--  for mobile view--}}
   <div class="w3-hide-large">
-       {{--user--}}
+       {{--user--
           <div class="w3-display-right"  style="margin-right:35%;">
 <div class="w3-dropdown-hover">
     <button onclick="myFunction2()" class="w3-button" style="background-color:white;"> 
   @auth 
     <img class="img-fluid mx-auto propic-small" style="width:30px;height:30px;"src="/storage/profile_images/thumbnails/{{Auth::user()->hasProfile->profile_image}}" alt="" >
-    {{--  <small  style="color:black; font-size:15px;"> {{'   '.ucfirst(Auth::user()->fname)}}</small>  --}}
+    {{--  <small  style="color:black; font-size:15px;"> {{'   '.ucfirst(Auth::user()->fname)}}</small>  --
   @endauth
     </button>
   <div id="" class="w3-dropdown-content w3-bar-block w3-card-4 w3-animate-zoom">
@@ -181,9 +181,9 @@
   </div>
 </div>
   </div>
-    {{-- end user --}}
+    {{-- end user --
 
-    {{--notis--}}
+    {{--notis--
      
   <div class="w3-dropdown-hover ">
    <div class="w3-display-right" style="margin-right:15%;" >
@@ -259,9 +259,9 @@
 
       </div>
   </div>
-  
-    {{-- search --}}
-   <div class="w3-display-right" style="margin-right:1%;">
+  --}}
+    
+   <div class="w3-display-right" style="margin-right:25%;">
      <button onclick="document.getElementById('id02').style.display='block'" class="w3-button" style="background-color:white;"><i class="fa fa-search" style="font-size:30px;"></i></button>
   </div>
   <div id="id02" class="w3-modal">
@@ -292,7 +292,7 @@
     </div>
   </div>
   </div>
- 
+   
     <div class="w3-display-topmiddle w3-hide-small w3-hide-medium" id="nav-p" style="margin-top:0.5%;">
       {{--<a href="#about" class="w3-bar-item w3-button">About</a>--}}
     
