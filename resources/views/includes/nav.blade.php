@@ -7,117 +7,11 @@
     </a>
    
     <a href="{{ url('/feed') }}" class="w3-bar-item  w3-wide "><img class="featurette-image img-fluid mx-auto" src="/storage/logo/logow.png" style="margin-left:0;"></a>
-     <div class="w3-hide-small w3-hide-medium">
-          {{--user--}}
-          <div class="w3-display-right"  style="margin-right:30%;">
-<div class="w3-dropdown-hover">
-    <button onclick="myFunction2()" class="w3-button" style="background-color:white;"> 
-  @auth 
-    <img class="img-fluid mx-auto propic-small" style="width:30px;height:30px;"src="/storage/profile_images/thumbnails/{{Auth::user()->hasProfile->profile_image}}" alt="" >
-    <small  style="color:black; font-size:15px;"> {{'   '.ucfirst(Auth::user()->fname)}}</small>
-  @endauth
-    </button>
-  <div id="" class="w3-dropdown-content w3-bar-block w3-card-4 w3-animate-zoom">
-      <a href="{{route('profile',['user'=>Auth::user(),'slug'=>str_slug(Auth::user()->fname.' '.Auth::user()->lname)])}}" class="dropdown-item"  >Profile</a>
-      <a href="{{route('write')}}" id="write"class="dropdown-item">Write a story</a>
-         <a href="{{route('write-theory')}}" id="write-theory"class="dropdown-item">Share your theory</a>
-      <a href="{{route('show-bookmark')}}" id="show-bookmark" class="dropdown-item"> My bookmarks</a>
-     <a href="{{route('user-categories',['user'=>Auth::user(),'slug'=>str_slug(Auth::user()->fname.".".Auth::user()->lname)])}}" id="mycategories" class="dropdown-item"> My story choices</a>
-
-      <a href="{{route('settings')}}" id="settings" class="dropdown-item"> Settings</a>
-      <a href="{{ route('logout') }}"
-      onclick="event.preventDefault();
-               document.getElementById('logout-form').submit();" class="dropdown-item">
-      Logout
-  </a>
-
-  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-      {{ csrf_field() }}
-      @csrf
-  </form> 
-  </div>
-</div>
-  </div>
-    {{-- end user --}}
-
-    {{--notis--}}
+    
      
-  <div class="w3-dropdown-hover ">
-   <div class="w3-display-right" style="margin-right:25%;" >
-      <button onclick="myFunction1()" class="w3-button"> @auth
-        <span class="fa fa-bell" id="notifications" style="color:black;font-size:25px;"></span>@if(Auth::user()->unreadNotifications->count()>0)<span class="w3-badge w3-red w3-large noti_count"  id="">{{Auth::user()->unreadNotifications->count()}}</span>@endif
-        @endauth</button>
- 
-      <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-animate-zoom" style="text-align:center;">
-      
-        @auth
-        @if(Auth::user()->unreadNotifications->count()>0)
-                         @foreach (Auth::user()->unreadNotifications->take(10) as $n )
-                        
-                        @if($n->type=="App\Notifications\UserFollowed")
-                         @php
-                         $u = $n->data['follower_id'];
-                         $user = App\User::find($u);
-                         $f = $n->data['follower_fname'];
-                         $l = $n->data['follower_lname'];
-                       
-                         @endphp
-     
-<div style="border:1px solid black;background-color:white;">
-       <a href="{{route('profile',['user'=>$user,'slug'=>str_slug($f.' '.$l)])}}" class="dropdown-item notify" data-m={{$n->id}}> <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$user->hasProfile->profile_image}}" alt=""><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
-       </div>
-   
-                     
-                        @elseif($n->type=="App\Notifications\UserWelcome")
-                        <div style="border:1px solid black;background-color:white;">
-                        <a href="" class="dropdown-item notify" data-m={{$n->id}}><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
-                        </div>
-                   
-                         
-                          @elseif($n->type=="App\Notifications\UserFollowedTheory")
-                          @php 
-                          $id = $n->data['theory_id']; 
-                         
-                         
-                          $art = App\Theory::find($id);
-                          $title = $n->data['theory_title']; 
-                          @endphp
-                          <div style="border:1px solid black;background-color:white;">
-                          <a href="{{route('show-theory',['theory'=>$art,'slug'=>str_slug($title)])}}" class="dropdown-item notify" data-m={{$n->id}}><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
-                          </div>
-                    
-                          @else
-                          @php 
-                          $id = $n->data['article_id']; 
-                         
-                         
-                          $art = App\Article::find($id);
-                          $title = $n->data['article_title']; 
-                          @endphp
-                          <div style="border:1px solid black;background-color:white;">
-                          <a href="{{route('show-article',['article'=>$art,'slug'=>str_slug($title)])}}" class="dropdown-item notify dropNot" data-m={{$n->id}}><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
-                          </div>
-                     
-                          @endif
-                         @endforeach
-                        
-                       @if(Auth::user()->unreadNotifications->count()>10)
-                         <a href="{{route('all-notifications')}}"><p style="color:black;text-align:center;font-weight:500;font-size:25px;"> See all </p></a>
-                        @endif
-                       
-                         @else
-                     
-                        <a href=""class="dropdown-item"> No new notifications</a>
-                         <a href="{{route('all-notifications')}}" class="dropdown-item">All notifications</a>
-                       
-                         @endif 
-                         @endauth
-    </div>
-
-      </div>
-  </div>
   
     {{-- search --}}
+    <div class="w3-hide-small w3-hide-medium">
    <div class="w3-display-right" style="margin-right:20%;">
      <button onclick="document.getElementById('id01').style.display='block'" class="w3-button" style="background-color:white;"><i class="fa fa-search" style="font-size:30px;"></i></button>
   </div>
@@ -148,7 +42,7 @@
       </footer>
     </div>
   </div>
-     </div>
+  </div>
      {{--  for mobile view--}}
   <div class="w3-hide-large">
        {{--user--
@@ -300,12 +194,115 @@
   <button onclick="location.href='{{route('curated-story')}}'"  class="w3-bar-item w3-button">Curated stories</button>
   <button onclick="location.href='{{route('all-story-choices')}}'"  class="w3-bar-item w3-button">All story choices</button>
  
+<div class="w3-dropdown-hover">
+    <button onclick="myFunction2()" class="w3-button" style="background-color:white;"> 
+  @auth 
+    <img class="img-fluid mx-auto propic-small" style="width:30px;height:30px;"src="/storage/profile_images/thumbnails/{{Auth::user()->hasProfile->profile_image}}" alt="" >
+    <small  style="color:black; font-size:15px;"> {{'   '.ucfirst(Auth::user()->fname)}}</small>
+  @endauth
+    </button>
+  <div id="" class="w3-dropdown-content w3-bar-block w3-card-4 w3-animate-zoom">
+      <a href="{{route('profile',['user'=>Auth::user(),'slug'=>str_slug(Auth::user()->fname.' '.Auth::user()->lname)])}}" class="dropdown-item"  >Profile</a>
+      <a href="{{route('write')}}" id="write"class="dropdown-item">Write a story</a>
+         <a href="{{route('write-theory')}}" id="write-theory"class="dropdown-item">Share your theory</a>
+      <a href="{{route('show-bookmark')}}" id="show-bookmark" class="dropdown-item"> My bookmarks</a>
+     <a href="{{route('user-categories',['user'=>Auth::user(),'slug'=>str_slug(Auth::user()->fname.".".Auth::user()->lname)])}}" id="mycategories" class="dropdown-item"> My story choices</a>
 
+      <a href="{{route('settings')}}" id="settings" class="dropdown-item"> Settings</a>
+      <a href="{{ route('logout') }}"
+      onclick="event.preventDefault();
+               document.getElementById('logout-form').submit();" class="dropdown-item">
+      Logout
+  </a>
+
+  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+      {{ csrf_field() }}
+      @csrf
+  </form> 
+  </div>
+</div>
+{{-- notis --}}
+<div class="w3-dropdown-hover ">
+
+      <button onclick="myFunction1()" class="w3-button"> @auth
+        <span class="fa fa-bell" id="notifications" style="color:black;font-size:25px;"></span>@if(Auth::user()->unreadNotifications->count()>0)<span class="w3-badge w3-red w3-large noti_count"  id="">{{Auth::user()->unreadNotifications->count()}}</span>@endif
+        @endauth</button>
+ 
+      <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-animate-zoom" style="text-align:center;">
+      
+        @auth
+        @if(Auth::user()->unreadNotifications->count()>0)
+                         @foreach (Auth::user()->unreadNotifications->take(10) as $n )
+                        
+                        @if($n->type=="App\Notifications\UserFollowed")
+                         @php
+                         $u = $n->data['follower_id'];
+                         $user = App\User::find($u);
+                         $f = $n->data['follower_fname'];
+                         $l = $n->data['follower_lname'];
+                       
+                         @endphp
+     
+<div style="border:1px solid black;background-color:white;">
+       <a href="{{route('profile',['user'=>$user,'slug'=>str_slug($f.' '.$l)])}}" class="dropdown-item notify" data-m={{$n->id}}> <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$user->hasProfile->profile_image}}" alt=""><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
+       </div>
+   
+                     
+                        @elseif($n->type=="App\Notifications\UserWelcome")
+                        <div style="border:1px solid black;background-color:white;">
+                        <a href="" class="dropdown-item notify" data-m={{$n->id}}><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
+                        </div>
+                   
+                         
+                          @elseif($n->type=="App\Notifications\UserFollowedTheory")
+                          @php 
+                          $id = $n->data['theory_id']; 
+                         
+                         
+                          $art = App\Theory::find($id);
+                          $title = $n->data['theory_title']; 
+                          @endphp
+                          <div style="border:1px solid black;background-color:white;">
+                          <a href="{{route('show-theory',['theory'=>$art,'slug'=>str_slug($title)])}}" class="dropdown-item notify" data-m={{$n->id}}><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
+                          </div>
+                    
+                          @else
+                          @php 
+                          $id = $n->data['article_id']; 
+                         
+                         
+                          $art = App\Article::find($id);
+                          $title = $n->data['article_title']; 
+                          @endphp
+                          <div style="border:1px solid black;background-color:white;">
+                          <a href="{{route('show-article',['article'=>$art,'slug'=>str_slug($title)])}}" class="dropdown-item notify dropNot" data-m={{$n->id}}><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
+                          </div>
+                     
+                          @endif
+                         @endforeach
+                        
+                       @if(Auth::user()->unreadNotifications->count()>10)
+                         <a href="{{route('all-notifications')}}"><p style="color:black;text-align:center;font-weight:500;font-size:25px;"> See all </p></a>
+                        @endif
+                       
+                         @else
+                     
+                        <a href=""class="dropdown-item"> No new notifications</a>
+                         <a href="{{route('all-notifications')}}" class="dropdown-item">All notifications</a>
+                       
+                         @endif 
+                         @endauth
+    </div>
+
+    
+  </div>
+  
+  </div>
+    {{-- end user --}}
 
    
 
 
-</div>
 
 
     </div>

@@ -12,7 +12,7 @@
 
 <div class="container">
 
-      <div class="col-sm-6 w3-hide-small w3-hide-medium">
+      {{--  <div class="col-sm-6 w3-hide-small w3-hide-medium">
        
             <img class=" zoom  featurette-image img-fluid mx-auto card" style="width:100%;" src="/storage/studio_images/{{$StudioStories->title_image}}" alt="" onclick="document.getElementById('modal02').style.display='block'">
             <div id="modal02" class="w3-modal" onclick="this.style.display='none'">
@@ -31,7 +31,7 @@
                   <img src="/storage/studio_images/{{$StudioStories->title_image}}"  class="zoom" style="width:100%">
                 </div>
               </div>  
-     </div>
+     </div>  --}}
    @php
           if($wows==0)
           $w="";
@@ -83,11 +83,11 @@
           
         
       </div>
-                <img class=" zoom  featurette-image img-fluid mx-auto card" style="width:100%;" src="/storage/studio_images/{{$StudioStories->content}}" alt="" onclick="document.getElementById('modal01').style.display='block'">
+                <img class=" zoom  featurette-image img-fluid mx-auto card" style="" src="/storage/studio_images/{{$StudioStories->content}}" alt="" onclick="document.getElementById('modal01').style.display='block'">
                   <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
                 <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
                 <div class="w3-modal-content w3-animate-zoom">
-                  <img src="/storage/studio_images/{{$StudioStories->content}}" class="zoom mx-auto" style="width:100%">
+                  <img src="/storage/studio_images/{{$StudioStories->content}}" class="zoom mx-auto" style="">
                 </div>
               </div>  
          
