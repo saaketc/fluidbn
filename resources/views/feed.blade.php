@@ -63,11 +63,11 @@ My feed | fluidbN
        <a href="{{route('stories-genre',['genre'=>$a->storyOfGenre])}}" <small class="genre-feed">{{ucfirst($a->storyOfGenre->name)}}</small></a>
        <a href="{{route('studio-story',['StudioStories'=>$a,'slug'=>str_slug($a->title)])}}">
         
-       <div class="card-related lower-margin" style="width:100%;">
+       <div class="card-related lower-margin" style="">
            
          <img class="featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/studio_images/{{$a->title_image}}" alt="">
        
-         <div class="container-related" style="width:100%;">
+         <div class="container-related" style="">
            <h2 class="featurette-heading-feed">{{ucfirst($a->title)}}</h2>
            
           
@@ -114,10 +114,10 @@ My feed | fluidbN
                   <br/>
                     <a href="{{route('show-theory',['theory'=>$a,'slug'=>str_slug($a->title)])}}">
                      
-                    <div class="card-related lower-margin" style="width:100%;">
+                    <div class="card-related lower-margin" style="">
                         
                      
-                      <div class="container-related" style="width:100%;">
+                      <div class="container-related" style="">
                         <h2 class="featurette-heading-feed">{{ucfirst($a->title)}}</h2>
                         
                         {{--  <p class="lead">{!!wordwrap(str_limit($a->content,100),50,"<br>\n",TRUE)!!}</p>  --}}
@@ -186,11 +186,11 @@ My feed | fluidbN
                     <a href="{{route('stories-genre',['genre'=>$a->ofGenre])}}" <small class="genre-feed">{{ucfirst($a->ofGenre->name)}}</small></a>
                     <a href="{{route('show-article',['article'=>$a,'slug'=>str_slug($a->title)])}}">
                      
-                    <div class="card-related lower-margin" style="width:100%;">
+                    <div class="card-related lower-margin" style="">
                         
                       <img class="featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/article_images/{{$a->title_image}}" alt="">
                     
-                      <div class="container-related" style="width:100%;">
+                      <div class="container-related" style="">
                         <h2 class="featurette-heading-feed">{{ucfirst($a->title)}}</h2>
                          @php
                           $wows = $a->likedBy()->wherePivot('article_id',$a->id)->count();
@@ -281,11 +281,11 @@ My feed | fluidbN
                     <a href="{{route('stories-genre',['genre'=>$a->ofGenre])}}" <small class="genre-feed">{{ucfirst($a->ofGenre->name)}}</small></a>
                     <a href="{{route('show-article',['article'=>$a,'slug'=>str_slug($a->title)])}}">
                      
-                    <div class="card-related lower-margin" style="width:100%;">
+                    <div class="card-related lower-margin" style="">
                         
                       <img class="featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/article_images/{{$a->title_image}}" alt="">
                     
-                      <div class="container-related" style="width:100%;">
+                      <div class="container-related" style="">
                         <h2 class="featurette-heading-feed">{{ucfirst($a->title)}}</h2>
                          @php
                           $wows = $a->likedBy()->wherePivot('article_id',$a->id)->count();
