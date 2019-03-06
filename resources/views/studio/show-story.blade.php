@@ -79,10 +79,7 @@
       
       
       <div class="col-12">
-           <div class="lower-margin box">
           
-        
-      </div>
                 <img class=" zoom  featurette-image img-fluid mx-auto card" style="" src="/storage/studio_images/{{$StudioStories->content}}" alt="" onclick="document.getElementById('modal01').style.display='block'">
                   <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
                 <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
