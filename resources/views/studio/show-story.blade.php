@@ -41,13 +41,13 @@
   
     <div class="w3-container w3-hide-small w3-hide-medium">
 
-<h2 class="featurette-heading" style="margin-top:20px; color:black;font-weight:bold;font-size:6rem;">{{ucfirst($StudioStories->title)}}</h2>
+<h2 class="featurette-heading" style="color:black;font-weight:bold;font-size:6rem;">{{ucfirst($StudioStories->title)}}</h2>
 <small  id="wows" style="color:black; font-size:15px;font-weight:bold;"><i class="fa fa-heart" style="color:red;font-size:15px;"> {{$w}}</i></small>     
           
 </div>
-  <div class="w3-container w3-hide-large" style="margin-top:15%;" >
+  <div class="w3-container w3-hide-large" style="" >
 
-<h2 class="featurette-heading w3-xxxlarge" style="margin-top:20px; color:black;font-weight:bold;">{{ucfirst($StudioStories->title)}}</h2>
+<h2 class="featurette-heading w3-xxxlarge" style="color:black;font-weight:bold;">{{ucfirst($StudioStories->title)}}</h2>
 <small  id="wows" style="color:black; font-size:15px;font-weight:bold;"><i class="fa fa-heart" style="color:red;font-size:15px;"> {{$w}}</i></small>     
           
 </div>
@@ -87,7 +87,7 @@
                   <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
                 <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
                 <div class="w3-modal-content w3-animate-zoom">
-                  <img src="/storage/studio_images/{{$StudioStories->content}}" class="zoom mx-auto" style="">
+                  <img src="/storage/studio_images/{{$StudioStories->content}}" class="zoom mx-auto" style="width:100%">
                 </div>
               </div>  
          
