@@ -3263,16 +3263,18 @@
                         e("#" + n).attr("data-val", "someval")
                     }))
                 })
-            }), e(document).ready(function () {
-                e("a.chooseGenre").dblclick(function (t) {
-                    t.preventDefault();
-                    var n = e(this).attr("data-name");
-                    e("#" + n).css("border", "none"), e.post(urlGenreRem, {
-                        genreId: genreId,
-                        _token: token
-                    })
-                })
-            }), e(document).ready(function () {
+            }), 
+            // e(document).ready(function () {
+            //     e("a.chooseGenre").dblclick(function (t) {
+            //         t.preventDefault();
+            //         var n = e(this).attr("data-name");
+            //         e("#" + n).css("border", "none"), e.post(urlGenreRem, {
+            //             genreId: genreId,
+            //             _token: token
+            //         })
+            //     })
+            // })
+            e(document).ready(function () {
                 e("#nextPage").on("click", function (t) {
                     t.preventDefault(), e.post(urlCreateProfile, {
                         _token: token
