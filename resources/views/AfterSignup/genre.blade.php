@@ -11,11 +11,13 @@ Signup - choose-category | fluidbN
 @section('content')
  
 <div class="container">
-<div class="box lower-margin" style="margin-top:10%;">
-   <h1 class="featurette-heading-title" style="font-size:50px;">Hi {{ucfirst(Auth::user()->fname)}}, choose categories you <i class="fa fa-heart" style="font-size:40px;color:red;"></i></h1> 
-   {{--
-   <img class="featurette-image img-fluid mx-auto" style="box-shadow:5px 5px 5px #888888;"src="/storage/general/category.png" alt="choose category">
-  --}} 
+<div class="box lower-margin w3-hide-small w3-hide-medium" style="margin-top:10%;">
+   <h1 class="w3-xxxlarge" style="font-weight:bold;font-color:black;">Hi {{ucfirst(Auth::user()->fname)}}, choose categories you <i class="fa fa-heart" style="font-size:40px;color:red;"></i></h1> 
+   
+  </div>
+  <div class="box lower-margin w3-hide-large" style="margin-top:10%;">
+   <h1 class="w3-xlarge" style="font-weight:bold;font-color:black;">Hi {{ucfirst(Auth::user()->fname)}}, choose categories you <i class="fa fa-heart" style="font-size:25px;color:red;"></i></h1> 
+   
   </div>
 </div>
 <div class="container">
@@ -27,7 +29,7 @@ Signup - choose-category | fluidbN
 if(Auth::user())
 $exists = Auth::user()->hasGenre()->wherePivot('user_id',Auth::user()->id)->wherePivot('genre_id',$g->id)->first();
 if($exists!=NULL){
-  $c="card-genre lower-margin genre-selected";
+  $c="card-genre lower-margin w3-opacity-max";
   $v = "newval".$g->id;
 }
 
@@ -37,7 +39,8 @@ else{
 }
 
 @endphp
-    <div class="col-md-3"  data-genreId="{{$g->id}}">
+
+    <div class="col-md-3 "  data-genreId="{{$g->id}}">
         <a href="/{{$g->name}}" class="chooseGenre" data-genreId="{{$g->id}}" data-name="{{$g->id}}">
 
           <div class="{{$c}}" id="{{$g->id}}" data-val="{{$v}}">
@@ -47,6 +50,7 @@ else{
      
         </a>
     </div>
+
 @endforeach
 
   </div>
