@@ -32,7 +32,7 @@
                 </div>
               </div>  
      </div>  --}}
-     @@php
+     @php
       $b = Auth::user()->bookmarksFs()->wherePivot('user_id',Auth::user()->id)->wherePivot('story_id',$StudioStories->id)->first();
        $l = Auth::user()->likesFs()->wherePivot('user_id',Auth::user()->id)->wherePivot('story_id',$StudioStories->id)->first();
            if($b)
@@ -44,7 +44,7 @@
            else
            $cl="";  
          @endphp
-     @endphp
+     
    @php
           if($wows==0)
           $w="";
