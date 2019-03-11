@@ -32,6 +32,19 @@
                 </div>
               </div>  
      </div>  --}}
+     @@php
+      $b = Auth::user()->bookmarksFs()->wherePivot('user_id',Auth::user()->id)->wherePivot('story_id',$StudioStories->id)->first();
+       $l = Auth::user()->likesFs()->wherePivot('user_id',Auth::user()->id)->wherePivot('story_id',$StudioStories->id)->first();
+           if($b)
+           $cl="pressed";
+           else
+           $cl="";  
+           if($l)
+           $cl="pressed";
+           else
+           $cl="";  
+         @endphp
+     @endphp
    @php
           if($wows==0)
           $w="";
@@ -95,8 +108,8 @@
    
       <footer>
             <div class="box lower-margin">
-                    <button class="btn  btn-login" id="likefs"  style="margin-left:20px;margin-top:5px;" data-articleid="{{$StudioStories->id}}" type="submit">{{$likeFs ? "Thanks" : "Wow"}}</button>
-                    <button class="btn   btn-login" style="margin-top:5px;" id='bookmarkfs' data-articleId="{{$StudioStories->id}}">{{$bookmark ? "Bookmarked" : "Bookmark"}}</button>
+                    <button class="btn  btn-login {{$cl}}" id="likefs"  style="margin-left:20px;margin-top:5px;" data-articleid="{{$StudioStories->id}}" type="submit">{{$likeFs ? "Thanks" : "Wow"}}</button>
+                    <button class="btn   btn-login {{$cl}}" style="margin-top:5px;" id='bookmarkfs' data-articleId="{{$StudioStories->id}}">{{$bookmark ? "Bookmarked" : "Bookmark"}}</button>
             
           </div>
   

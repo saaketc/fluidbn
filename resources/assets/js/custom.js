@@ -35,7 +35,7 @@ $.ajaxSetup({
                   _token :token
               },
               function(data){
-                 $('#like').text('Thanks');
+            
                  $('#wow').text(data.wows);
                               }
                    ); 
@@ -50,7 +50,7 @@ $.ajaxSetup({
               _token :token
           },
           function(data){
-                  $('#like').text('Wow');
+               
                   $('#wow').text(data.wows);
                       }
                   );    
@@ -77,7 +77,7 @@ $.ajaxSetup({
                     $("#fol_sugg").html(data.output);
                    
                   
-                    $('button.fol').text('Following');
+                   
                 }
               );
             }
@@ -95,7 +95,7 @@ $.ajaxSetup({
                     $("#fol_sugg").html(data);
                    
                   
-                    $('button.fol').text('Follow');
+                    
                 }
               );
      
@@ -131,7 +131,7 @@ $(document).ready(function(){
                       _token :token
                   },
                   function(){
-                          $('button.bookmark').text('Bookmarked');
+                        
                           
                               }
                ); 
@@ -145,7 +145,7 @@ $(document).ready(function(){
                   _token :token
               },
               function(){
-                      $('button.bookmark').text('Bookmark');
+                     
                     
               }
            );    
@@ -165,24 +165,28 @@ $(document).ready(function(){
            
             if($('#bookmarkfs').text()=="Bookmark"){
               $('#bookmarkfs').text('Bookmarked'); 
+                $('#bookmarkfs').css('background', 'black');
+                $('#bookmarkfs').css('color', 'white');
               $.post(urlFbnStoryBookmark,{
                     articleId:articleId,
                     _token :token
                 },
                 function(){
-                        $('#bookmarkfs').text('Bookmarked');
+               
                         
                             }
              ); 
             }
           else  if($('#bookmarkfs').text()=="Bookmarked"){
               $('#bookmarkfs').text('Bookmark');
+              $('#bookmarkfs').css('background', 'white');
+              $('#bookmarkfs').css('color', 'black');
               $.post(urlFbnStoryUnmark,{
                 articleId:articleId,
                 _token :token
             },
             function(){
-                    $('#bookmarkfs').text('Bookmark');
+                
                   
             }
          );    
@@ -201,25 +205,29 @@ $(document).ready(function(){
                         
                 if($('#likefs').text()=="Wow"){
                   $('#likefs').text('Thanks');  
+                  $('#likefs').css('background', 'black');
+                  $('#likefs').css('color', 'white');
                   $.post(urlFbnStoryLike,{
                         articleId:articleId,
                         _token :token
                     },
                     function(data){
-                       $('#likefs').text('Thanks');
+                     
                        $('#wows').text(data.wows);
                                     }
                          ); 
                   }
               else  if($('#likefs').text()=="Thanks"){
                   $('#likefs').text('Wow');
+                       $('#likefs').css('background', 'white');
+                       $('#likefs').css('color', 'black');
                   $.post(urlFbnStoryUnlike,{
                     articleId:articleId,
                
                     _token :token
                 },
                 function(data){
-                        $('#likefs').text('Wow');
+                      
                         $('#wows').text(data.wows);
                             }
                         );    
