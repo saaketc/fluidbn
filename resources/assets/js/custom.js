@@ -27,6 +27,8 @@ $.ajaxSetup({
                    userId = $('button.fol').attr('data-userid');
           if($('#like').text()=="Wow"){
             $('#like').text('Thanks');  
+             $('#like').css('background', 'black');
+             $('#like').css('color', 'white');
             $.post(urlLike,{
                   articleId:articleId,
                   userId:userId,
@@ -40,6 +42,8 @@ $.ajaxSetup({
             }
         else  if($('#like').text()=="Thanks"){
             $('#like').text('Wow');
+            $('#like').css('background', 'white');
+            $('#like').css('color', 'black');
             $.post(urlUnlike,{
               articleId:articleId,
               userId:userId,
@@ -120,6 +124,8 @@ $(document).ready(function(){
              
               if($('button.bookmark').text()=="Bookmark"){
                 $('button.bookmark').text('Bookmarked'); 
+                 $('button.bookmark').css('background','black');
+                   $('button.bookmark').css('color', 'white');
                 $.post(urlBookmark,{
                       articleId:articleId,
                       _token :token
@@ -132,6 +138,8 @@ $(document).ready(function(){
               }
             else  if($('button.bookmark').text()=="Bookmarked"){
                 $('button.bookmark').text('Bookmark');
+                 $('button.bookmark').css('background', 'white');
+                 $('button.bookmark').css('color', 'black');
                 $.post(urlUnmark,{
                   articleId:articleId,
                   _token :token
