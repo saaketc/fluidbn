@@ -40,7 +40,9 @@
               @php
           $f = Auth::user()->follows()->wherePivot('follower_id',Auth::user()->id)->wherePivot('following_id',$article->writtenBy->id)->first();
          $l = Auth::user()->likes()->wherePivot('user_id',Auth::user()->id)->wherePivot('article_id',$article->id)->first();
-          if($f)
+          $b = Auth::user()->bookmarks()->wherePivot('user_id',Auth::user()->id)->wherePivot('article_id',$article->id)->first();
+          
+         if($f)
            $cl="pressed";
            else
            $cl="";
@@ -48,6 +50,11 @@
            $c="pressed";
            else
            $c="";
+           if($b)
+           $c="pressed";
+           else
+           $c="";
+         
          
           @endphp
            <button class="btn margin btn-login fol {{$cl}}" id ="" data-userid="{{$article->writtenBy->id}}">{{$follow ? "Following" : "Follow"}}</button> 
@@ -147,7 +154,7 @@
         </div>
       </div>
            <button class="btn  btn-login {{$c}}" id="like"  style="margin-left:20px;margin-top:5px;" data-articleid="{{$article->id}}" type="submit">{{$like ? "Thanks" : "Wow"}}</button>
-        <button class="btn   btn-login bookmark" style="margin-top:5px;" data-articleId="{{$article->id}}">{{$bookmark ? "Bookmarked" : "Bookmark"}}</button>
+        <button class="btn   btn-login bookmark {{$c}}" style="margin-top:5px;" data-articleId="{{$article->id}}">{{$bookmark ? "Bookmarked" : "Bookmark"}}</button>
         {{--
         <button class="btn btn-login" style="margin-top:5px;margin-bottom:10px;" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::fullUrl()) }}')">Share on facebook</button>
         <button class="btn   btn-login" style="margin-top:5px;margin-bottom:10px;" onclick="window.open('https://twitter.com/intent/tweet?url={{ urlencode(Request::fullUrl())}}')">Share on twitter</button>
