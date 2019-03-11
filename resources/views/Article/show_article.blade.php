@@ -8,79 +8,30 @@
     
 
 @section('content')
+<div class="w3-container">
+    <div class="row">
+    <div class="col-sm-8">   
+  <div class=" w3-hide-small w3-hide-medium ">
 
-  <div class="w3-container w3-hide-small w3-hide-medium">
-
-<h2 class="featurette-heading" style="margin-top:20px; color:black;font-weight:bold;font-size:6rem;">{{ucfirst($article->title)}}</h2>
+<h2 class="featurette-heading w3-center" style="margin-top:10px; color:black;font-weight:bold;font-size:6rem;">{{ucfirst($article->title)}}</h2>
   </div>
-  <div class="w3-container w3-hide-large" style="margin-top:15%;" >
+     </div>
+  <div class=" w3-hide-large " style="margin-top:2%;" >
 
-<h2 class="featurette-heading w3-xxxlarge" style="margin-top:20px; color:black;font-weight:bold;">{{ucfirst($article->title)}}</h2>
+<h2 class="featurette-heading w3-xxlarge w3-center" style="margin-top:20px; color:black;font-weight:bold;">{{ucfirst($article->title)}}</h2>
   </div>
-<div class="container">
+    
 
 
-    <div class="row featurette">
+
    
 
-        <div class="col-sm-6 ">
-          
-          <div class="box" id="mainView" data-articleid="{{$article->id}}" style="margin-top:5rem;">
-              
-         
-          
-         
-              <a href="{{route('profile',['user'=>$article->writtenBy,'slug'=>str_slug($article->writtenBy->fname." ".$article->writtenBy->lname)])}}">
-              <img class=" featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$article->writtenBy->hasProfile->profile_image}}" alt=""><h5 class="writer">{{ucfirst($article->writtenBy->fname)}}
-               
-                {{ucfirst($article->writtenBy->lname)}}</h5></a>
-          
-             
-              <h6 class="writer-small" style="margin-top:5px;">{{$article->writtenBy->hasProfile->about }}</h6>
-              @php
-          $f = Auth::user()->follows()->wherePivot('follower_id',Auth::user()->id)->wherePivot('following_id',$article->writtenBy->id)->first();
-         $l = Auth::user()->likes()->wherePivot('user_id',Auth::user()->id)->wherePivot('article_id',$article->id)->first();
-          $b = Auth::user()->bookmarks()->wherePivot('user_id',Auth::user()->id)->wherePivot('article_id',$article->id)->first();
-          
-         if($f)
-           $cl="pressed";
-           else
-           $cl="";
-           if($l)
-           $c="pressed";
-           else
-           $c="";
-           if($b)
-           $c="pressed";
-           else
-           $c="";
-         
-         
-          @endphp
-           <button class="btn margin btn-login fol {{$cl}}" id ="" data-userid="{{$article->writtenBy->id}}">{{$follow ? "Following" : "Follow"}}</button> 
-             
-              @if (Auth::user()->id==$article->writtenBy->id) 
-            
-            <button  class="btn  btn-login margin"  onclick="location.href='{{route('view-edit',['article'=>$article])}}'">Open in edit view</button> 
-      
-           @endif
-               </div>
-       <div class" w3-hide w3-container" id="fol-sugg-tab">
-                  <h3 class="w3-large" style="color:black;font-weight:bold;">Follow suggestions  <button class="w3-button w3-black" id="fol-sugg-cls"><i class="fa fa-close"></i></button></h3>
-                  <table class="table table-bordered table-hover">
-                      
-                    <tbody id="fol_sugg">
-                    
-                    </tbody>
-                     
-                    </table>
-                  </div>
-      </div>
-      
-     <div class="col-sm-6">
      
-              <div class="frame"  style="margin-top:5rem;">    
-            <img class=" zoom  featurette-image img-fluid mx-auto" src="/storage/article_images/{{$article->title_image}}"alt=""  onclick="document.getElementById('modal02').style.display='block'">
+      
+     <div class="col-sm-4">
+     
+              <div class="frame "  style="margin-top:2rem;text-align:center;">    
+            <img class=" zoom  img-fluid mx-auto" src="/storage/article_images/{{$article->title_image}}"alt=""  onclick="document.getElementById('modal02').style.display='block'">
             
           </div>
           <div id="modal02" class="w3-modal" onclick="this.style.display='none'">
@@ -91,7 +42,8 @@
           </div>    
      </div>
     </div>
-</div>
+  </div>
+
      
       @php
       if($views>1)
@@ -141,6 +93,63 @@
       </div>
       
       <footer>
+         {{-- writer info --}}
+<div class="row">
+   
+  <div class="col-sm-6 w3-center">
+          
+          <div class="box" id="mainView" data-articleid="{{$article->id}}" style="margin-top:5rem;">
+              
+         
+          
+          <h2 class="w3-large" style="font-weight:bold;color:black;">Author</h2>    
+              <a href="{{route('profile',['user'=>$article->writtenBy,'slug'=>str_slug($article->writtenBy->fname." ".$article->writtenBy->lname)])}}">
+              <img class=" featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$article->writtenBy->hasProfile->profile_image}}" alt=""><h5 class="w3-medium">{{ucfirst($article->writtenBy->fname)}}
+               
+                {{ucfirst($article->writtenBy->lname)}}</h5></a>
+          
+             
+              <h6 class="w3-small" style="margin-top:5px;">{{$article->writtenBy->hasProfile->about }}</h6>
+              @php
+          $f = Auth::user()->follows()->wherePivot('follower_id',Auth::user()->id)->wherePivot('following_id',$article->writtenBy->id)->first();
+         $l = Auth::user()->likes()->wherePivot('user_id',Auth::user()->id)->wherePivot('article_id',$article->id)->first();
+          $b = Auth::user()->bookmarks()->wherePivot('user_id',Auth::user()->id)->wherePivot('article_id',$article->id)->first();
+          
+         if($f)
+           $cl="pressed";
+           else
+           $cl="";
+           if($l)
+           $c="pressed";
+           else
+           $c="w3-flat-pomegranate";
+           if($b)
+           $c="pressed";
+           else
+           $c="w3-flat-pomegranate";
+         
+         
+          @endphp
+           <button class="btn margin btn-login fol {{$cl}}" id ="" data-userid="{{$article->writtenBy->id}}">{{$follow ? "Following" : "Follow"}}</button> 
+             
+              @if (Auth::user()->id==$article->writtenBy->id) 
+            
+            <button  class="btn  btn-login margin"  onclick="location.href='{{route('view-edit',['article'=>$article])}}'">Open in edit view</button> 
+      
+           @endif
+               </div>
+       <div class" w3-hide w3-container" id="fol-sugg-tab">
+                  <h3 class="w3-large" style="color:black;font-weight:bold;">Follow suggestions  <button class="w3-button w3-black" id="fol-sugg-cls"><i class="fa fa-close"></i></button></h3>
+                  <table class="table table-bordered table-hover">
+                      
+                    <tbody id="fol_sugg">
+                    
+                    </tbody>
+                     
+                    </table>
+                  </div>
+      </div>
+    </div>
            <div class="footer-story">
            {{--
             <div class="w3-container">
@@ -153,20 +162,24 @@
         --}}
         </div>
       </div>
-           <button class="btn  btn-login {{$c}}" id="like"  style="margin-left:20px;margin-top:5px;" data-articleid="{{$article->id}}" type="submit">{{$like ? "Thanks" : "Wow"}}</button>
-        <button class="btn   btn-login bookmark {{$c}}" style="margin-top:5px;" data-articleId="{{$article->id}}">{{$bookmark ? "Bookmarked" : "Bookmark"}}</button>
+      <div class="w3-bar w3-card stick w3-center">
+           <button class="w3-button w3-padding-large  {{$c}} " id="like"  style="margin-left:5px;margin-top:5px;" data-articleid="{{$article->id}}" type="submit">{{$like ? "Thanks" : "Wow"}}</button>
+        <button class="w3-button w3-padding-large  bookmark {{$c}}" style="margin-top:5px;" data-articleId="{{$article->id}}">{{$bookmark ? "Bookmarked" : "Bookmark"}}</button>
+      </div>
+      
         {{--
         <button class="btn btn-login" style="margin-top:5px;margin-bottom:10px;" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::fullUrl()) }}')">Share on facebook</button>
         <button class="btn   btn-login" style="margin-top:5px;margin-bottom:10px;" onclick="window.open('https://twitter.com/intent/tweet?url={{ urlencode(Request::fullUrl())}}')">Share on twitter</button>
        --}}
   
+
          
           @if(count($related_articles)>0)
           <div class="w3-container lower-margin w3-hide-small w3-hide-medium">
-          <h2 class="featurette-heading"style="color:black;margin-left:5rem;font-size:2.5rem;font-weight:bold;">More wonderful stories in {{ucfirst($article->ofGenre->name)}}...!   @if(count($related_articles)==3) <a href="{{route('stories-genre',['genre'=>$article->ofGenre])}}">See all</a>@endif</h2>
+          <h2 class="featurette-heading"style="color:black;margin-left:5rem;font-size:2.5rem;font-weight:bold;">Related stories   @if(count($related_articles)==3) <a href="{{route('stories-genre',['genre'=>$article->ofGenre])}}">See all</a>@endif</h2>
           </div>
            <div class="w3-container w3-hide-large" style="margin-top:10%;">
-          <h2 class="featurette-heading"style="color:black;margin-left:5rem;font-size:1.5rem;font-weight:bold;">More wonderful stories in {{ucfirst($article->ofGenre->name)}}...!   @if(count($related_articles)==3) <a href="{{route('stories-genre',['genre'=>$article->ofGenre])}}">See all</a>@endif</h2>
+          <h2 class="featurette-heading"style="color:black;margin-left:5rem;font-size:1.5rem;font-weight:bold;">Related stories   @if(count($related_articles)==3) <a href="{{route('stories-genre',['genre'=>$article->ofGenre])}}">See all</a>@endif</h2>
           </div>
           <div class="row featurette" style="margin-left:6px;">
             @foreach ( $related_articles as $ra )
@@ -201,11 +214,12 @@
          
             @if(Auth::user()->id != $article->writtenBy->id)
           @if(count($articles_of_samewriter)>0)
+          
           <div class="w3-container lower-margin w3-hide-small w3-hide-medium">
-          <h2 class="featurette-heading"style="color:black;margin-left:5rem;font-size:2.5rem;font-weight:bold;">More cool stories from {{ucfirst($article->writtenBy->fname)}}...!  @if(count($articles_of_samewriter)==3)<a href="{{route('stories-user',['user'=>$article->writtenBy])}}">See all</a>@endif</h2>
+          <h2 class="featurette-heading"style="color:black;margin-left:5rem;font-size:2.5rem;font-weight:bold;">More stories from {{ucfirst($article->writtenBy->fname)}}...!  @if(count($articles_of_samewriter)==3)<a href="{{route('stories-user',['user'=>$article->writtenBy])}}">See all</a>@endif</h2>
           </div>
           <div class="w3-container w3-hide-large" style="margin-top:10%;">
-          <h2 class="featurette-heading"style="color:black;margin-left:5rem;font-size:1.5rem;font-weight:bold;">More cool stories from {{ucfirst($article->writtenBy->fname)}}...!  @if(count($articles_of_samewriter)==3)<a href="{{route('stories-user',['user'=>$article->writtenBy])}}">See all</a>@endif</h2>
+          <h2 class="featurette-heading"style="color:black;margin-left:5rem;font-size:1.5rem;font-weight:bold;">More stories from {{ucfirst($article->writtenBy->fname)}}...!  @if(count($articles_of_samewriter)==3)<a href="{{route('stories-user',['user'=>$article->writtenBy])}}">See all</a>@endif</h2>
           </div>
           <div class="row featurette"  style="margin-left:6px;">
             @foreach ( $articles_of_samewriter as $ra )

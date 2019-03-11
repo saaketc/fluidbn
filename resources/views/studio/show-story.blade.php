@@ -65,24 +65,6 @@
           
 </div>
 
-    <div class="row featurette">
-   
-
-        <div class="col-sm-6 ">
-          
-          <div class="box" id="mainView" data-articleid="{{$StudioStories->id}}" >
-              @auth
-            
-              @endauth
-            
-
-          
-               </div>
-        
-      </div>
-      
- 
-    </div>
 </div>
      
      

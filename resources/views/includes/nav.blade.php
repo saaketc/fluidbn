@@ -20,7 +20,7 @@
       <header class="w3-container w3-flat-pomegranate"> 
         <span onclick="document.getElementById('id01').style.display='none'" 
         class="w3-button w3-display-topright w3-black w3-padding-medium">&times;</span>
-        <h2>fluidbN search !</h2>
+        <h2>Search here</h2>
       </header>
       <div class="w3-container">
           {!! Form::open(['route'=>'search','method'=>'GET']) !!}  

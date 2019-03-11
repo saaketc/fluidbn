@@ -42,8 +42,7 @@ $.ajaxSetup({
             }
         else  if($('#like').text()=="Thanks"){
             $('#like').text('Wow');
-            $('#like').css('background', 'white');
-            $('#like').css('color', 'black');
+            $('#like').addClass('w3-flat-pomegranate');
             $.post(urlUnlike,{
               articleId:articleId,
               userId:userId,
@@ -138,8 +137,7 @@ $(document).ready(function(){
               }
             else  if($('button.bookmark').text()=="Bookmarked"){
                 $('button.bookmark').text('Bookmark');
-                 $('button.bookmark').css('background', 'white');
-                 $('button.bookmark').css('color', 'black');
+               $('button.bookmark').addClass('w3-flat-pomegranate');
                 $.post(urlUnmark,{
                   articleId:articleId,
                   _token :token

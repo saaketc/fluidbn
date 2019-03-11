@@ -54,6 +54,20 @@
          <script charset="utf-8" src="https://ucarecdn.com/libs/widget/3.6.1/uploadcare.full.min.js"></script>
          --}}
       <style>  
+      .mySlides {display:none;}
+ 
+        .stick{
+           position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+  padding: 5px;
+
+  
+        }
+
+     
+        
           body{
               background-color:whitesmoke;
           }    
