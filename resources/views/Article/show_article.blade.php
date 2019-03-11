@@ -172,7 +172,8 @@
                   <div class="container-related lower-margin" style="width:100%;">
                     <h2  class="featurette-heading-small"style="font-size:25px;font-weight:bold;">{{ucfirst($ra->title)}}</h2>
                    
-                    <p class="lead">{!!wordwrap(str_limit($ra->content,50),20,"<br>\n",TRUE)!!}</p> @if($ra->views>0)<small class="views"> {{ '   '.$ra->views.' views'}}</small>@endif
+                     @if($ra->views>0)<small class="views"> {{ '   '.$ra->views.' views'}}</small>@endif
+                    
                     <div class="">
                       <img class=" featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$ra->writtenBy->hasProfile->profile_image}}" alt=""> <small class="writer-small"><a href="{{route('profile',['user'=>$ra->writtenBy,'slug'=>str_slug($ra->writtenBy->fname." ".$ra->writtenBy->lname)])}}">{{ucfirst($ra->writtenBy->fname).' '. ucfirst($ra->writtenBy->lname)}}</a></small><div class=""><small class="margin writer-small">{{$ra->writtenBy->hasProfile->about }}</small></div>
                        </div>  
@@ -214,7 +215,7 @@
                   <div class="container-related lower-margin" style="width:100%;">
                     <h2  class="featurette-heading-small"style="font-size:25px;font-weight:bold;">{{ucfirst($ra->title)}}</h2>
                    
-                   <p class="lead">{!!wordwrap(str_limit($ra->content,50),20,"<br>\n",TRUE)!!}</p> @if($ra->views>0)<small class="views"> {{ '   '.$ra->views.' views'}}</small>@endif
+                  @if($ra->views>0)<small class="views"> {{ '   '.$ra->views.' views'}}</small>@endif
                   </div>
                 </div>
                 </a>

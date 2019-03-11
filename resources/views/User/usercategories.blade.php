@@ -1,4 +1,4 @@
-@extends('layouts.main')
+1@extends('layouts.main')
 @section('title')
 {{ucfirst($user->fname)."'s story choices"}}
 @endsection

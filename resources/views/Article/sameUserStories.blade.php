@@ -26,7 +26,7 @@
                                   <div class="container-related lower-margin" style="width:100%;height:auto;">
                                     <h2 class="featurette-heading-small" style="font-size:25px;font-weight:bold;">{{ucfirst($ra->title)}}</h2>
                                    
-                                    <p class="lead">{!!wordwrap(str_limit($ra->content,150),150,"<br>\n",TRUE)!!}</p> @if($ra->views>0)<small class="views"> {{ '   '.$ra->views.' views'}}</small>@endif
+                                     @if($ra->views>0)<small class="views"> {{ '   '.$ra->views.' views'}}</small>@endif
                                  
                                 </div>
                                 </div>
