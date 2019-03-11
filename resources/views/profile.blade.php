@@ -264,7 +264,7 @@
                         
 
                      @endphp
-                        <p class="lead">{!!wordwrap(str_limit($a->content,100),50,"<br>\n",TRUE)!!}</p>
+                        
                         <small class="views">{{$w}}</small>
                       </div> 
                       </a>
