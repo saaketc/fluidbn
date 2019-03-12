@@ -43,6 +43,54 @@ My feed | fluidbN
      <button  class="w3-button w3-flat-pomegranate w3-padding-large " onclick="location.href='{{route('write-theory')}}'" style="margin-top:5px;">
     Share a theory
     </button>
+      <button  class="w3-button w3-flat-pomegranate w3-padding-large" style="width:auto; margin-top:5px;" onclick="document.getElementById('quick').style.display='block'">Quick frame story</button>
+       
+    {{-- modal --}}
+     <div id='quick' class="w3-modal">
+    <div class="w3-modal-content w3-card-4">
+      <header class="w3-container "> 
+        <span onclick="document.getElementById('quick').style.display='none'" 
+        class="w3-button w3-medium w3-red w3-display-topright">&times;</span>
+        <h2 style="color:black;">Create a quick story</h2>
+        <div>
+             {{--  <img class="featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/aerepad_images/{{$a->title_image}}" alt="">
+                        --}}
+        </div>
+      </header>
+      <div class="w3-container w3-large" style="color:black;margin-top:2%;">
+                       
+            
+            {!! Form::open(['action'=>'QuickStoryController@store','method'=>'POST','files'=>true,'enctype'=>'multipart/form-data']) !!}
+                          
+                          
+                       
+                             
+                               <div class="form-group">
+                                       {{Form::label('title','Title of story ')}}
+                                       {{Form::text('title','',['class'=>'form-control'])}}
+                                       </div>
+                                       <div class="form-group">
+                                        {{Form::label('story_image','Upload story image',['class'=>'w3-button w3-flat-pomegranate w3-padding-large'])}}     {{Form::file('story_image',['accept'=>"image/*",'onchange'=>'loadFile(event)'])}}
+            
+                                        </div>
+                                          <div class="" id="output-frame">   
+<img id="output" class=" img-fluid mx-auto" style="width:100%;">
+</div>
+                                       <div class="form-group">
+                                       {{Form::label('content','Quick description of story if any','')}}
+                                       {{Form::textarea('content','',['class'=>'form-control'])}}
+                                        </div>
+                                      
+                                       <div class="form-group">
+                                       {{Form::submit('Share', ['class'=>'w3-button w3-flat-pomegranate w3-padding-large'])}}
+                                       </div>
+                                     @csrf
+          
+                                     {!! Form::close() !!}        
+      </div>
+      
+    </div>
+  </div>
   </div>
  
 
@@ -63,11 +111,11 @@ My feed | fluidbN
        <a href="{{route('stories-genre',['genre'=>$a->storyOfGenre])}}" <small class="genre-feed">{{ucfirst($a->storyOfGenre->name)}}</small></a>
        <a href="{{route('studio-story',['StudioStories'=>$a,'slug'=>str_slug($a->title)])}}">
         
-       <div class="card-related lower-margin" style="">
+       <div class="card-related lower-margin" style="background:white;">
            
          <img class="featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/studio_images/{{$a->title_image}}" alt="">
        
-         <div class="container-related" style="">
+         <div class="container-related" style="background:white;">
            <h2 class="featurette-heading-feed">{{ucfirst($a->title)}}</h2>
            
           
@@ -114,10 +162,10 @@ My feed | fluidbN
                   <br/>
                     <a href="{{route('show-theory',['theory'=>$a,'slug'=>str_slug($a->title)])}}">
                      
-                    <div class="card-related lower-margin" style="">
+                    <div class="card-related lower-margin" style="background:white;">
                         
                      
-                      <div class="container-related" style="">
+                      <div class="container-related" style="background:white;">
                         <h2 class="featurette-heading-feed">{{ucfirst($a->title)}}</h2>
                         
                         {{--  <p class="lead">{!!wordwrap(str_limit($a->content,100),50,"<br>\n",TRUE)!!}</p>  --}}
@@ -156,7 +204,77 @@ My feed | fluidbN
 @endif
 </div>
 {{--theories end--}}
+             {{-- quick stories --}}
+             
+               <div class=" w3-container" id="story-feed-tailored-f">   
+
+       @if(count($quick_stories)>0)
+        <div class="box lower-margin">
+          <h2 class="featurette-heading-title">Quick stories</h2>  
+         </div>
+      
+      
                     
+            <div class="infinite-quick">
+              <div class="row featurette">
+               @foreach($quick_stories as $a)
+
+             
+                  <div class="col-md-6">
+                     
+                   
+                    <div class="card-related lower-margin" style="background:white;">
+                        
+                      <img class="zoom featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/quick_story/{{$a->story_image}}" alt="" onclick="document.getElementById('quick01').style.display='block'">
+                     <div id="quick01" class="w3-modal" onclick="this.style.display='none'">
+                <span class="w3-button w3-red w3-hover-black w3-xlarge w3-display-topright">&times;</span>
+                <div class="w3-modal-content w3-animate-zoom">
+                  <img src="/storage/quick_story/{{$a->story_image}}" class="zoom mx-auto" style="width:50%">
+              <div class="w3-container box">
+                  <p class="w3-large" style="color:black;font-weight:bold;">{!! htmlspecialchars_decode($a->content) !!}</p>
+                </div>
+                     </div>
+              </div> 
+                      <div class="container-related" style="background:white;">
+                        <h2 class="featurette-heading-feed">{{ucfirst($a->title)}}</h2>
+                        
+                        {{--  <p class="lead">{!! wordwrap(str_limit($a->content,100),50,"<br>\n",TRUE)!!}</p>  --}}
+                        <div class="" style="margin-botton:5px;">
+                       <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$a->quickStoryWrittenBy->hasProfile->profile_image}}" alt="">
+                       <div class="w3-dropdown-hover"><small class="writer-small">{{ucfirst($a->quickStoryWrittenBy->fname).' '. ucfirst($a->quickStoryWrittenBy->lname)}}</small>
+                        <div class="w3-dropdown-content w3-card-4" style="width:250px">
+                            <a href="{{route('profile',['user'=>$a->quickStoryWrittenBy,'slug'=>str_slug($a->quickStoryWrittenBy->fname." ".$a->quickStoryWrittenBy->lname)])}}">
+                          <img src="/storage/profile_images/thumbnails/{{$a->quickStoryWrittenBy->hasProfile->profile_image}}" alt="" style="width:100%"></a>
+                          
+                          <div class="w3-container">
+                            <p>{{$a->quickStoryWrittenBy->hasProfile->about}}</p>
+                            @if($a->quickStoryWrittenBy->hasProfile->college)
+                            <p>{{$a->quickStoryWrittenBy->hasProfile->education.' '.$a->quickStoryWrittenBy->hasProfile->yos.' student at '.$a->quickStoryWrittenBy->hasProfile->college}}</p>
+                            @elseif($a->quickStoryWrittenBy->hasProfile->company)
+                            <p>{{$a->quickStoryWrittenBy->hasProfile->designation.' at '.$a->quickStoryWrittenBy->hasProfile->company}}</p>
+                            @endif
+                          </div>
+                        </div>
+                      </div>
+                      
+                      </div>
+                        
+                      </div>
+                    </div>
+                    
+                  
+                    </div>       
+         
+  @endforeach
+                   
+                       
+</div>
+  {{$quick_stories->links()}}
+
+</div>
+@endif
+</div>
+             {{-- end quick storie --}}
     
     
       <div class=" w3-container" id="story-feed-tailored-f">   
@@ -186,11 +304,11 @@ My feed | fluidbN
                     <a href="{{route('stories-genre',['genre'=>$a->ofGenre])}}" <small class="genre-feed">{{ucfirst($a->ofGenre->name)}}</small></a>
                     <a href="{{route('show-article',['article'=>$a,'slug'=>str_slug($a->title)])}}">
                      
-                    <div class="card-related lower-margin" style="">
+                    <div class="card-related lower-margin" style="background:white;">
                         
                       <img class="featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/article_images/{{$a->title_image}}" alt="">
                     
-                      <div class="container-related" style="">
+                      <div class="container-related" style="background:white;">
                         <h2 class="featurette-heading-feed">{{ucfirst($a->title)}}</h2>
                          @php
                           $wows = $a->likedBy()->wherePivot('article_id',$a->id)->count();
@@ -281,11 +399,11 @@ My feed | fluidbN
                     <a href="{{route('stories-genre',['genre'=>$a->ofGenre])}}" <small class="genre-feed">{{ucfirst($a->ofGenre->name)}}</small></a>
                     <a href="{{route('show-article',['article'=>$a,'slug'=>str_slug($a->title)])}}">
                      
-                    <div class="card-related lower-margin" style="">
+                    <div class="card-related lower-margin" style="background:white;">
                         
                       <img class="featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/article_images/{{$a->title_image}}" alt="">
                     
-                      <div class="container-related" style="">
+                      <div class="container-related" style="background:white;">
                         <h2 class="featurette-heading-feed">{{ucfirst($a->title)}}</h2>
                          @php
                           $wows = $a->likedBy()->wherePivot('article_id',$a->id)->count();
@@ -354,28 +472,20 @@ My feed | fluidbN
 
 {{--<hr class="featurette-divider">--}}
 
-
-<!-- /END THE FEATURETTES -->
-
-
+{{--  
+<!-- /END THE FEATURETTES -->  --}}
 
 
+  </main>
+      <script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+   
+   output.src = URL.createObjectURL(event.target.files[0]);
+    
 
-
-
-       <!-- Feed from authors user follow-->
-
-
-            
-
-
-
-               <!--End of followed author feed-->
-
-
-             
-
-      </main>
+  };
+</script>
       <script>
           function openSearch() {
               document.getElementById("myOverlay").style.display = "block";
@@ -389,6 +499,21 @@ My feed | fluidbN
   <script>
       $('ul.pagination').hide();
      
+
+      // for quick stories
+       $(function() {
+          $('.infinite-quick').jscroll({
+              autoTrigger: true,
+              loadingHtml: '<img class="center-block" src="/loader_images/image_1212462.gif" alt="Loading..." />',
+              padding: 0,
+              nextSelector: '.pagination li.active + li a',
+              contentSelector: 'div.infinite-quick',
+              callback: function() {
+                  $('ul.pagination').remove();
+              }
+          });
+      });
+      
       $(function() {
           $('.infinite-theo').jscroll({
               autoTrigger: true,

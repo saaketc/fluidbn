@@ -10,6 +10,7 @@ use App\User;
 use App\Profile;
 use App\Search;
 use App\Genre;
+use App\QuickStory;
 use App\Studio\StudioStories;
 use Session;
 use Hash;
@@ -55,10 +56,27 @@ class FeedController extends Controller
        else{
            $heading = '';
        } 
-        $theory = Theory::latest()->where('user_id','!=',$user->id)->where('report',0)->with('writtenBy')->paginate(12);
-        $article = Article::latest()->where('finished',1)->where('user_id','!=',$user->id)->where('report',0)->whereNotIn('genre_id',$id)->with(['writtenBy','ofGenre'])->paginate(12);
-        $tailored = Article::latest()->where('finished',1)->where('user_id','!=',$user->id)->where('report',0)->whereIn('genre_id',$id)->with(['writtenBy','ofGenre'])->paginate(12);
- $story = StudioStories::orderBy('id','desc')->get();
+      // to hide reported stories from the user feed
+       if($user->reports()->wherePivot('reported_by_id',$user->id)->count()>0){
+           $reported_articles = $user->reports()->wherePivot('reported_by_id',$user->id)->get();
+           $aid=[];
+            foreach ($reported_articles as $g) {
+
+                $aid[] = $g->article_id;
+            }
+            $article = Article::latest()->where('finished', 1)->where('user_id', '!=', $user->id)->whereNotIn('genre_id', $id)->with(['writtenBy', 'ofGenre'])->paginate(12);
+            //dd($article);
+           $tailored = Article::latest()->where('finished', 1)->where('user_id', '!=', $user->id)->whereNotIn('id', $aid)->whereIn('genre_id', $id)->with(['writtenBy', 'ofGenre'])->paginate(12);
+ 
+       }
+       else{
+            $article = Article::latest()->where('finished', 1)->where('user_id', '!=', $user->id)->whereNotIn('genre_id', $id)->with(['writtenBy', 'ofGenre'])->paginate(12);
+            $tailored = Article::latest()->where('finished', 1)->where('user_id', '!=', $user->id)->whereIn('genre_id', $id)->with(['writtenBy', 'ofGenre'])->paginate(12);
+           
+       }
+        $theory = Theory::latest()->where('user_id', '!=', $user->id)->with('writtenBy')->paginate(12);
+       
+        $story = StudioStories::orderBy('id','desc')->get();
         $followed_users = $user->follows()->wherePivot('follower_id',$user->id)->get();
         $latest_studio_story = StudioStories::orderBy('id','desc')->first();
         $latest_story = Article::orderBy('id','desc')->where('report',0)->first();
@@ -69,6 +87,9 @@ class FeedController extends Controller
         foreach($genres as $g){
             $selectGenre[$g->id] = $g->name;
         }
+        // to show quick 
+        
+        $quick_stories = QuickStory::latest()->with('quickStoryWrittenBy')->paginate(12);
         
        $data = [
            'article'=>$article,
@@ -82,6 +103,7 @@ class FeedController extends Controller
          'latest_story'=> $latest_story,
          'latest_theory'=>$latest_theory,
          'heading'=>$heading,
+            'quick_stories'=> $quick_stories
               
           
        ];

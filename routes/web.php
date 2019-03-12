@@ -55,6 +55,8 @@ Route::post('NewProfile',function(){
 })->name('NewProfile');
 Route::post('/multi-image/{id}','Article\ArticleController@articleImage')->name('multi-image');
 Route::post('/fbn.studio/store','Studio\StudioController@store')->name('storeContent');
+// quick story
+Route::resource('quickstory','QuickStoryController');
 });
 
 Route::group([ 'middleware' => 'auth' ], function () {

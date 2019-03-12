@@ -34,6 +34,7 @@ class User extends Authenticatable
     {
        return 'identifier'; // use the 'user.identifier' column for look ups within the database
     }*/
+ 
     public function hasProfile()
     {
         return $this->hasOne('App\Profile', 'user_id');
@@ -125,6 +126,10 @@ class User extends Authenticatable
     public function reports(){
         return $this->belongsToMany('App\Article', 'story_report', 'reported_by_id', 'article_id')->withTimestamps();
     
+    }
+    // for quick story
+    public function writesQuickStory(){
+        return $this->hasMany('App\QuickStory','user_id');
     }
 }
 
