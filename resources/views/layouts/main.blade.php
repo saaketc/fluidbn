@@ -304,7 +304,7 @@ span.psw {
      </div>
      </div>
     </div>
-    <div style="margin-top:10%;">
+    <div style="margin-top:7%;">
         @yield('content')
         </div>
  
