@@ -75,11 +75,11 @@
       
       <div class="col-12">
           
-                <img class=" zoom  featurette-image img-fluid mx-auto card" style="width:75%" src="/storage/studio_images/{{$StudioStories->content}}" alt="" onclick="document.getElementById('modal01').style.display='block'">
+                <img class=" zoom  featurette-image img-fluid mx-auto card" style="width:80%" src="/storage/studio_images/{{$StudioStories->content}}" alt="" onclick="document.getElementById('modal01').style.display='block'">
                   <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
                 <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
                 <div class="w3-modal-content w3-animate-zoom">
-                  <img src="/storage/studio_images/{{$StudioStories->content}}" class="zoom mx-auto" style="width:75%">
+                  <img src="/storage/studio_images/{{$StudioStories->content}}" class="zoom mx-auto" style="width:85%">
                 </div>
               </div>  
          
