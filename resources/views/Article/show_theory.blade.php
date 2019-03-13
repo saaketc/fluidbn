@@ -14,11 +14,11 @@
 
   <div class="w3-container w3-hide-small w3-hide-medium">
 
-<h2 class="featurette-heading" style="margin-top:20px; color:black;font-weight:bold;font-size:6rem;">{{ucfirst($theory->title)}}</h2>
+<h2 class="featurette-heading" style="color:black;font-weight:bold;font-size:6rem;">{{ucfirst($theory->title)}}</h2>
   </div>
-  <div class="w3-container w3-hide-large" style="margin-top:15%;" >
+  <div class="w3-container w3-hide-large" style="" >
 
-<h2 class="featurette-heading w3-xxxlarge" style="margin-top:20px; color:black;font-weight:bold;">{{ucfirst($theory->title)}}</h2>
+<h2 class="featurette-heading w3-xxxlarge" style="color:black;font-weight:bold;">{{ucfirst($theory->title)}}</h2>
   </div>
           
           <div class="box" id="mainView" data-theoryid="{{$theory->id}}" >
@@ -27,11 +27,11 @@
           
          
               <a href="{{route('profile',['user'=>$theory->writtenBy,'slug'=>str_slug($theory->writtenBy->fname." ".$theory->writtenBy->lname)])}}">
-              <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$theory->writtenBy->hasProfile->profile_image}}" alt=""><h5 class="writer">{{ucfirst($theory->writtenBy->fname)}}
+              <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$theory->writtenBy->hasProfile->profile_image}}" alt=""><h5 class="w3-medium">{{ucfirst($theory->writtenBy->fname)}}
               {{ucfirst($theory->writtenBy->lname)}}</h5></a>
           
              
-              <h6 class="writer-small" style="margin-top:5px;">{{$theory->writtenBy->hasProfile->about }}</h6>
+              <h6 class="w3-small" style="margin-top:5px;">{{$theory->writtenBy->hasProfile->about }}</h6>
                 @php
           $f = Auth::user()->follows()->wherePivot('follower_id',Auth::user()->id)->wherePivot('following_id',$theory->writtenBy->id)->first();
           
@@ -42,10 +42,11 @@
           @endphp
             
                 <div class="">
-          <button class="btn btn-login fol {{$cl}}" id ="" data-userid="{{$theory->writtenBy->id}}">{{$follow ? "Following" : "Follow"}}</button>  
+          @if($user->id!=$theory->writtenBy->id)
+                  <button class="btn btn-login fol {{$cl}}" id ="" data-userid="{{$theory->writtenBy->id}}">{{$follow ? "Following" : "Follow"}}</button>  
           
           {{-- Button to Open the delete modal --}}
-         @if($user->id==$theory->writtenBy->id)
+         @else
            <button  class="btn btn-login" style="" id=""  data-toggle="modal" data-target="#deleteArticle">
              Delete theory
            </button>  
