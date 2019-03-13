@@ -52,13 +52,13 @@
           $w=$wows;
       @endphp
   
-    <div class="w3-container w3-hide-small w3-hide-medium">
+    <div class="w3-container w3-hide-small w3-hide-medium" style="margin-top:5%;">
 
 <h2 class="featurette-heading" style="color:black;font-weight:bold;font-size:6rem;">{{ucfirst($StudioStories->title)}}</h2>
 <small  id="wows" style="color:black; font-size:15px;font-weight:bold;"><i class="fa fa-heart" style="color:red;font-size:15px;"> {{$w}}</i></small>     
           
 </div>
-  <div class="w3-container w3-hide-large" style="" >
+  <div class="w3-container w3-hide-large" style="margin-top:10%;" >
 
 <h2 class="featurette-heading w3-xxxlarge" style="color:black;font-weight:bold;">{{ucfirst($StudioStories->title)}}</h2>
 <small  id="wows" style="color:black; font-size:15px;font-weight:bold;"><i class="fa fa-heart" style="color:red;font-size:15px;"> {{$w}}</i></small>     
@@ -75,7 +75,7 @@
       
       <div class="col-12">
           
-                <img class=" zoom  featurette-image img-fluid mx-auto card" style="" src="/storage/studio_images/{{$StudioStories->content}}" alt="" onclick="document.getElementById('modal01').style.display='block'">
+                <img class=" zoom  featurette-image img-fluid mx-auto card" style="width:75%" src="/storage/studio_images/{{$StudioStories->content}}" alt="" onclick="document.getElementById('modal01').style.display='block'">
                   <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
                 <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
                 <div class="w3-modal-content w3-animate-zoom">
