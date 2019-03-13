@@ -79,7 +79,7 @@
                   <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
                 <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
                 <div class="w3-modal-content w3-animate-zoom">
-                  <img src="/storage/studio_images/{{$StudioStories->content}}" class="zoom mx-auto" style="width:100%">
+                  <img src="/storage/studio_images/{{$StudioStories->content}}" class="zoom mx-auto" style="width:75%">
                 </div>
               </div>  
          
