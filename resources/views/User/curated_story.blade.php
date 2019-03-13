@@ -5,9 +5,9 @@ Curated stories | fluidbN
 
 @section('content')
 <div class="container">
-<div class="box lower-margin">
+<div class="lower-margin">
 <h2 class="featurette-heading" style="font-weight:bold;font-size:50px;color:black;">Curated stories & theories </h2>
-<small class="writer">from the people you follow </small> <i class="fa fa-heart" style="font-size:20px;color:red;"></i>
+<small class="w3-medium">from the people you follow </small> <i class="fa fa-heart" style="font-size:20px;color:red;"></i>
 </div>
 <div>
 <button  class="w3-button w3-flat-pomegranate" id="story-btn">
@@ -44,11 +44,11 @@ Curated stories | fluidbN
                     <a href="{{route('stories-genre',['genre'=>$a->ofGenre])}}" <small class="genre-feed">{{ucfirst($a->ofGenre->name)}}</small></a>
                     <a href="{{route('show-article',['article'=>$a,'slug'=>str_slug($a->title)])}}">
                      
-                    <div class="card-related lower-margin featured-article">
+                    <div class="card-related lower-margin featured-article" style="background:white;">
                         
                       <img class="featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/article_images/{{$a->title_image}}" alt="">
                     
-                      <div class="container-related featured-article">
+                      <div class="container-related featured-article" style="background:white;">
                         <h2 class="featurette-heading-feed">{{ucfirst($a->title)}}</h2>
                          @php
                           $wows = $a->likedBy()->wherePivot('article_id',$a->id)->count();
@@ -61,7 +61,7 @@ Curated stories | fluidbN
                         
                        @endphp
                   
-                        <div class="" style="margin-botton:5px;">
+                        <div class="" style="margin-bottom:5px;">
                        <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$a->writtenBy->hasProfile->profile_image}}" alt=""> <small class="writer-small"><a href="{{route('profile',['user'=>$a->writtenBy,'slug'=>str_slug($a->writtenBy->fname." ".$a->writtenBy->lname)])}}">{{ucfirst($a->writtenBy->fname).' '. ucfirst($a->writtenBy->lname)}}</a></small><div class="">{{--<small class="margin writer-small">{{$a->writtenBy->hasProfile->about }}</small>--}}</div>
                    
                       </div>
@@ -86,7 +86,7 @@ Curated stories | fluidbN
 </div>
 
 @else
-<small class="writer">Hey {{ucfirst($user->fname)}}, start following people from <a href="{{route('follow-people')}}"><strong>{{$same_place}}</strong></a></small>
+<small class="w3-medium">Hey {{ucfirst($user->fname)}}, start following people from <a href="{{route('follow-people')}}"><strong>{{$same_place}}</strong></a></small>
 @endif
 </div>
 {{--theory accordion--}}
@@ -110,14 +110,15 @@ Curated stories | fluidbN
                     
                     <a href="{{route('show-theory',['theory'=>$a,'slug'=>str_slug($a->title)])}}">
                      
-                    <div class="card-related lower-margin featured-article">
+                    <div class="card-related lower-margin featured-article" style="background:white;">
                         
                      
-                      <div class="container-related featured-article">
+                      <div class="container-related featured-article" style="background:white;">
                         <h2 class="featurette-heading-feed">{{ucfirst($a->title)}}</h2>
                         
-                        <p class="lead">{!!wordwrap(str_limit($a->content,100),50,"<br>\n",TRUE)!!}</p>
-                        <div class="" style="margin-botton:5px;">
+                        {{--  <p class="lead">{!!wordwrap(str_limit($a->content,100),50,"<br>\n",TRUE)!!}</p>
+                          --}}
+                        <div class="" style="margin-bottom:5px;">
                        <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$a->writtenBy->hasProfile->profile_image}}" alt=""> <small class="writer-small"><a href="{{route('profile',['user'=>$a->writtenBy,'slug'=>str_slug($a->writtenBy->fname." ".$a->writtenBy->lname)])}}">{{ucfirst($a->writtenBy->fname).' '. ucfirst($a->writtenBy->lname)}}</a></small><div class="">{{--<small class="margin writer-small">{{$a->writtenBy->hasProfile->about }}</small>--}}</div>
                    
                       </div>
