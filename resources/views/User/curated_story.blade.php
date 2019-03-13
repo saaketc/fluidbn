@@ -5,7 +5,7 @@ Curated stories | fluidbN
 
 @section('content')
 <div class="container">
-<div class="lower-margin">
+<div class="box lower-margin">
 <h2 class="featurette-heading" style="font-weight:bold;font-size:50px;color:black;">Curated stories & theories </h2>
 <small class="writer">from the people you follow </small> <i class="fa fa-heart" style="font-size:20px;color:red;"></i>
 </div>
@@ -44,11 +44,19 @@ Curated stories | fluidbN
                     <a href="{{route('stories-genre',['genre'=>$a->ofGenre])}}" <small class="genre-feed">{{ucfirst($a->ofGenre->name)}}</small></a>
                     <a href="{{route('show-article',['article'=>$a,'slug'=>str_slug($a->title)])}}">
                      
+<<<<<<< HEAD
                     <div class="card-related lower-margin featured-article" style="background:white;">
                         
                       <img class="featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/article_images/{{$a->title_image}}" alt="">
                     
                       <div class="container-related featured-article" style="background:white;">
+=======
+                    <div class="card-related lower-margin featured-article">
+                        
+                      <img class="featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/article_images/{{$a->title_image}}" alt="">
+                    
+                      <div class="container-related featured-article">
+>>>>>>> e1eed9bb633147f91052bbd1c4cae7e78949f46c
                         <h2 class="featurette-heading-feed">{{ucfirst($a->title)}}</h2>
                          @php
                           $wows = $a->likedBy()->wherePivot('article_id',$a->id)->count();
@@ -61,7 +69,7 @@ Curated stories | fluidbN
                         
                        @endphp
                   
-                        <div class="" style="margin-bottom:5px;">
+                        <div class="" style="margin-botton:5px;">
                        <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$a->writtenBy->hasProfile->profile_image}}" alt=""> <small class="writer-small"><a href="{{route('profile',['user'=>$a->writtenBy,'slug'=>str_slug($a->writtenBy->fname." ".$a->writtenBy->lname)])}}">{{ucfirst($a->writtenBy->fname).' '. ucfirst($a->writtenBy->lname)}}</a></small><div class="">{{--<small class="margin writer-small">{{$a->writtenBy->hasProfile->about }}</small>--}}</div>
                    
                       </div>
@@ -110,6 +118,7 @@ Curated stories | fluidbN
                     
                     <a href="{{route('show-theory',['theory'=>$a,'slug'=>str_slug($a->title)])}}">
                      
+<<<<<<< HEAD
                     <div class="card-related lower-margin featured-article" style="background:white;">
                         
                      
@@ -118,6 +127,16 @@ Curated stories | fluidbN
                         
                         {{--  <p class="lead">{!!wordwrap(str_limit($a->content,100),50,"<br>\n",TRUE)!!}</p>  --}}
                         <div class="" style="margin-bottom:5px;">
+=======
+                    <div class="card-related lower-margin featured-article">
+                        
+                     
+                      <div class="container-related featured-article">
+                        <h2 class="featurette-heading-feed">{{ucfirst($a->title)}}</h2>
+                        
+                        <p class="lead">{!!wordwrap(str_limit($a->content,100),50,"<br>\n",TRUE)!!}</p>
+                        <div class="" style="margin-botton:5px;">
+>>>>>>> e1eed9bb633147f91052bbd1c4cae7e78949f46c
                        <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$a->writtenBy->hasProfile->profile_image}}" alt=""> <small class="writer-small"><a href="{{route('profile',['user'=>$a->writtenBy,'slug'=>str_slug($a->writtenBy->fname." ".$a->writtenBy->lname)])}}">{{ucfirst($a->writtenBy->fname).' '. ucfirst($a->writtenBy->lname)}}</a></small><div class="">{{--<small class="margin writer-small">{{$a->writtenBy->hasProfile->about }}</small>--}}</div>
                    
                       </div>
