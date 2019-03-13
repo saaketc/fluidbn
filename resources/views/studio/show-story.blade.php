@@ -52,13 +52,13 @@
           $w=$wows;
       @endphp
   
-    <div class="w3-container w3-hide-small w3-hide-medium" style="margin-top:5%;">
+    <div class="w3-container w3-hide-small w3-hide-medium" style="margin-top:0;">
 
 <h2 class="featurette-heading" style="color:black;font-weight:bold;font-size:6rem;">{{ucfirst($StudioStories->title)}}</h2>
 <small  id="wows" style="color:black; font-size:15px;font-weight:bold;"><i class="fa fa-heart" style="color:red;font-size:15px;"> {{$w}}</i></small>     
           
 </div>
-  <div class="w3-container w3-hide-large" style="margin-top:10%;" >
+  <div class="w3-container w3-hide-large" style="margin-top:0%;" >
 
 <h2 class="featurette-heading w3-xxxlarge" style="color:black;font-weight:bold;">{{ucfirst($StudioStories->title)}}</h2>
 <small  id="wows" style="color:black; font-size:15px;font-weight:bold;"><i class="fa fa-heart" style="color:red;font-size:15px;"> {{$w}}</i></small>     
