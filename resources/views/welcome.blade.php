@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>fluidbN - Making information interesting and impactful to perceive the world better</title>
+<title>fluidbN | Making information interesting and impactful to perceive the world better</title>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133705211-1"></script>
 <script>
@@ -90,7 +90,7 @@ a{
 <div class="w3-top">
   <div class="w3-bar w3-white w3-card" id="myNavbar">
     <a href="#home" class="w3-bar-item  w3-wide"><img class="featurette-image img-fluid mx-auto" src="/storage/logo/logow.png" style=""></a>
- 
+ <p class="w3-medium w3-flat-pomegranate w3-tag w3-card">Beta</p>
     
  
     <!-- Right-sided navbar links -->
