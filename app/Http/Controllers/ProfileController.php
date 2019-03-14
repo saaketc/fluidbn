@@ -216,7 +216,9 @@ class ProfileController extends Controller
     function rejectUser(Request $request){
         $id = $request['id'];
         $user = User::find($id);
+        $user->hasGenre()->detach();
         $user->delete();
+
         $data=[
             'status'=>1
         ];
