@@ -213,15 +213,15 @@ class ProfileController extends Controller
         ];
         return view('User.user_follow_people')->with($data);
     }
-    function rejectUser(Request $request){
-        $id = $request['id'];
-        $user = User::find($id);
-        $user->hasGenre()->detach();
-        $user->delete();
+    // function rejectUser(Request $request){
+    //     $id = $request['id'];
+    //     $user = User::find($id);
+    //     $user->hasGenre()->detach();
+    //     $user->delete();
 
-        $data=[
-            'status'=>1
-        ];
-        return response()->json($data);
-    }
+    //     $data=[
+    //         'status'=>1
+    //     ];
+    //     return response()->json($data);
+    // }
 }

@@ -188,4 +188,4 @@ Route::post('report-theory','Theory\TheoryController@report')->name('report-th')
 Route::post('report-story','Article\ArticleController@report')->name('report-st');
 // to reject a user because of less age
 
-Route::post('/rejectuser','ProfileController@rejectUser')->name('reject-user');
+// Route::post('/rejectuser','ProfileController@rejectUser')->name('reject-user');

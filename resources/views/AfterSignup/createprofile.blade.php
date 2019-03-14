@@ -129,7 +129,8 @@ document.getElementById('yos').removeAttribute('required');
 document.getElementById('col').removeAttribute('required');  
 });
 </script>
-<script>
+
+{{-- <script>
 document.getElementById('dob').addEventListener('input',function(){
   var date = new Date();
   var current_year = date.getFullYear();
@@ -154,7 +155,7 @@ document.getElementById('dob').addEventListener('input',function(){
 });
 
 
-</script>
+</script> --}}
 <script>
   var loadFile = function(event) {
     var output = document.getElementById('output');
