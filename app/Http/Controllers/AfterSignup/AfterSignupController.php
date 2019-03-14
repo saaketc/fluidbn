@@ -126,10 +126,16 @@ class AfterSignupController extends Controller
             
             if($request->has('dob'))
             $profile->dob = $request->input('dob');
-            if($request->has('designation') && $request->has('company')){
-                   $profile->designation = $request->input('designation');
-                $profile->company = $request->input('company');
+
+           if($request->has('designation')){
+             $profile->designation = $request->input('designation');
+          
             }
+
+            // if($request->has('designation') && $request->has('company')){
+            //        $profile->designation = $request->input('designation');
+            //     $profile->company = $request->input('company');
+            // }
             if($request->has('education') && $request->has('yos') && $request->has('college')){
                    $profile->education = $request->input('education');
                 $profile->yos = $request->input('yos');
