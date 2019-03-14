@@ -7,7 +7,7 @@
     </a>
    
     <a href="{{ url('/feed') }}" class="w3-bar-item  w3-wide "><img class="featurette-image img-fluid mx-auto" src="/storage/logo/logow.png" style="margin-left:0;"></a>
-    
+     <p class="w3-medium w3-flat-pomegranate w3-tag w3-card" style="margin-top:1%;">Beta</p>
      
   
     {{-- search --}}
