@@ -11,7 +11,7 @@ Signup - create-profile | fluidbN
 <h1 >Welcome to fluidbN family {{ucfirst(Auth::user()->fname)}} !!</h1>
 <h2 >Just one more step to go !</h1>
 </div>
-<div class="row">
+<div class="row" id="">
     
     <div class="col-sm-6">
         <img src="/storage/general/welcome.png" style="width:80%;height:auto;">
@@ -24,7 +24,7 @@ Signup - create-profile | fluidbN
     @endphp
     
         <div class="col-sm-6">
-{!! Form::open(['route'=>'get-me-in','method'=>'POST','files'=>true,'enctype'=>'multipart/form-data']) !!}  
+{!! Form::open(['route'=>'get-me-in','method'=>'POST','files'=>true,'enctype'=>'multipart/form-data','id'=>'pro-form']) !!}  
 
 <div class="form-group">
     {{Form::label('image','Upload profile pic',['class'=>'w3-button w3-flat-pomegranate w3-padding-large'])}}
@@ -42,7 +42,7 @@ Signup - create-profile | fluidbN
              
             <div class="form-group">
             {{Form::label('dob','Your birthdate',['class'=>'pro_info w3-button w3-flat-pomegranate'])}} 
-              {{Form::date('dob',"",[ 'class'=>'pro_info form-control','id'=>'dob'])}}
+              {{Form::date('dob',"",[ 'class'=>'pro_info form-control','id'=>'dob','data-u'=>Auth::user()->id,'required'=>'required'])}}
       </div>
     
         <div class="form-group">
@@ -84,6 +84,10 @@ Signup - create-profile | fluidbN
 {{--{{Form::label('college','Your college',['class'=>'pro_info form-control'])}}--}}
 {{Form::select('college',$selectcollege,null,['class'=>'pro_info form-control','placeholder'=>'Your college','id'=>'col','required'=>'required'])}}
 </div>
+{{-- not a student --}}
+ {{Form::label('non-student','Not a student?',['class'=>'pro_info'])}}
+   {{Form::text('designation','',['class'=>'pro_info form-control','placeholder'=>'Your occupation','id'=>'occ'])}}
+             
 <div class="form-group">
 {{Form::label('startup','If you are running a startup or a blog',['class'=>'pro_info'])}}
 {{Form::text('startup','',['class'=>'pro_info form-control','placeholder'=>'Position @ Company name/blog name'])}}
@@ -94,7 +98,8 @@ Signup - create-profile | fluidbN
     </div>
    {{Form::submit('Take me in',['class'=>'w3-button w3-flat-pomegranate w3-padding-large'])}}
     </div> 
-<div class="professional" id="professional-form">
+
+{{-- <div class="professional" id="professional-form">
 
         <div class="form-group">
 {{Form::label('designation','Your designation',['class'=>'pro_info form-control'])}}
@@ -106,7 +111,7 @@ Signup - create-profile | fluidbN
 {{Form::text('company','',['id'=>'',  'class'=>'form-control','placeholder'=>'','id'=>'comp'])}}
 </div>
 {{Form::submit('Take me in',['class'=>'btn   btn-login'])}}
-</div>
+</div> --}}
 
  {!! Form::close() !!}
        </div>
@@ -114,6 +119,42 @@ Signup - create-profile | fluidbN
 </div>
 
 </div>
+
+<script>
+  document.getElementById('occ').addEventListener('input',function(){
+var occ = document.getElementById('occ');
+occ.setAttribute('required','required');
+document.getElementById('edu').removeAttribute('required');
+document.getElementById('yos').removeAttribute('required');
+document.getElementById('col').removeAttribute('required');  
+});
+</script>
+<script>
+document.getElementById('dob').addEventListener('input',function(){
+  var date = new Date();
+  var current_year = date.getFullYear();
+  var dob = new Date(document.getElementById('dob').value);
+  var birth_year = dob.getFullYear();
+  var age = current_year - birth_year;
+  var id = document.getElementById('dob').getAttribute('data-u');
+  var url= "{{ route('reject-user') }}";
+  var token = "{{Session::token()}}";
+  if(age<15){
+    alert('Sorry kiddo ! you are not old enough to signup for fluidbN, Take your parents help instead');
+    $.post(url,{
+      _token:token,
+      id:id
+    }, 
+      function(data){
+        if(data.status==1) 
+        window.location='https://www.fluidbn.com';
+      }
+    );
+    }
+});
+
+
+</script>
 <script>
   var loadFile = function(event) {
     var output = document.getElementById('output');
@@ -122,5 +163,6 @@ Signup - create-profile | fluidbN
     
   };
 </script>
+
 @endsection
 
