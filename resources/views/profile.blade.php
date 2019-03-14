@@ -56,7 +56,7 @@
            <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i>{{$user->hasProfile->about }}</p>
            <p class="writer"> @if($user->hasProfile->education != null && $user->hasProfile->yos != null && $user->hasProfile->college != null)<i class="fa fa-suitcase w3-text-theme" ></i> {{$user->hasProfile->education." ".$user->hasProfile->yos.' student @ '. $user->hasProfile->college}}@endif</p>
            <p class="writer"> @if($user->hasProfile->startup != null)<i class="fa fa-suitcase w3-text-theme" ></i> {{' Student startup : '.ucfirst($user->hasProfile->startup)}}@endif</p>
-           <p class="writer"> @if($user->hasProfile->designation != null)<i class="fa fa-suitcase w3-text-theme" ></i> {{$user->hasProfile->designation .' @ '. $user->hasProfile->company}}@endif</p>
+           <p class="writer"> @if($user->hasProfile->designation != null)<i class="fa fa-suitcase w3-text-theme" ></i> {{$user->hasProfile->designation}}@endif</p>
            @if($followers!=0)<p  class="" id="followers" style="margin-bottom:5px;font-size:15px;font-weight:bold;">{{$followers.' '.$f.'  '}}</p>
            @endif
         
