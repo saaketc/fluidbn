@@ -225,11 +225,11 @@ My feed | fluidbN
                    
                     <div class="card-related lower-margin" style="background:white;">
                         
-                      <img class="zoom featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/quick_story/{{$a->story_image}}" alt="" onclick="document.getElementById('quick01').style.display='block'">
-                     <div id="quick01" class="w3-modal" onclick="this.style.display='none'">
+                      <img class="zoom featurette-image img-fluid mx-auto" style="border-radius:10px;" src="/storage/quick_story/{{$a->story_image}}" alt="" onclick="document.getElementById('quick{{ $a->id }}').style.display='block'">
+                     <div id="quick{{ $a->id }}" class="w3-modal" onclick="this.style.display='none'">
                 <span class="w3-button w3-red w3-hover-black w3-xlarge w3-display-topright">&times;</span>
                 <div class="w3-modal-content w3-animate-zoom">
-                  <img src="/storage/quick_story/{{$a->story_image}}" class="zoom mx-auto" style="width:80%">
+                  <img src="/storage/quick_story/{{$a->story_image}}" class="zoom mx-auto" style="width:100%">
               <div class="w3-container box">
                   <p class="w3-large" style="color:black;font-weight:bold;">{!! htmlspecialchars_decode($a->content) !!}</p>
                 </div>
