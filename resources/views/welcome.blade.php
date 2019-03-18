@@ -97,7 +97,7 @@ a{
     <div class="w3-right w3-hide-small w3-hide-medium">
       {{--<a href="#about" class="w3-bar-item w3-button">About</a>--}}
      
-      <button onclick="location.href='{{route('login')}}'"  class="w3-bar-item w3-button w3-flat-pomegranate">Login</button>
+      <button onclick="location.href='{{route('login')}}'"  class="w3-bar-item w3-button w3-flat-pomegranate" style="margin-right:10px;">Login</button>
   
       <button onclick="location.href='{{route('register')}}'"  class="w3-bar-item w3-button w3-flat-pomegranate">Signup</button>
     
