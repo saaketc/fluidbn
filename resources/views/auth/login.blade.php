@@ -71,7 +71,7 @@ Login | fluidbN
                                 
     
                                         <a class="btn btn-link " style="color:black;" href="{{ route('register') }}">
-                                            {{ __('Signup Now and become a fluidbn family member') }}
+                                            {{ __('Signup Now ') }}
                                         </a>
 
                             
