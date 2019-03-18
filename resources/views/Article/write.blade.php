@@ -83,13 +83,13 @@ Write article | fluidbN
           
 <script>
   var loadFile = function(event) {
-    var output = document.getElementById('output');
+    //var output = document.getElementById('output');
    
     var remove = document.getElementById('blnk_img');
-   output.src = URL.createObjectURL(event.target.files[0]);
+   remove.src = URL.createObjectURL(event.target.files[0]);
     
 
-    remove.src="";
+   // remove.src="";
   };
 </script>
 <script>
