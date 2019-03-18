@@ -224,33 +224,46 @@
 {{-- notis --}}
 <div class="w3-dropdown-hover ">
 
-      <button onclick="myFunction1()" class="w3-button"> @auth
-        <span class="fa fa-bell" id="notifications" style="color:black;font-size:25px;"></span>@if(Auth::user()->unreadNotifications->count()>0)<span class="w3-badge w3-red w3-large noti_count"  id="">{{Auth::user()->unreadNotifications->count()}}</span>@endif
+      <button id='notific-btn' class="w3-button"> @auth
+        <span class="fa fa-bell" id="notifications" style="color:black;font-size:25px;"></span>@if(Auth::user()->notifications()->where('read_at',NULL)->where('status',0)->count()>0)<span class="w3-badge w3-red w3-large noti_count"  id="noti-count">{{ Auth::user()->notifications()->where('read_at',NULL)->where('status',0)->count()}}</span>@endif
         @endauth</button>
  
       <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-animate-zoom" style="text-align:center;">
       
         @auth
-        @if(Auth::user()->unreadNotifications->count()>0)
-                         @foreach (Auth::user()->unreadNotifications->take(10) as $n )
+{{--        
+        @if(Auth::user()->unreadNotifications->count()>0)  --}}
+                         @foreach (Auth::user()->notifications->take(10) as $n )
                         
-                        @if($n->type=="App\Notifications\UserFollowed")
+                          
+                          @php
+                          if($n->read_at==NULL){
+                          $c = "w3-flat-pomegranate noti-border";
+                          $col = 'white';
+                          }
+                          else{
+                          $c = "noti-box";
+                          $col = 'black';
+                          }
+                          @endphp
+                                                
+                         @if($n->type=="App\Notifications\UserFollowed")
                          @php
                          $u = $n->data['follower_id'];
                          $user = App\User::find($u);
                          $f = $n->data['follower_fname'];
                          $l = $n->data['follower_lname'];
-                       
+                         
                          @endphp
      
-<div style="border:1px solid black;background-color:white;">
-       <a href="{{route('profile',['user'=>$user,'slug'=>str_slug($f.' '.$l)])}}" class="dropdown-item notify" data-m={{$n->id}}> <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$user->hasProfile->profile_image}}" alt=""><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
+<div class="{{ $c }}">
+       <a href="{{route('profile',['user'=>$user,'slug'=>str_slug($f.' '.$l)])}}" class="dropdown-item notify" data-m={{$n->id}}> <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$user->hasProfile->profile_image}}" alt=""><p class=""style="color:{{ $col }};font-weight:500px;">{{$n->data['message']}}</p></a>
        </div>
    
                      
                         @elseif($n->type=="App\Notifications\UserWelcome")
-                        <div style="border:1px solid black;background-color:white;">
-                        <a href="" class="dropdown-item notify" data-m={{$n->id}}><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
+                        <div class="{{ $c }}">
+                        <a href="" class="dropdown-item notify" data-m={{$n->id}}><p class=""style="color:{{ $col }};font-weight:500px;">{{$n->data['message']}}</p></a>
                         </div>
                    
                          
@@ -262,8 +275,8 @@
                           $art = App\Theory::find($id);
                           $title = $n->data['theory_title']; 
                           @endphp
-                          <div style="border:1px solid black;background-color:white;">
-                          <a href="{{route('show-theory',['theory'=>$art,'slug'=>str_slug($title)])}}" class="dropdown-item notify" data-m={{$n->id}}><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
+                          <div class="{{ $c }}">
+                          <a href="{{route('show-theory',['theory'=>$art,'slug'=>str_slug($title)])}}" class="dropdown-item notify" data-m={{$n->id}}><p class=""style="color:{{ $col }};font-weight:500px;">{{$n->data['message']}}</p></a>
                           </div>
                     
                           @else
@@ -274,23 +287,23 @@
                           $art = App\Article::find($id);
                           $title = $n->data['article_title']; 
                           @endphp
-                          <div style="border:1px solid black;background-color:white;">
-                          <a href="{{route('show-article',['article'=>$art,'slug'=>str_slug($title)])}}" class="dropdown-item notify dropNot" data-m={{$n->id}}><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
+                          <div class="{{ $c }}">
+                          <a href="{{route('show-article',['article'=>$art,'slug'=>str_slug($title)])}}" class="dropdown-item notify dropNot" data-m={{$n->id}}><p class=""style="color:{{ $col }};font-weight:500px;">{{$n->data['message']}}</p></a>
                           </div>
                      
                           @endif
                          @endforeach
                         
-                       @if(Auth::user()->unreadNotifications->count()>10)
+                       @if(Auth::user()->notifications->count()>10)
                          <a href="{{route('all-notifications')}}"><p style="color:black;text-align:center;font-weight:500;font-size:25px;"> See all </p></a>
                         @endif
                        
-                         @else
+                         {{--  @else
                      
-                        <a href=""class="dropdown-item"> No new notifications</a>
+                        <a href=""class="dropdown-item">{{"No new notifications"}}</a>
                          <a href="{{route('all-notifications')}}" class="dropdown-item">All notifications</a>
                        
-                         @endif 
+                         @endif   --}}
                          @endauth
     </div>
 
@@ -328,14 +341,25 @@
   
   <div class="w3-dropdown-click">
       <a onclick="notiFunc()" class="w3-bar-item hov-a-white"> @auth
-        <span class="fa fa-bell" id="notifications" style="color:white;font-size:25px;"></span>@if(Auth::user()->unreadNotifications->count()>0)<span class="w3-badge w3-red w3-large noti_count"  id="">{{Auth::user()->unreadNotifications->count()}}</span>@endif
+        <span class="fa fa-bell" id="notifications" style="color:white;font-size:25px;"></span>@if(Auth::user()->notifications()->where('read_at',NULL)->where('status',0)->count()>0)<span class="w3-badge w3-red w3-large noti_count"  id="noti-count-mob">{{ Auth::user()->notifications()->where('read_at',NULL)->where('status',0)->count() }}</span>@endif
         @endauth</a>
       <div id="nts"class="w3-dropdown-content w3-bar-block w3-card-4 w3-animate-zoom">
       
         @auth
-        @if(Auth::user()->unreadNotifications->count()>0)
-                         @foreach (Auth::user()->unreadNotifications->take(10) as $n )
-                        
+        {{--  @if(Auth::user()->unreadNotifications->count()>0)  --}}
+                         @foreach (Auth::user()->notifications->take(10) as $n )
+                            
+                          @php
+                          if($n->read_at==NULL){
+                          $c = "w3-flat-pomegranate noti-border";
+                          $col = 'white';
+                          }
+                          else{
+                          $c = "noti-box";
+                          $col = 'black';
+                          }
+                          @endphp
+
                         @if($n->type=="App\Notifications\UserFollowed")
                          @php
                          $u = $n->data['follower_id'];
@@ -345,14 +369,14 @@
                        
                          @endphp
      
-<div style="border:1px solid black;background-color:white;">
-       <a href="{{route('profile',['user'=>$user,'slug'=>str_slug($f.' '.$l)])}}" class="w3-bar-item notify" data-m={{$n->id}}> <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$user->hasProfile->profile_image}}" alt=""><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
+<div class="{{ $c }}">
+       <a href="{{route('profile',['user'=>$user,'slug'=>str_slug($f.' '.$l)])}}" class="w3-bar-item notify" data-m={{$n->id}}> <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$user->hasProfile->profile_image}}" alt=""><p class=""style="color:{{ $col }};font-weight:500px;">{{$n->data['message']}}</p></a>
        </div>
    
                      
                         @elseif($n->type=="App\Notifications\UserWelcome")
-                        <div style="border:1px solid black;background-color:white;">
-                        <a href="" class="w3-bar-item notify" data-m={{$n->id}}><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
+                        <div class="{{ $c }}">
+                        <a href="" class="w3-bar-item notify" data-m={{$n->id}}><p class=""style="color:{{ $col }};font-weight:500px;">{{$n->data['message']}}</p></a>
                         </div>
                    
                          
@@ -364,8 +388,8 @@
                           $art = App\Theory::find($id);
                           $title = $n->data['theory_title']; 
                           @endphp
-                          <div style="border:1px solid black;background-color:white;">
-                          <a href="{{route('show-theory',['theory'=>$art,'slug'=>str_slug($title)])}}" class="w3-bar-item notify" data-m={{$n->id}}><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
+                          <div class="{{ $c }}">
+                          <a href="{{route('show-theory',['theory'=>$art,'slug'=>str_slug($title)])}}" class="w3-bar-item notify" data-m={{$n->id}}><p class=""style="color:{{ $col }};font-weight:500px;">{{$n->data['message']}}</p></a>
                           </div>
                     
                           @else
@@ -376,21 +400,21 @@
                           $art = App\Article::find($id);
                           $title = $n->data['article_title']; 
                           @endphp
-                          <div style="border:1px solid black;background-color:white;">
-                          <a href="{{route('show-article',['article'=>$art,'slug'=>str_slug($title)])}}" class="w3-bar-item notify dropNot" data-m={{$n->id}}><p class=""style="color:black;font-weight:500px;">{{$n->data['message']}}</p></a>
+                          <div class="{{ $c }}">
+                          <a href="{{route('show-article',['article'=>$art,'slug'=>str_slug($title)])}}" class="w3-bar-item notify dropNot" data-m={{$n->id}}><p class=""style="color:{{ $col }};font-weight:500px;">{{$n->data['message']}}</p></a>
                           </div>
                      
                           @endif
                          @endforeach
                         
-                       @if(Auth::user()->unreadNotifications->count()>10)
+                       @if(Auth::user()->notifications->count()>10)
                          <a href="{{route('all-notifications')}}"><p style="color:black;text-align:center;font-weight:500;font-size:25px;"> See all </p></a>
                         @endif
                        
-                         @else
+                         {{--  @else
                            <a href=""class="w3-bar-item"> No new notifications</a>
                          <a href="{{route('all-notifications')}}" class="w3-bar-item">All notifications</a>
-                         @endif 
+                         @endif   --}}
                          @endauth
     </div>
     </div>

@@ -72,7 +72,14 @@
               background-color:whitesmoke;
           }    
             html, body, h1, h2, h3, h4, h5 {font-family: "Raleway", sans-serif}                       
-  /* Full-width input fields */
+  
+  .noti-box{
+    border:1px solid black;background-color:white;
+  }
+  .noti-border{
+    border:1 px solid red;
+  }
+            /* Full-width input fields */
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 12px;
@@ -319,15 +326,28 @@ span.psw {
             <script  src="{{ asset('js/custom.js') }}" defer></script>
        <script async src="{{asset('js/app.js')}}" defer></script>
     <script>
-            function notiFunc() {
-              var x = document.getElementById("nts");
-              if (x.className.indexOf("w3-show") == -1) {
-                x.className += " w3-show";
-              } else { 
-                x.className = x.className.replace(" w3-show", "");
-              }
-            }
-            
+           
+// notifications fo mobile view
+
+      function notiFunc() {
+          var x = document.getElementById("nts");
+          if(document.getElementById('noti-count-mob')){ 
+            var count = document.getElementById('noti-count-mob');
+            count.style.visibility = 'hidden';
+             $.post(url, {
+         _token: token,
+
+     });
+          } 
+         
+          if (x.className.indexOf("w3-show") == -1) {
+              x.className += " w3-show";
+          } else {
+              x.className = x.className.replace(" w3-show", "");
+          }
+      }
+
+
           
                     function uspFunc() {
                       var x = document.getElementById("uspr");
@@ -416,6 +436,7 @@ span.psw {
         
        
        <script>
+          var url = '{{ route("read") }}';
         @include('includes.buttons')
        </script>
        

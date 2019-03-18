@@ -7,6 +7,14 @@ use App\Notification;
 use Auth;
 class NotificationController extends Controller
 {
+    public function read(Request $request){
+        $user = Auth::user();
+        //$user->unreadNotifications->markAsRead();
+       $user->unreadNotifications()->update(['status'=>1]);
+      
+       // $c = $user->unreadNotifications->count();   
+        return ;
+    }
  public function markRead(Request $request){
               $id = $request['id'];
               $user = Auth::user();
@@ -22,7 +30,7 @@ class NotificationController extends Controller
                     'user'=>$user,
                     'notifications'=>$notifications
                 ];
-                 $user->unreadNotifications->markAsRead();
+                 //$user->unreadNotifications->markAsRead();
                 return view('User.allNotifications')->with($data);
     }
 }

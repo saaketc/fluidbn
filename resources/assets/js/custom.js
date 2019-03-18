@@ -388,3 +388,20 @@ $(document).ready(function(){
       });
     });
 });
+// tomake notification count 0 on hover
+document.getElementById('notific-btn').addEventListener('mouseenter',makeCountZero);
+
+function makeCountZero(){
+  if (document.getElementById('noti-count')){
+     var count = document.getElementById('noti-count');
+     count.className = 'w3-hide';
+
+     //var token = "{{Session::token()}}";
+     $.post(url, {
+         _token: token,
+
+     });
+  }
+  
+ 
+}
