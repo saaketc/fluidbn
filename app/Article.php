@@ -8,7 +8,7 @@ class Article extends Model {
 
    
    use HasHashSlug;
-   protected static $minSlugLength = 10;
+   protected static $minSlugLength = 5;
    
    /* public function getRouteKeyName()
     {
