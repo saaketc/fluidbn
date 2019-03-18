@@ -12,7 +12,7 @@
   
     {{-- search --}}
     <div class="w3-hide-small w3-hide-medium">
-   <div class="w3-display-right" style="margin-right:18%;">
+   <div class="w3-display-right" style="margin-right:20%;">
      <button onclick="document.getElementById('id01').style.display='block'" class="w3-button" style="background-color:white;"><i class="fa fa-search" style="font-size:30px;"></i></button>
   </div>
   <div id="id01" class="w3-modal">
@@ -44,7 +44,7 @@
   </div>
   </div>
      {{--  for mobile view--}}
-  <div class="w3-hide-large">
+
        {{--user--
           <div class="w3-display-right"  style="margin-right:35%;">
 <div class="w3-dropdown-hover">
@@ -154,8 +154,8 @@
       </div>
   </div>
   --}}
-    
-   <div class="w3-display-right" style="margin-right:25%;">
+      <div class="w3-hide-large">
+   <div class="w3-display-right" style="margin-right:20%;">
      <button onclick="document.getElementById('id02').style.display='block'" class="w3-button" style="background-color:white;"><i class="fa fa-search" style="font-size:30px;"></i></button>
   </div>
   <div id="id02" class="w3-modal">
