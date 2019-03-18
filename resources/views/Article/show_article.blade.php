@@ -176,15 +176,22 @@
     <div class="w3-modal-content w3-animate-top w3-card-4">
       <header class="w3-container w3-flat-pomegranate"> 
         <span onclick="document.getElementById('share-m').style.display='none'" 
-        class="w3-button w3-display-topright w3-black w3-padding-medium">&times;</span>
-        <h2>Share url on other social media to let the ideas and stories reach better !</h2>
+        class="w3-button w3-display-topright w3-black w3-padding-small">&times;</span>
+        <div style="margin-top:1%;">
+        <h2 class="w3-medium">Share url on other social media to let the ideas and stories reach better !</h2>
+        </div>
       </header>
       <div class="w3-container">
           <input type="text" id="share-url">
     
       </div>
+       </div>
+  </div>
+
       {{-- share modal end --}}
-      <footer class="w3-container">
+     
+    </div>
+    <footer class="w3-container">
           <table class="table table-bordered table-hover ">
                
                 <tbody class="sys w3-small" style="color:black;">
@@ -192,14 +199,7 @@
                 </tbody>
                  
                 </table>
-      </footer>
-    </div>
-  </div>
-
-   
-     
-      </div>
-      
+      </footer>   
         {{--
         <button class="btn btn-login" style="margin-top:5px;margin-bottom:10px;" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::fullUrl()) }}')">Share on facebook</button>
         <button class="btn   btn-login" style="margin-top:5px;margin-bottom:10px;" onclick="window.open('https://twitter.com/intent/tweet?url={{ urlencode(Request::fullUrl())}}')">Share on twitter</button>
