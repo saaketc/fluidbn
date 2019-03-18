@@ -49,13 +49,13 @@ class FeedController extends Controller
           
            $id[] = $g->id;
        }
-       if(!($user->remember_token)){
-        $heading = ucfirst($user->fname) .", enjoy feed curated for you with ";
+    //    if(!($user->remember_token)){
+    //     $heading = ucfirst($user->fname) .", enjoy feed curated for you with ";
             
-    }
-       else{
-           $heading = '';
-       } 
+    // }
+    //    else{
+    //        $heading = '';
+    //    } 
       // to hide reported stories from the user feed
        if($user->reports()->wherePivot('reported_by_id',$user->id)->count()>0){
            $reported_articles = $user->reports()->wherePivot('reported_by_id',$user->id)->get();
@@ -102,7 +102,7 @@ class FeedController extends Controller
          'latest_studio_story'=>$latest_studio_story,
          'latest_story'=> $latest_story,
          'latest_theory'=>$latest_theory,
-         'heading'=>$heading,
+        //  'heading'=>$heading,
             'quick_stories'=> $quick_stories
               
           
