@@ -5,7 +5,7 @@ Settings | fluidbN
 
 @section('content')
 
-  <div class=" lower-margin w3-hide-large" style="text-align:center;margin-top:35%;">
+  <div class=" lower-margin w3-hide-large" style="text-align:center;margin-top:10%;">
   <h1 class="featurette-heading-title"> Your profile settings </h2> 
 </div>
 <div class=" lower-margin w3-hide-small w3-hide-medium" style="text-align:center;">
@@ -170,13 +170,13 @@ $s = ucfirst(Auth::user()->hasProfile->startup);
 
 <script>
   var loadFile = function(event) {
-    var output = document.getElementById('output');
+  //  var output = document.getElementById('output');
    
     var remove = document.getElementById('out-profile');
-   output.src = URL.createObjectURL(event.target.files[0]);
+   remove.src = URL.createObjectURL(event.target.files[0]);
     
 
-    remove.src="";
+   // remove.src="";
   };
 </script>
 @endsection
