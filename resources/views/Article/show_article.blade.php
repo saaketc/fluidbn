@@ -1,3 +1,4 @@
+
 @extends('layouts.main')
 
 @section('title')
@@ -13,7 +14,7 @@
     <div class="col-sm-8">   
   <div class=" w3-hide-small w3-hide-medium ">
 
-<h2 class="featurette-heading w3-center" style="margin-top:10px; color:black;font-weight:bold;font-size:6rem;">{{ucfirst($article->title)}}</h2>
+<h2 class="featurette-heading w3-center" style="margin-top:10px; color:black;font-weight:bold;font-size:4rem;">{{ucfirst($article->title)}}</h2>
   </div>
      </div>
   <div class=" w3-hide-large " style="margin-top:2%;" >

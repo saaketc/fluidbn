@@ -14,7 +14,7 @@
 
   <div class="w3-container w3-hide-small w3-hide-medium">
 
-<h2 class="featurette-heading" style="color:black;font-weight:bold;font-size:6rem;">{{ucfirst($theory->title)}}</h2>
+<h2 class="featurette-heading" style="color:black;font-weight:bold;font-size:4rem;">{{ucfirst($theory->title)}}</h2>
   </div>
   <div class="w3-container w3-hide-large" style="" >
 
