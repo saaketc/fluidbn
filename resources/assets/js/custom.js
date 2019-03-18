@@ -405,3 +405,8 @@ function makeCountZero(){
   
  
 }
+// url generation to share story
+document.getElementById('share').addEventListener('click',urlShare);
+ function urlShare(){
+   document.getElementById('share-url').value=window.location.href;
+ }
