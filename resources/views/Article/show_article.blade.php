@@ -166,6 +166,38 @@
       <div class="w3-bar w3-card stick w3-center">
            <button class="w3-button w3-padding-large  {{$c}} " id="like"  style="margin-left:5px;margin-top:5px;" data-articleid="{{$article->id}}" type="submit">{{$like ? "Thanks" : "Wow"}}</button>
         <button class="w3-button w3-padding-large  bookmark {{$c}}" style="margin-top:5px;" data-articleId="{{$article->id}}">{{$bookmark ? "Bookmarked" : "Bookmark"}}</button>
+        
+     {{-- share modal --}}
+   
+     <button onclick="document.getElementById('share-m').style.display='block'" class="w3-button w3-padding-large w3-flat-pomegranate" style="margin-top:5px;" id="share">Share</button>
+  
+
+  <div id="share-m" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-flat-pomegranate"> 
+        <span onclick="document.getElementById('share-m').style.display='none'" 
+        class="w3-button w3-display-topright w3-black w3-padding-medium">&times;</span>
+        <h2>Share url on other social media to let the ideas and stories reach better !</h2>
+      </header>
+      <div class="w3-container">
+          <input type="text" id="share-url">
+    
+      </div>
+      {{-- share modal end --}}
+      <footer class="w3-container">
+          <table class="table table-bordered table-hover ">
+               
+                <tbody class="sys w3-small" style="color:black;">
+                
+                </tbody>
+                 
+                </table>
+      </footer>
+    </div>
+  </div>
+
+   
+     
       </div>
       
         {{--
