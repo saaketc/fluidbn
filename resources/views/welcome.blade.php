@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>fluidbN | Making information interesting and impactful to perceive the world better</title>
+<title>A creative, crazy and impactful media for the youth | fluidbN</title>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133705211-1"></script>
 <script>
@@ -128,7 +128,7 @@ a{
     <span class="w3-jumbo w3-hide-small coolhead" style="margin-top:30%;color:black;">Welcome to fluidbN</span><br>
    
    
-    <span class="w3-xlarge coolhead" style="color:black;"> Making information interesting and impactful<br/> to perceive the world better <i class="fa fa-heart" style="color:red;font-size:30px;"></i></span>
+    <span class="w3-xlarge coolhead" style="color:black;"> A creative, crazy and impactful media for the youth <i class="fa fa-heart" style="color:red;font-size:30px;"></i></span>
 
     <p><button onclick="location.href='{{route('register')}}'" class="w3-button w3-flat-pomegranate w3-padding-large w3-large">Get Started</button>
    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-flat-pomegranate w3-padding-large w3-large">Login</button></p>
@@ -147,7 +147,7 @@ a{
      <div style="margin-top:1%;">
       <span class="w3-xxlarge w3-hide-large  coolhead " style="color:black;">Welcome to fluidbN</span><br>
      </div>
-      <span class="w3-large coolhead" style="color:black;"> Making information interesting and impactful<br/> to perceive the world better <i class="fa fa-heart" style="color:red;font-size:30px;"></i></span>
+      <span class="w3-large coolhead" style="color:black;"> A creative, crazy and impactful media for the youth <i class="fa fa-heart" style="color:red;font-size:30px;"></i></span>
       
     
     </div> 
@@ -165,7 +165,7 @@ a{
 <div class="bgimg-3 w3-display-container w3-hide-small w3-hide-medium " id="" style="margin-top:0.05%;">
     <div class=" w3-text-white" style="padding:48px;text-align:center;">
         
-      <span class="w3-xxxlarge w3-hide-small  w3-hide-medium coolhead" style="margin-top:10%; color:black;">Get on board to<br> experience the information media like never before</span><br>
+      <span class="w3-xxxlarge w3-hide-small  w3-hide-medium coolhead" style="margin-top:10%; color:black;">Get on board to<br> change the world with your stories, theories and ideas !</span><br>
      
     </div> 
     
@@ -175,7 +175,7 @@ a{
 <div class="bgimg-4 w3-display-container w3-hide-large" id="" style="margin-top:0.05%;">
     <div class=" w3-text-white" style="padding:48px;text-align:center;">
         
-      <span class="w3-xlarge w3-hide-large coolhead " style="margin-top:10%; color:black;">Get on board to experience the information media like never before</span><br>
+      <span class="w3-xlarge w3-hide-large coolhead " style="margin-top:10%; color:black;">Get on board to change the world with your stories, theories and ideas !</span><br>
       
      
     </div> 
