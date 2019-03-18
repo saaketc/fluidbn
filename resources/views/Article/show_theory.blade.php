@@ -55,7 +55,7 @@
          
            <!-- The Modal -->
            <div class="modal fade" id="deleteArticle">
-             <div class="modal-dialog modal-md">
+             <div class="modal-dialog modal-sm">
                <div class="modal-content">
                
                  <!-- Modal Header -->
@@ -76,7 +76,7 @@
                  {{Form::submit('Yes, delete theory',['class'=>'w3-button w3-flat-pomegranate w3-small'])}}
           {!!Form::close()!!}   
           
-          
+          <br/>
            <button type="button" class=" w3-button w3-flat-pomegranate w3-small" data-dismiss="modal">No, take me back</button>
          </div> 
           </div>

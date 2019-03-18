@@ -206,7 +206,7 @@ My feed | fluidbN
 {{--theories end--}}
              {{-- quick stories --}}
              
-               <div class=" w3-container" id="story-feed-tailored-f">   
+               <div class=" w3-container" id="">   
 
        @if(count($quick_stories)>0)
         <div class="box lower-margin">
@@ -239,18 +239,42 @@ My feed | fluidbN
                         <h2 class="featurette-heading-feed">{{ucfirst($a->title)}}</h2>
                         
                         {{--  <p class="lead">{!! wordwrap(str_limit($a->content,100),50,"<br>\n",TRUE)!!}</p>  --}}
-                        <div class="" style="margin-botton:5px;">
-                           {{-- Button to Open the delete modal --}}
+                       
+        
+            
+         
+           
+                       <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$a->quickStoryWrittenBy->hasProfile->profile_image}}" alt="">
+                       <div class="w3-dropdown-hover"><small class="writer-small">{{ucfirst($a->quickStoryWrittenBy->fname).' '. ucfirst($a->quickStoryWrittenBy->lname)}}</small>
+                        <div class="w3-dropdown-content w3-card-4" style="width:250px">
+                            <a href="{{route('profile',['user'=>$a->quickStoryWrittenBy,'slug'=>str_slug($a->quickStoryWrittenBy->fname." ".$a->quickStoryWrittenBy->lname)])}}">
+                          <img src="/storage/profile_images/thumbnails/{{$a->quickStoryWrittenBy->hasProfile->profile_image}}" alt="" style="width:100%"></a>
+                          
+                          <div class="w3-container">
+                            <p>{{$a->quickStoryWrittenBy->hasProfile->about}}</p>
+                            @if($a->quickStoryWrittenBy->hasProfile->college)
+                            <p>{{$a->quickStoryWrittenBy->hasProfile->education.' '.$a->quickStoryWrittenBy->hasProfile->yos.' student at '.$a->quickStoryWrittenBy->hasProfile->college}}</p>
+                            @elseif($a->quickStoryWrittenBy->hasProfile->company)
+                            <p>{{$a->quickStoryWrittenBy->hasProfile->designation.' at '.$a->quickStoryWrittenBy->hasProfile->company}}</p>
+                            @endif
+                          </div>
+                        </div>
+                      </div>
+                                         {{-- Button to Open the delete modal --}}
          @if(Auth::user()->id==$a->quickStoryWrittenBy->id)
-           <button  class="btn btn-login" style="" id=""  data-toggle="modal" data-target="#delete">
+           <button  class="w3-button w3-flat-pomegranate" style="margin-right:10%;" id=""  data-toggle="modal" data-target="#delete-{{ $a->id }}">
              Delete
            </button>  
            @endif
-             </div>
-         
+                      </div>
+                    </div>
+                  </div>   
+                    
+                  
+                    
            <!-- The Modal -->
-           <div class="modal fade" id="delete">
-             <div class="modal-dialog modal-md">
+           <div class="modal fade" id="delete-{{ $a->id }}">
+             <div class="modal-dialog modal-sm">
                <div class="modal-content">
                
                  <!-- Modal Header -->
@@ -271,42 +295,17 @@ My feed | fluidbN
                  {{Form::submit('Yes, delete story',['class'=>'w3-button w3-flat-pomegranate w3-small'])}}
           {!!Form::close()!!}   
           
-          
+          <br/>
            <button type="button" class=" w3-button w3-flat-pomegranate w3-small" data-dismiss="modal">No, take me back</button>
          </div> 
           </div>
-                
-           
-                 
                </div>
              </div>
            </div>
+                
            
-                       <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$a->quickStoryWrittenBy->hasProfile->profile_image}}" alt="">
-                       <div class="w3-dropdown-hover"><small class="writer-small">{{ucfirst($a->quickStoryWrittenBy->fname).' '. ucfirst($a->quickStoryWrittenBy->lname)}}</small>
-                        <div class="w3-dropdown-content w3-card-4" style="width:250px">
-                            <a href="{{route('profile',['user'=>$a->quickStoryWrittenBy,'slug'=>str_slug($a->quickStoryWrittenBy->fname." ".$a->quickStoryWrittenBy->lname)])}}">
-                          <img src="/storage/profile_images/thumbnails/{{$a->quickStoryWrittenBy->hasProfile->profile_image}}" alt="" style="width:100%"></a>
-                          
-                          <div class="w3-container">
-                            <p>{{$a->quickStoryWrittenBy->hasProfile->about}}</p>
-                            @if($a->quickStoryWrittenBy->hasProfile->college)
-                            <p>{{$a->quickStoryWrittenBy->hasProfile->education.' '.$a->quickStoryWrittenBy->hasProfile->yos.' student at '.$a->quickStoryWrittenBy->hasProfile->college}}</p>
-                            @elseif($a->quickStoryWrittenBy->hasProfile->company)
-                            <p>{{$a->quickStoryWrittenBy->hasProfile->designation.' at '.$a->quickStoryWrittenBy->hasProfile->company}}</p>
-                            @endif
-                          </div>
-                        </div>
-                      </div>
-                      
-                      </div>
-                        
-                      </div>
-                    </div>
-                    
-                  
-                    </div>       
-         
+                 
+            
   @endforeach
                    
                        
@@ -316,7 +315,7 @@ My feed | fluidbN
 </div>
 @endif
 </div>
-             {{-- end quick storie --}}
+             {{-- end quick stories --}}
     
     
       <div class=" w3-container" id="story-feed-tailored-f">   
