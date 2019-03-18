@@ -262,7 +262,7 @@ My feed | fluidbN
                       </div>
                                          {{-- Button to Open the delete modal --}}
          @if(Auth::user()->id==$a->quickStoryWrittenBy->id)
-           <button  class="w3-button w3-flat-pomegranate" style="margin-right:30%;" id=""  data-toggle="modal" data-target="#delete-{{ $a->id }}">
+           <button  class="w3-button w3-flat-pomegranate" style="margin-left:30%;" id=""  data-toggle="modal" data-target="#delete-{{ $a->id }}">
              Delete
            </button>  
            @endif
