@@ -283,10 +283,10 @@ a{
 
 
 <!-- Footer -->
-<footer class="w3-center w3-flat-pomegranate w3-padding-64">
+<footer class="w3-center w3-white w3-padding-64 ">
   <a href="#top" class="w3-button w3-black"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-  <p style="" class="w3-hover-opacity">&copy; @php echo date('Y');@endphp fluidbN Media Technologies &middot; All rights reserved &middot; <a href="{{route('privacy')}}">Privacy</a> &middot; <a href="{{route('terms')}}">Terms</a></p>
-           
+  <p style="" class="">&copy; @php echo date('Y');@endphp fluidbN Media Technologies &middot; All rights reserved &middot; <a href="{{route('privacy')}}">Privacy</a> &middot; <a href="{{route('terms')}}">Terms</a></p>
+   <p>Made with <i class="fa fa-heart" style="font-size:20px;color:red;"> </i> in India for the youth</p>        
   <div class="w3-xlarge w3-section">
    <a href="https://www.facebook.com/fluidbN-2680747518664964/" target="_blank"> <i class="fa fa-facebook-official w3-hover-opacity"></i></a>
    <a href="https://www.instagram.com/fluid_bn/" target="_blank"> <i class="fa fa-instagram w3-hover-opacity"></i></a>

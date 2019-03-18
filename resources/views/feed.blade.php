@@ -9,23 +9,16 @@ My feed | fluidbN
 
 <main role="main">
     
-<div style="">
-  @if($heading!='')
+{{--  <div style="">
+
   <div class="w3-hide-small w3-hide-medium">
- <h1 class="featurette-heading-title">{{$heading}} <i class="fa fa-heart" style="font-size:40px;color:red;"></i></h1>
-  </div>
-  <div class="w3-hide-large">
- <h1 class="featurette-heading-title w3-xxlarge">{{$heading}} <i class="fa fa-heart" style="font-size:30px;color:red;"></i></h1>
-  </div>
- @else
-  <div class="w3-hide-small w3-hide-medium">
-<h1 class="featurette-heading-title">Curated with <i class="fa fa-heart" style="font-size:40px;color:red;"></i> for you</h1>
+<h1 class="featurette-heading-title">{{ 'Better stories to perceive the world better' }}</h1>
   </div> 
   <div class="w3-hide-large">
-<h1 class="featurette-heading-title w3-xxlarge">Curated with <i class="fa fa-heart" style="font-size:30px;color:red;"></i> for you</h1>
+<h1 class="featurette-heading-title w3-xxlarge">{{ 'Better stories to perceive the world better' }}</h1>
   </div> 
-@endif
-</div>
+
+</div>  --}}
 
             {{-- Button to write --}}
   <div class="lower-margin box">
@@ -37,6 +30,7 @@ My feed | fluidbN
        <button  class="btn-login btn-feed" id="theory-feed" style="margin-top:5px;">
         Featured Theories </button>
  --}}
+ <div class="w3-tag w3-card stick ">
     <button  class="w3-button w3-flat-pomegranate w3-padding-large "  onclick="location.href='{{route('write')}}'" style="margin-top:5px;">
       Create a story
     </button>
@@ -44,7 +38,7 @@ My feed | fluidbN
     Share a theory
     </button>
       <button  class="w3-button w3-flat-pomegranate w3-padding-large" style="width:auto; margin-top:5px;" onclick="document.getElementById('quick').style.display='block'">Quick frame story</button>
-       
+       </div>
     {{-- modal --}}
      <div id='quick' class="w3-modal">
     <div class="w3-modal-content w3-card-4">
