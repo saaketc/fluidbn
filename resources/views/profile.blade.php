@@ -23,7 +23,7 @@
                 $f = 'follower';
                 @endphp
 
-  <!-- Page Container -->
+  {{--  <!-- Page Container -->  --}}
   <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
     <!-- The Grid -->
     <div class="row">
@@ -116,6 +116,9 @@
             @endif
             @if($followers!=0)<button  class="w3-button w3-block w3-theme-l1 w3-left-align" id="followers" style="" data-toggle="modal" data-target="#follow"><i class="fa fa-plus-circle fa-fw w3-margin-right"></i>Followers</button>
             @endif
+             @if(Auth::user()->id==$user->id)
+             <button class="w3-button w3-block w3-theme-l1 w3-left-align" onclick="location.href='{{ route('choosegenre',['slug'=>uniqid()])}}'">Manage story choices</button>
+             @endif
              {{-- follow modal--}}
 
            <!-- The Modal -->

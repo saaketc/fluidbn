@@ -2,7 +2,7 @@
 
 @section('title')
 @if($slug!=NULL)
-Add story categories | fluidbN
+Manage story choices | fluidbN
 @else
 Signup - choose-category | fluidbN
 @endif
@@ -11,13 +11,25 @@ Signup - choose-category | fluidbN
 @section('content')
  
 <div class="container">
+  
 <div class="box lower-margin w3-hide-small w3-hide-medium" style="margin-top:10%;">
-   <h1 class="w3-xxxlarge" style="font-weight:bold;font-color:black;">Hi {{ucfirst(Auth::user()->fname)}}, choose categories you <i class="fa fa-heart" style="font-size:40px;color:red;"></i></h1> 
+   @if($slug!=NULL)
+    <h1 class="w3-xxxlarge" style="font-weight:bold;font-color:black;">Hi {{ucfirst(Auth::user()->fname)}}, manage your story choices</h1> 
+   @else
+    <h1 class="w3-xxxlarge" style="font-weight:bold;font-color:black;">Hi {{ucfirst(Auth::user()->fname)}}, choose categories you <i class="fa fa-heart" style="font-size:40px;color:red;"></i></h1> 
    
+   @endif 
+  
   </div>
   <div class="box lower-margin w3-hide-large" style="margin-top:10%;">
-   <h1 class="w3-xlarge" style="font-weight:bold;font-color:black;">Hi {{ucfirst(Auth::user()->fname)}}, choose categories you <i class="fa fa-heart" style="font-size:25px;color:red;"></i></h1> 
+     @if($slug!=NULL)
+<h1 class="w3-xlarge" style="font-weight:bold;font-color:black;">Hi {{ucfirst(Auth::user()->fname)}}, manage your story choices</h1> 
    
+     @else
+<h1 class="w3-xlarge" style="font-weight:bold;font-color:black;">Hi {{ucfirst(Auth::user()->fname)}}, choose categories you <i class="fa fa-heart" style="font-size:25px;color:red;"></i></h1> 
+   
+    @endif
+     
   </div>
 </div>
 <div class="container">
