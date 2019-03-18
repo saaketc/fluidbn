@@ -167,7 +167,7 @@
            <button class="w3-button w3-padding-large  {{$c}} " id="like"  style="margin-left:5px;margin-top:5px;" data-articleid="{{$article->id}}" type="submit">{{$like ? "Thanks" : "Wow"}}</button>
         <button class="w3-button w3-padding-large  bookmark {{$c}}" style="margin-top:5px;" data-articleId="{{$article->id}}">{{$bookmark ? "Bookmarked" : "Bookmark"}}</button>
         
-     {{-- share modal --}}
+     {{-- share modal --
    
      <button onclick="document.getElementById('share-m').style.display='block'" class="w3-button w3-padding-large w3-flat-pomegranate" style="margin-top:5px;" id="share">Share</button>
   
@@ -188,10 +188,9 @@
        </div>
   </div>
 
-      {{-- share modal end --}}
-     
-    </div>
-    <footer class="w3-container">
+      share modal end --}}
+      
+     <footer class="w3-container">
           <table class="table table-bordered table-hover ">
                
                 <tbody class="sys w3-small" style="color:black;">
@@ -200,6 +199,8 @@
                  
                 </table>
       </footer>   
+    </div>
+    
         {{--
         <button class="btn btn-login" style="margin-top:5px;margin-bottom:10px;" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::fullUrl()) }}')">Share on facebook</button>
         <button class="btn   btn-login" style="margin-top:5px;margin-bottom:10px;" onclick="window.open('https://twitter.com/intent/tweet?url={{ urlencode(Request::fullUrl())}}')">Share on twitter</button>
