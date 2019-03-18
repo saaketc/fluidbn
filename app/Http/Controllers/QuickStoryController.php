@@ -112,6 +112,8 @@ class QuickStoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $story = QuickStory::find($id);
+        $story->delete();
+        return redirect()->back()->with('success','Quick story successfully deleted');
     }
 }

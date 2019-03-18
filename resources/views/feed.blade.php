@@ -240,6 +240,48 @@ My feed | fluidbN
                         
                         {{--  <p class="lead">{!! wordwrap(str_limit($a->content,100),50,"<br>\n",TRUE)!!}</p>  --}}
                         <div class="" style="margin-botton:5px;">
+                           {{-- Button to Open the delete modal --}}
+         @if(Auth::user()->id==$a->quickStoryWrittenBy->id)
+           <button  class="btn btn-login" style="" id=""  data-toggle="modal" data-target="#delete">
+             Delete
+           </button>  
+           @endif
+             </div>
+         
+           <!-- The Modal -->
+           <div class="modal fade" id="delete">
+             <div class="modal-dialog modal-md">
+               <div class="modal-content">
+               
+                 <!-- Modal Header -->
+                 <div class="modal-header">
+                   <h4 class="modal-title writer" style="font-weight:bold;font-size:15px;">Are you sure to delete this story ? It will be permanently deleted</h4>
+                  
+
+                 </div>
+            
+                 <!-- Modal body -->
+                 <div class="">
+                 <div class="modal-body">
+                  
+                 {!! Form::open(['action'=>['QuickStoryController@destroy',$a->id],'method'=>'POST'])!!}
+   
+              {{Form::hidden('_method','DELETE')}} {{-- to make route method delete--}}
+                  
+                 {{Form::submit('Yes, delete story',['class'=>'w3-button w3-flat-pomegranate w3-small'])}}
+          {!!Form::close()!!}   
+          
+          
+           <button type="button" class=" w3-button w3-flat-pomegranate w3-small" data-dismiss="modal">No, take me back</button>
+         </div> 
+          </div>
+                
+           
+                 
+               </div>
+             </div>
+           </div>
+           
                        <img class="featurette-image img-fluid mx-auto  propic-small" src="/storage/profile_images/thumbnails/{{$a->quickStoryWrittenBy->hasProfile->profile_image}}" alt="">
                        <div class="w3-dropdown-hover"><small class="writer-small">{{ucfirst($a->quickStoryWrittenBy->fname).' '. ucfirst($a->quickStoryWrittenBy->lname)}}</small>
                         <div class="w3-dropdown-content w3-card-4" style="width:250px">
