@@ -61,8 +61,9 @@
                    <div class="col-sm-4">
                    <div class="box">
        <a  href="{{route('show-article',['article'=>$a,'slug'=>str_slug($a->title)])}}'"> <h2 class="featurette-heading-small">{{$a->title}}</h2></a>
-        <p class="writer-small">{!!wordwrap(str_limit($a->content,200),150,"<br>\n",TRUE)!!}</p>
-                   </div>
+        {{-- <p class="writer-small">{!!wordwrap(str_limit($a->content,200),150,"<br>\n",TRUE)!!}</p> --}}
+                  
+      </div>
      
           <div class="polaroid-small lower-margin">
               
@@ -85,7 +86,8 @@
          
       <div class="box">
        <a  href="{{route('show-article',['article'=>$a,'slug'=>str_slug($a->title)])}}'"> <h2 class="featurette-heading-small">{{$a->title}}</h2></a>
-        <p class="writer-small">{!!wordwrap(str_limit($a->content,200),150,"<br>\n",TRUE)!!}</p>
+        {{-- <p class="writer-small">{!!wordwrap(str_limit($a->content,200),150,"<br>\n",TRUE)!!}</p>
+       --}}
       </div> 
      
           <div class="polaroid-small lower-margin">
