@@ -87,7 +87,7 @@ public function searchSuggestion(Request $request){
             $studiostories = StudioStories::where('title','like','%'.$query.'%')->orWhere('content','like','%'.$query.'%')->get();
             $theories = Theory::where('title','like','%'.$query.'%')->orWhere('content','like','%'.$query.'%')->get();
             $users =  User::where('fname','like','%'.$query.'%')->orWhere('lname','like','%'.$query.'%')->get();
-            $search_genre = Genre::where('name','like','%'.$search.'%')->get();
+            $search_genre = Genre::where('name','like','%'.$query.'%')->get();
             if($articles || $users || $studiostories || $theories || $search_genre)
  
             {
@@ -114,11 +114,11 @@ public function searchSuggestion(Request $request){
                 }
                 // for theories
                 foreach ($theories as $key => $a) {
-                    $urlT = route('show-theory',['theory'=>$a,' slug' =>str_slug ($a-> title)]); 
+                    $urlT = route('show-theory',['theory'=>$a,' slug' =>str_slug ($a->title)]); 
                       
                     $output1.="<tr>".
 
-                        '<td>'.'<a href="'.$urlT.'">'. ucfirst( $a->title).'</a>'.'</td>'.
+                        '<td>'.'<a href="'.$urlT.'">'. ucfirst($a->title).'</a>'.'</td>'.
               "</tr>"; 
                   
             }
