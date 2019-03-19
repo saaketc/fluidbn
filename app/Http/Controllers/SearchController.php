@@ -7,6 +7,7 @@ use App\Search;
 use App\Article;
 use App\User;
 use App\Genre;
+use App\Theory;
 use App\Studio\StudioStories;
 use Auth;
 
@@ -114,7 +115,7 @@ public function searchSuggestion(Request $request){
                 }
                 // for theories
                 foreach ($theories as $key => $a) {
-                    $urlT = route('show-theory',['theory'=>$a,' slug' =>str_slug ($a->title)]); 
+                    $urlT = route('show-theory',['theory'=>$a,'slug'=>str_slug($a->title)]); 
                       
                     $output1.="<tr>".
 
@@ -142,13 +143,13 @@ public function searchSuggestion(Request $request){
 
                foreach ($search_genre as  $s) {
             
-                foreach ($s as $key => $a) {
-                    $urlg = route('show-theory',['theory'=>$a,'slug' =>str_slug ($a-> title)]); 
-                      
-                    $output1.="<tr>".
-
-                        '<td>'.'<a href="'.$urlg.'">'. ucfirst($a->title).'</a>'.'</td>'.
-              "</tr>"; 
+                foreach ($s->hasArticles as  $a) {
+                    $url1 = route('show-article',['article'=>$a,'slug'=>str_slug($a->title)]);
+            // $url3 = '/storage/article_images/'.$a->title_image;        
+            $output1.="<tr>".
+             
+             '<td>'.'<a href="'.$url1.'">'.ucfirst($a->title).'</a>'.'</td>'.
+            "</tr>";
                   
             }
         }
