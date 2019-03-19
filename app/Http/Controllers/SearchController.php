@@ -85,11 +85,13 @@ public function searchSuggestion(Request $request){
             
             $articles = Article::where('title','like','%'.$query.'%')->where('finished',1)->orWhere('content','like','%'.$query.'%')->where('finished',1)->get();
             $studiostories = StudioStories::where('title','like','%'.$query.'%')->orWhere('content','like','%'.$query.'%')->get();
-         
+            $theories = Theory::where('title','like','%'.$query.'%')->orWhere('content','like','%'.$query.'%')->get();
             $users =  User::where('fname','like','%'.$query.'%')->orWhere('lname','like','%'.$query.'%')->get();
-            if($articles || $users || $studiostories)
+            $search_genre = Genre::where('name','like','%'.$search.'%')->get();
+            if($articles || $users || $studiostories || $theories || $search_genre)
  
             {
+                // for studio stories search results
              foreach ($studiostories as $key => $a) {
              $url5 = route('studio-story',['StudioStories'=>$a,'slug'=>str_slug($a->title)]);
              //$url7 = '/storage/studio_images/'.$a->title_image;        
@@ -101,7 +103,7 @@ public function searchSuggestion(Request $request){
             }
              
              
-             
+             // for stories
             foreach ($articles as $key => $a) {
              $url1 = route('show-article',['article'=>$a,'slug'=>str_slug($a->title)]);
             // $url3 = '/storage/article_images/'.$a->title_image;        
@@ -109,7 +111,16 @@ public function searchSuggestion(Request $request){
              
              '<td>'.'<a href="'.$url1.'">'.ucfirst($a->title).'</a>'.'</td>'.
             "</tr>";
-             
+                }
+                // for theories
+                foreach ($theories as $key => $a) {
+                    $urlT = route('show-theory',['theory'=>$a,' slug' =>str_slug ($a-> title)]); 
+                      
+                    $output1.="<tr>".
+
+                        '<td>'.'<a href="'.$urlT.'">'. ucfirst( $a->title).'</a>'.'</td>'.
+              "</tr>"; 
+                  
             }
            
             foreach ($users as $key => $u) {
@@ -127,12 +138,25 @@ public function searchSuggestion(Request $request){
                "</tr>";
                 
                }
-             
+               // for genere stories
+
+               foreach ($search_genre as  $s) {
+            
+                foreach ($s as $key => $a) {
+                    $urlg = route('show-theory',['theory'=>$a,'slug' =>str_slug ($a-> title)]); 
+                      
+                    $output1.="<tr>".
+
+                        '<td>'.'<a href="'.$urlg.'">'. ucfirst($a->title).'</a>'.'</td>'.
+              "</tr>"; 
+                  
+            }
+        }
              
             return response()->json(['output1'=>$output1]);
              
-                        
-                 }
+                   
+                 
          }
 
      else 
@@ -141,5 +165,5 @@ public function searchSuggestion(Request $request){
              
   }
 }
-
+}
 
