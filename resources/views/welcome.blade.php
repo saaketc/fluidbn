@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>A creative, crazy and impactful media for the youth | fluidbN</title>
+<title>fluidbN | A creative, crazy and impactful media for the youth</title>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133705211-1"></script>
 <script>
