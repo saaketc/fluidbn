@@ -23,5 +23,8 @@ class StudioStories extends Model
 public function bookmarkedBy(){
     return $this->belongsToMany('App\User','bookmarkFs','story_id','user_id')->withTimestamps();
 }
-   
+// multi image upload
+public function hasImages(){
+    return $this->hasMany('App\Studio\StudioImages', 'story_id');
+}
 }

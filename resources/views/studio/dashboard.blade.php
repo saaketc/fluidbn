@@ -17,7 +17,7 @@ Studio | fluidbN
                 </div>
 <div class="form-group">
   
-             {{Form::label('title_image','Upload title image',['class'=>'btn btn-outline-success btn-login'])}}     {{Form::file('title_image')}}
+             {{Form::label('title_image','Upload title image',['class'=>'w3-button w3-flat-pomegranate w3-padding-large'])}}     {{Form::file('title_image')}}
             
            </div> 
          
@@ -29,14 +29,14 @@ Studio | fluidbN
         
              
                 <div class="form-group">
-                    {{Form::label('content','Upload content',['class'=>'btn btn-outline-success btn-login'])}}     {{Form::file('content')}}
+                    {{Form::label('content[]','Upload content',['class'=>'w3-button w3-flat-pomegranate w3-padding-large'])}}     {{Form::file('content[]',['multiple'=>'multiple'])}}
             
        
                
     </div>
         
            
-          {{Form::submit('Done and post',['class'=>'btn btn-outline-success btn-login'])}}
+          {{Form::submit('Post',['class'=>'w3-button w3-flat-pomegranate w3-padding-large'])}}
            
        
         
