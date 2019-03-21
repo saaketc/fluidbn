@@ -8,7 +8,8 @@ Login | fluidbN
     <a href="/" class="w3-bar-item  w3-wide "><img class="featurette-image img-fluid mx-auto" src="/storage/logo/logow.png" style="margin-left:0;"></a>
      <p class="w3-medium w3-flat-pomegranate w3-tag w3-card" >Beta</p><br/>
      <h2 class="w3-medium w3-flat-pomegranate w3-tag w3-card w3-large w3-padding-large" style="margin-top:1%;font-weight:bold;color:white;">A creative & impactful information media for the youth</h2>
-    <div class="row justify-content-center">
+   
+     <div class="row justify-content-center">
          <div class="col-md-6">
 <img src="/storage/general/welcome-login.png" style="box-shadow:10px 10px 10px #888888;width:100%;">
        </div>
@@ -70,7 +71,7 @@ Login | fluidbN
                                 </a>
                                 
     
-                                        <a class="btn btn-link " style="color:black;" href="{{ route('register') }}">
+                                        <a class="btn btn-link " style="color:black;font-weight:bold;" href="{{ route('register') }}">
                                             {{ __('Signup Now ') }}
                                         </a>
 
