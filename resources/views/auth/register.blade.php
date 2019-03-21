@@ -5,7 +5,10 @@ Signup | fluidbN
 @endsection
 @section('content')
 <div class="container">
-
+ <a href="/" class="w3-bar-item  w3-wide "><img class="featurette-image img-fluid mx-auto" src="/storage/logo/logow.png" style="margin-left:0;"></a>
+     <p class="w3-medium w3-flat-pomegranate w3-tag w3-card" >Beta</p><br/>
+     <h2 class="w3-medium w3-flat-pomegranate w3-tag w3-card w3-large w3-padding-large" style="margin-top:1%;font-weight:bold;color:white;">A creative & impactful information media for the youth</h2>
+   
     <div class="row justify-content-center">
         
         <div class="col-lg-6">
@@ -88,7 +91,11 @@ Signup | fluidbN
                                
                             </div>
                              <small>By signing up you are agreeing to our <a href="{{route('terms')}}" style="color:mediumvioletred">Terms</a> and <a href="{{route('privacy')}}"style="color:mediumvioletred">Privacy</a></small>
-                        </div>
+                  
+                              
+                            </div>
+                           <p class="w3-medium " >Already registered? <a href='/login' style="color:black;font-weight:bold;">Login</a></p>
+
                     </form>
                 </div>
             </div>
