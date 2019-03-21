@@ -159,12 +159,13 @@ public function searchSuggestion(Request $request){
                    
                  
          }
+        }
 
      else 
              
      return response()->json(['nores'=>$nores]);
              
-  }
+  
 }
 }
 
