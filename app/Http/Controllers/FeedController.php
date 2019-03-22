@@ -173,7 +173,7 @@ class FeedController extends Controller
             $id = [];
             if($user->hasProfile->college){
                 $same_place = ucfirst($user->hasProfile->college);
-                $follow_profile = Profile::where('college',$same_place)->where('user_id','!=',$user->id)->get();
+                $follow_profile = Profile::where('college','like','%'.$same_place.'%')->where('user_id','!=',$user->id)->get();
                 foreach($follow_profile as $f){
                     $id[]=$f->user_id;
                 }
@@ -181,7 +181,7 @@ class FeedController extends Controller
             }
             elseif($user->hasProfile->company){
                  $same_place = ucfirst($user->hasProfile->company);
-                 $follow_profile = Profile::where('company',$same_place)->where('user_id','!=',$user->id)->get();
+                 $follow_profile = Profile::where('company','like','%'.$same_place.'%')->where('user_id','!=',$user->id)->get();
                   foreach($follow_profile as $f){
                     $id[]=$f->user_id;
                 }
