@@ -50,6 +50,10 @@
          <h2 class="" style="color:mediumvioletred;">{{'Sorry no articles from '.ucfirst($user->fname).' but sure to come till then...'}}</h2><a href="{{route('feed')}}">Explore fluidbN !</a>
 
                       </div>
+                       <br/>
+                        <h2 class="w3-xxlarge" style="color:black;font-weight:bold;">OR</h2>
+                        <a href="{{ route('write') }}" class="w3-large w3-tag w3-card w3-flat-pomegranate">{{ "Create a new story" }}</a>
+                     
            @endif
                
 

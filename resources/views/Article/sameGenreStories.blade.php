@@ -75,7 +75,10 @@
                           </div>
                            {{$stories->links()}}
                             {{$StudioStories->links()}}
-                         @endif
+                        @else
+                        <h2 class="w3-xlarge" style="color:black;font-weight:bold;">{{ "Looks like there's no new story! Time to show your creativity"}}</h2>
+                        <a href="{{ route('write') }}" class="w3-large w3-tag w3-card w3-flat-pomegranate w3-padding-large w3-hover-white">{{ "Create a new story" }}</a>
+                            @endif
                
 
 
