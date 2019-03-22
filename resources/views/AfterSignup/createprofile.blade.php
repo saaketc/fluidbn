@@ -17,9 +17,9 @@ Signup - create-profile | fluidbN
         <img src="/storage/general/welcome.png" style="width:80%;height:auto;">
         </div>
     @php
-    $selectedu = ["B.Tech"=>"B.Tech","B.Des"=>"B.Des","M.Tech"=>"M.Tech","M.Des"=>"M.Des","Other"=>"Other"];
-    $selectyear = ["First year"=>"First year","Second year"=>"Second year","Third year"=>"Third year","Fourth year"=>"Fourth year"];
-    $selectcollege = ["PDPM IIITDMJ"=>"PDPM IIITDMJ"];
+    $selectedu = ["High School"=>"High School","M.B.B.S"=>"M.B.B.S","B.Tech"=>"B.Tech","B.Des"=>"B.Des","M.Tech"=>"M.Tech","M.Des"=>"M.Des","B.B.A"=>"B.B.A","B.com"=>"B.com","M.B.A"=>"M.B.A","M.com"=>"M.com","B.A"=>"B.A","M.A"=>"M.A","L.L.B"=>"L.L.B","Other"=>"Other"];
+    $selectyear = ["Class 9"=>"Class 9","Class 10"=>"Class 10","Class 11"=>"Class 11","Class 12"=>"Class 12","First year"=>"First year","Second year"=>"Second year","Third year"=>"Third year","Fourth year"=>"Fourth year"];
+  //  $selectcollege = ["PDPM IIITDMJ"=>"PDPM IIITDMJ"];
     
     @endphp
     
@@ -81,8 +81,9 @@ Signup - create-profile | fluidbN
    </div>
         
 <div class="form-group">
-{{--{{Form::label('college','Your college',['class'=>'pro_info form-control'])}}--}}
-{{Form::select('college',$selectcollege,null,['class'=>'pro_info form-control','placeholder'=>'Your college','id'=>'col','required'=>'required'])}}
+{{ Form::text('college','',['class'=>'pro_info form-control','placeholder'=>'Your college or school name'])}}
+{{--  {{Form::select('college',$selectcollege,null,['class'=>'pro_info form-control','placeholder'=>'Your college','id'=>'col','required'=>'required'])}}  --}}
+
 </div>
 {{-- not a student --}}
  {{Form::label('non-student','Not a student?',['class'=>'pro_info'])}}
@@ -96,7 +97,7 @@ Signup - create-profile | fluidbN
 <div class="form-group">
   {{Form::text('weburl','',['class'=>'pro_info form-control','placeholder'=>'Web address of company/blog'])}}  
     </div>
-   {{Form::submit('Take me in',['class'=>'w3-button w3-flat-pomegranate w3-padding-large'])}}
+   {{Form::submit('Take me in',['class'=>'w3-button w3-flat-pomegranate w3-padding-large','id'=>'submit'])}}
     </div> 
 
 {{-- <div class="professional" id="professional-form">
@@ -156,6 +157,64 @@ document.getElementById('dob').addEventListener('input',function(){
 
 
 </script> --}}
+<script>
+  $(document).ready(function(){
+    $('#pro-form').on('submit',function(e){
+      
+      var date = new Date();
+  var current_year = date.getFullYear();
+  var dob = new Date(document.getElementById('dob').value);
+  var birth_year = dob.getFullYear();
+  var age = current_year - birth_year;
+  var id = document.getElementById('dob').getAttribute('data-u');
+    var url= "{{ route('reject-user') }}";
+    var token = "{{ Session::token()}}";
+   if(age<0){
+    e.preventDefault();
+    
+    alert('You are not even born! how can we sign you up');
+  }
+  else if(age==0){
+e.preventDefault();
+    
+    alert('You are just born, we cannot sign you up');
+  
+  }
+   else if(age==1){
+    e.preventDefault();
+    
+    alert('You are too young to join fluidbN, just '+age+' year old! we cannot sign you up');
+  
+  }
+    else if(age>1 && age<=10 ){
+    e.preventDefault();
+    
+    alert('You are too young to join fluidbN, just '+age+' years old! we cannot sign you up');
+  }
+  else if(age>=11 && age<15){
+    e.preventDefault();
+    
+    alert('Sorry! you are not old enough to join fluidbN, take your parents help to signup');
+  }
+
+  else if(age>=15) {
+    // to carry normal form processing
+   // $(this).unbind('submit').submit();
+    return true;
+  }
+   $.post(url,{
+      _token:token,
+      id:id
+    }, 
+      function(data){
+        if(data.status==1) 
+        window.location='https://www.fluidbn.com';
+      }
+    );
+
+    });
+  });
+</script>
 <script>
   var loadFile = function(event) {
     var output = document.getElementById('output');
