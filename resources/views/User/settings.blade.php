@@ -69,8 +69,10 @@ $co = ucfirst(Auth::user()->hasProfile->college);
 $s = "";
 else
 $s = ucfirst(Auth::user()->hasProfile->startup);
- $selectedu = ["B.Tech"=>"B.Tech","B.Des"=>"B.Des","M.Tech"=>"M.Tech","M.Des"=>"M.Des"];
-    $selectyear = ["First year"=>"First year","Second year"=>"Second year","Third year"=>"Third year","Fourth year"=>"Fourth year"];
+ $selectedu = ["High School"=>"High School","M.B.B.S"=>"M.B.B.S","B.Tech"=>"B.Tech","B.Des"=>"B.Des","M.Tech"=>"M.Tech","M.Des"=>"M.Des","B.B.A"=>"B.B.A","B.com"=>"B.com","M.B.A"=>"M.B.A","M.com"=>"M.com","B.A"=>"B.A","M.A"=>"M.A","L.L.B"=>"L.L.B","Other"=>"Other"];
+    
+     $selectyear = ["Class 9"=>"Class 9","Class 10"=>"Class 10","Class 11"=>"Class 11","Class 12"=>"Class 12","First year"=>"First year","Second year"=>"Second year","Third year"=>"Third year","Fourth year"=>"Fourth year"];
+  
   @endphp
               <div class="lower-margin">
         <h1 class="featurette-heading-feed">Update Profile information</h1>
@@ -119,7 +121,7 @@ $s = ucfirst(Auth::user()->hasProfile->startup);
                   @endif
                     @if(Auth::user()->hasProfile->college!=NULL )
                    <div class="form-group">
-                      {{Form::label('college','College',['class'=>'form-control'])}}
+                      {{Form::label('college','College or school',['class'=>'form-control'])}}
                    {{Form::text('college',$co,['class'=>'form-control','placeholder'=>'College','id'=>'college'])}}
                   </div>
                   @endif

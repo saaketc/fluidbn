@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title')
-My feed | fluidbN
+Story feed | fluidbN
 @endsection
 
 
@@ -175,9 +175,13 @@ My feed | fluidbN
                               <p>{{$a->writtenBy->hasProfile->about}}</p>
                               @if($a->writtenBy->hasProfile->college)
                               <p>{{$a->writtenBy->hasProfile->education.' '.$a->writtenBy->hasProfile->yos.' student at '.$a->writtenBy->hasProfile->college}}</p>
-                              @elseif($a->writtenBy->hasProfile->company)
-                              <p>{{$a->writtenBy->hasProfile->designation.' at '.$a->writtenBy->hasProfile->company}}</p>
+                             
+                              @elseif($a->writtenBy->hasProfile->designation)
+                              <p>{{ ucfirst($a->writtenBy->hasProfile->designation)}}</p>
                               @endif
+                          @if($a->writtenBy->hasProfile->startup)
+                                 <p>{{"Startup: ".$a->writtenBy->hasProfile->startup}}</p>
+                                 @endif
                             </div>
                           </div>
                         </div>
@@ -248,9 +252,13 @@ My feed | fluidbN
                             <p>{{$a->quickStoryWrittenBy->hasProfile->about}}</p>
                             @if($a->quickStoryWrittenBy->hasProfile->college)
                             <p>{{$a->quickStoryWrittenBy->hasProfile->education.' '.$a->quickStoryWrittenBy->hasProfile->yos.' student at '.$a->quickStoryWrittenBy->hasProfile->college}}</p>
-                            @elseif($a->quickStoryWrittenBy->hasProfile->company)
-                            <p>{{$a->quickStoryWrittenBy->hasProfile->designation.' at '.$a->quickStoryWrittenBy->hasProfile->company}}</p>
+                            
+                            @elseif($a->quickStoryWrittenBy->hasProfile->designation)
+                            <p>{{ ucfirst($a->quickStoryWrittenBy->hasProfile->designation)}}</p>
                             @endif
+                             @if($a->quickStoryWrittenBy->hasProfile->startup)
+                                 <p>{{"Startup: ".$a->quickStoryWrittenBy->hasProfile->startup}}</p>
+                                 @endif
                           </div>
                         </div>
                       </div>
@@ -367,9 +375,12 @@ My feed | fluidbN
                             <p>{{$a->writtenBy->hasProfile->about}}</p>
                             @if($a->writtenBy->hasProfile->college)
                             <p>{{$a->writtenBy->hasProfile->education.' '.$a->writtenBy->hasProfile->yos.' student at '.$a->writtenBy->hasProfile->college}}</p>
-                            @elseif($a->writtenBy->hasProfile->company)
-                            <p>{{$a->writtenBy->hasProfile->designation.' at '.$a->writtenBy->hasProfile->company}}</p>
+                            @elseif($a->writtenBy->hasProfile->designation)
+                            <p>{{$a->writtenBy->hasProfile->designation}}</p>
                             @endif
+                              @if($a->writtenBy->hasProfile->startup)
+                                 <p>{{"Startup: ".$a->writtenBy->hasProfile->startup}}</p>
+                                 @endif
                           </div>
                         </div>
                       </div>
@@ -462,9 +473,12 @@ My feed | fluidbN
                             <p>{{$a->writtenBy->hasProfile->about}}</p>
                             @if($a->writtenBy->hasProfile->college)
                             <p>{{$a->writtenBy->hasProfile->education.' '.$a->writtenBy->hasProfile->yos.' student at '.$a->writtenBy->hasProfile->college}}</p>
-                            @elseif($a->writtenBy->hasProfile->company)
-                            <p>{{$a->writtenBy->hasProfile->designation.' at '.$a->writtenBy->hasProfile->company}}</p>
+                            @elseif($a->writtenBy->hasProfile->designation)
+                            <p>{{$a->writtenBy->hasProfile->designation}}</p>
                             @endif
+                              @if($a->writtenBy->hasProfile->startup)
+                                 <p>{{"Startup: ".$a->writtenBy->hasProfile->startup}}</p>
+                                 @endif
                           </div>
                         </div>
                       </div>
