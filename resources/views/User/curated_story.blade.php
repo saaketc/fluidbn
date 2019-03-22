@@ -86,7 +86,7 @@ Curated stories | fluidbN
 </div>
 
 @else
-<small class="w3-medium">Hey {{ucfirst($user->fname)}}, start following people from <a href="{{route('follow-people')}}"><strong>{{$same_place}}</strong></a></small>
+<small class="w3-medium">Hey {{ucfirst($user->fname)}}, start following people from <a href="{{route('follow-people')}}" class="w3-card w3-tag w3-flat-pomegranate"><strong>{{$same_place}}</strong></a></small>
 @endif
 </div>
 {{--theory accordion--}}
@@ -137,7 +137,7 @@ Curated stories | fluidbN
 </div>
 
 @else
-<small class="writer">Hey {{ucfirst($user->fname)}}, start following people from <a href="{{route('follow-people')}}"><strong>{{$same_place}}</strong></a></small>
+<small class="w3-medium">Hey {{ucfirst($user->fname)}}, start following people from <a href="{{route('follow-people')}}" class="w3-card w3-tag w3-flat-pomegranate"><strong>{{$same_place}}</strong></a></small>
 @endif
 </div>
 
