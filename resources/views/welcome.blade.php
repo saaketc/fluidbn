@@ -235,7 +235,7 @@ a{
   
         <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
           <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
-          <span class="w3-right w3-padding">Forgot <a href="{{route('forgot')}}">password?</a></span>
+          <span class="w3-right w3-padding"><a href="{{ route('password.request') }}">Forgot password?</a></span>
         </div>
   
       </div>
