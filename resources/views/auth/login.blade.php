@@ -66,7 +66,7 @@ Login | fluidbN
                                     {{ __('Login') }}
                                 </button>
 
-                                <a class="btn btn-link " style="color:black;" href="{{ route('forgot') }}">
+                                <a class="btn btn-link " style="color:black;" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                                 

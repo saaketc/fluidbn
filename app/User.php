@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-use Illuminate\Contracts\Auth\CanResetPassword;
+
 use Illuminate\Notifications\Notifiable;
 use Balping\HashSlug\HasHashSlug;
 use Illuminate\Foundation\Auth\User as Authenticatable;
