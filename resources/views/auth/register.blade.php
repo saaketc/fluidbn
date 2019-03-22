@@ -91,6 +91,7 @@ Signup | fluidbN
                                
                             </div>
                              <small>By signing up you are agreeing to our <a href="{{route('terms')}}" style="color:mediumvioletred">Terms</a> and <a href="{{route('privacy')}}"style="color:mediumvioletred">Privacy</a></small>
+                            <small>and confirming that you are at least 15 years old.</small>
                   
                               
                             </div>

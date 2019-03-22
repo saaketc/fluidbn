@@ -6,7 +6,7 @@
            
               
                 <a class="navbar-brand" style="font-size:50px;" href="">
-                    <img src="/storage/logo/logo.png">
+                    <img src="/storage/logo/logow.png">
                 </a>
              {{--  
              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
