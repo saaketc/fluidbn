@@ -88,14 +88,20 @@ class StudioController extends Controller
      ];
         return view('studio.show-story')->with($data);
     }
-    else 
- return "
-            <div class='row'>
-            <div class='col-md-6'>
-            <h1>Looks like something went wrong <a href='https://www.fluidbn.com'><strong> go to fluidbn</strong></a></h1>
-            </div>
-            </div>
-            ";
+    // for not logged in users
+    else {
+            $wows  = $StudioStories->likedBy()->wherePivot('story_id', $StudioStories->id)->count();
+
+            $data = [
+                'StudioStories'=>$StudioStories,
+                'wows'=>$wows,
+            
+            ];
+            return view('studio.show-story-not-auth')->with($data);
+    }
+ 
+          
+            
 }
 
     

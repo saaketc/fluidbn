@@ -125,8 +125,7 @@ Route::get('/user-categories/{user}/{slug}','ProfileController@userCategories')-
 
 // To show article external link
 Route::get('/story/{id}/{slug}','Article\ArticleController@showExt')->name('showExt');
-// to show theory
-Route::get('/show-theory/{theory}/{slug}','Article\ArticleController@showTheory')->name('show-theory');
+
 
 // curated story
 Route::get('curated-story','FeedController@followingStory')->name('curated-story');
@@ -141,7 +140,8 @@ Route::get('follows/{user}/{slug}','ProfileController@seeFollowing')->name('foll
 // To show article
 Route::get('/show-article/{article}/{slug}', 'Article\ArticleController@show')->name('show-article');
 
-
+// to show theory
+Route::get('/show-theory/{theory}/{slug}', 'Article\ArticleController@showTheory')->name('show-theory');
 
 // stories of a genre
 Route::get('all-stories-in/{genre}','Article\ArticleController@sameGenreStories')->name('stories-genre');
