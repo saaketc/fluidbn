@@ -2,7 +2,7 @@
         <!DOCTYPE html>
         <html lang="{{ app()->getLocale() }}">
         <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133705211-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -49,6 +49,11 @@
           
             <style>
            
+          body{
+              background-color:whitesmoke;
+          }    
+            html, body, h1, h2, h3, h4, h5 {font-family: "Raleway", sans-serif}                       
+  
              </style>
            
         </head>
@@ -60,7 +65,9 @@
     
     </div>
     
+        <div style="margin-top:7%;">
         @yield('content')
+        </div>
         
    
            
@@ -71,7 +78,23 @@
          
            <script  src="{{ asset('js/functions.js') }}" defer></script>
        <script async src="{{asset('js/app.js')}}" defer></script>
-       
+       <script>
+             // Toggle between showing and hiding the sidebar when clicking the menu icon
+            var mySidebar = document.getElementById("mySidebar");
+            
+            function w3_open() {
+              if (mySidebar.style.display === 'block') {
+                mySidebar.style.display = 'none';
+              } else {
+                mySidebar.style.display = 'block';
+              }
+            }
+            
+            // Close the sidebar with the close button
+            function w3_close() {
+                mySidebar.style.display = "none";
+            }
+       </script>
        <script>
         @include('includes.buttons')
        </script>

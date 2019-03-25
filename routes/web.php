@@ -122,8 +122,6 @@ Route::post('/markRead','NotificationController@markRead')->name('markRead');
 Route::get('/all-notifications','NotificationController@allNotifications')->name('all-notifications');
 Route::get('/profile/{user}/{slug}','ProfileController@show')->name('profile');
 Route::get('/user-categories/{user}/{slug}','ProfileController@userCategories')->name('user-categories');
-// To show article
-Route::get('/show-article/{article}/{slug}','Article\ArticleController@show')->name('show-article');
 
 // To show article external link
 Route::get('/story/{id}/{slug}','Article\ArticleController@showExt')->name('showExt');
@@ -140,6 +138,8 @@ Route::get('all-story-choices','FeedController@all_choices')->name('all-story-ch
 Route::get('follows/{user}/{slug}','ProfileController@seeFollowing')->name('follows');
 });
 
+// To show article
+Route::get('/show-article/{article}/{slug}', 'Article\ArticleController@show')->name('show-article');
 
 
 

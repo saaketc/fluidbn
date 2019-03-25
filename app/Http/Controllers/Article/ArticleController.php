@@ -31,7 +31,7 @@ class ArticleController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('show');
     }
 
  
@@ -278,7 +278,9 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Article $article,$slug)
-    {  if(Auth::user()){
+    {  
+        
+        if(Auth::user()){
       
        $user = Auth::user();
        $otheruserId = $article->writtenBy->id;
@@ -326,9 +328,50 @@ class ArticleController extends Controller
          
         return view('Article.show_article')->with($data);
     }
-        else 
-        return "<h1 style='featurette-heading-title'>Looks like something went wrong <a href='https://www.fluidbn.com'><strong> go to fluidbn</strong></a></h1>";
-        
+        else{
+            $otheruserId = $article->writtenBy->id;
+            $articleImages = $article->hasImages;
+            
+            $wows  = $article->likedBy()->wherePivot('article_id', $article->id)->count();
+           
+           
+            $related_articles = Article::where('genre_id',$article->genre_id)->where('id','!=',$article->id)->where('finished',1)->limit(3)->with(['ofGenre','writtenBy'])->get();
+            
+            $articles_of_samewriter = Article::where('user_id',$article->writtenBy->id)->where('id','!=',$article->id)->where('finished',1)->limit(3)->with(['ofGenre','writtenBy'])->get();
+            // again consider view table
+            
+            $views = $article->viewedBy()->wherePivot('article_id',$article->id)->count();
+
+            $a = Article::find($article->id);
+            $a->views = $views;
+            $a->save();
+            // select genre dropdown
+            $genres = Genre::with(['genreOf','hasArticles', 'hasStories']) ->get();
+            $selectGenre=[];
+              foreach($genres as $g ){
+                 $selectGenre[$g->id] = $g->name;
+            }
+
+            // $comments = Comments::where('article_id',$article->id)->latest()->paginate(5);
+            $data = [
+                'article'=>$article,
+                 
+                  'views'=>$views,
+                  'related_articles'=>$related_articles,
+                'articles_of_samewriter'=>$articles_of_samewriter,
+                'selectGenre'=>$selectGenre , 
+                'wows'=>$wows,
+                  
+                  //  'comments'=>$comments,
+                'articleImages'=>$articleImages 
+
+            ];
+
+            return view('Article.show_article_not_auth')->with($data);
+            // return "<h1 style='featurette-heading-title'>Looks like something went wrong <a href='https://www.fluidbn.com'><strong> go to fluidbn</strong></a></h1>";
+        }
+
+      
     }
 
     // for external links

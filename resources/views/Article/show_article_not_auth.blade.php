@@ -1,5 +1,5 @@
 
-@extends('layouts.main')
+@extends('layouts.main2')
 
 @section('title')
 {{ucfirst($article->title)}} - {{ucfirst($article->writtenBy->fname)}} {{ucfirst($article->writtenBy->lname)}}  | fluidbN
@@ -111,44 +111,12 @@
           
              
               <h6 class="w3-small" style="margin-top:5px;">{{$article->writtenBy->hasProfile->about }}</h6>
-              @php
-          $f = Auth::user()->follows()->wherePivot('follower_id',Auth::user()->id)->wherePivot('following_id',$article->writtenBy->id)->first();
-         $l = Auth::user()->likes()->wherePivot('user_id',Auth::user()->id)->wherePivot('article_id',$article->id)->first();
-          $b = Auth::user()->bookmarks()->wherePivot('user_id',Auth::user()->id)->wherePivot('article_id',$article->id)->first();
-          
-         if($f)
-           $cl="pressed";
-           else
-           $cl="";
-           if($l)
-           $c="pressed";
-           else
-           $c="w3-flat-pomegranate";
-           if($b)
-           $c="pressed";
-           else
-           $c="w3-flat-pomegranate";
-         
-         
-          @endphp
-           <button class="btn margin btn-login fol {{$cl}}" id ="" data-userid="{{$article->writtenBy->id}}">{{$follow ? "Following" : "Follow"}}</button> 
              
-              @if (Auth::user()->id==$article->writtenBy->id) 
-            
-            <button  class="btn  btn-login margin"  onclick="location.href='{{route('view-edit',['article'=>$article])}}'">Open in edit view</button> 
-      
-           @endif
+           <button onclick="document.getElementById('id01').style.display='block'" class="btn margin btn-login" id ="">{{"Follow"}}</button> 
+             
+        
                </div>
-       <div class" w3-hide w3-container" id="fol-sugg-tab">
-                  <h3 class="w3-large" style="color:black;font-weight:bold;">Follow suggestions  <button class="w3-button w3-black" id="fol-sugg-cls"><i class="fa fa-close"></i></button></h3>
-                  <table class="table table-bordered table-hover">
-                      
-                    <tbody id="fol_sugg">
-                    
-                    </tbody>
-                     
-                    </table>
-                  </div>
+   
       </div>
     </div>
            <div class="footer-story">
@@ -164,8 +132,8 @@
         </div>
       </div>
       <div class="w3-bar w3-card stick w3-center">
-           <button class="w3-button w3-padding-large  {{$c}} " id="like"  style="margin-left:5px;margin-top:5px;" data-articleid="{{$article->id}}" type="submit">{{$like ? "Thanks" : "Wow"}}</button>
-        <button class="w3-button w3-padding-large  bookmark {{$c}}" style="margin-top:5px;" data-articleId="{{$article->id}}">{{$bookmark ? "Bookmarked" : "Bookmark"}}</button>
+           <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-padding-large w3-flat-pomegranate " id=""  style="margin-left:5px;margin-top:5px;"  type="submit">Wow</button>
+        <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-padding-large w3-flat-pomegranate" style="margin-top:5px;">Bookmark</button>
         
      {{-- share modal --
    
@@ -220,7 +188,7 @@
            
               <div class="col-md-4">
             
-                <a href="{{route('show-article',['article'=>$ra,'slug'=>str_slug($ra->title)])}}">
+                <a onclick="document.getElementById('id01').style.display='block'">
                 <div class="card-related" style="background:white;">
                   <img class=" featurette-image img-fluid mx-auto" src="/storage/article_images/{{$ra->title_image}}" alt="">
                   <div class="container-related lower-margin" style="background:white;">
@@ -246,7 +214,6 @@
           </div>
             @endif
          
-            @if(Auth::user()->id != $article->writtenBy->id)
           @if(count($articles_of_samewriter)>0)
           
           <div class="w3-container lower-margin w3-hide-small w3-hide-medium">
@@ -261,10 +228,10 @@
             <div class="col-md-4">
        
               <div class="">
-                <a href="{{route('stories-genre',['genre'=>$ra->ofGenre])}}" <small class="genre-feed">{{ucfirst($ra->ofGenre->name)}}</small></a>
+                <a onclick="document.getElementById('id01').style.display='block'" <small class="genre-feed">{{ucfirst($ra->ofGenre->name)}}</small></a>
               </div>
                
-                <a href="{{route('show-article',['article'=>$ra,'slug'=>str_slug($ra->title)])}}">
+                <a onclick="document.getElementById('id01').style.display='block'">
                 <div class="card-related" style="background:white;">
                   <img class="  featurette-image img-fluid mx-auto img-card" src="/storage/article_images/{{$ra->title_image}}" alt="">
                   <div class="container-related lower-margin" style="background:white;">
@@ -286,7 +253,7 @@
             </div>
           
           @endif
-         @endif 
+
 {{--
          <div class="">
 
@@ -338,7 +305,41 @@
        </div>
        --}}
                        
-       
+       {{-- login modal --}}
+        <div id="id01" class="w3-modal">
+      <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+  
+        <div class="w3-center"><br>
+          <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+          <img src="/storage/general/login-alert-story2.png" alt="Avatar" style="width:60%" class=" w3-margin-top">
+        </div>
+  
+        {!! Form::open(['action'=>'Auth\LoginController@login','method'=>'POST','class'=>'w3-container']) !!}
+                                 
+                                 
+                              
+                                    
+                                                <div class="w3-section">
+                                              {{Form::label(' email ','',['class'=>'fa fa-user'])}}
+                                              {{Form::email('email','',['class'=>'w3-input w3-border w3-margin-bottom'])}}
+                                            
+                                              {{Form::label(' password ','',['class'=>'fa fa-lock'])}}
+                                              {{Form::password('password',['class'=>'w3-input w3-border'])}}
+                                          
+                                              {{Form::submit(' Login', ['class'=>'w3-button w3-block w3-black w3-section w3-padding '])}}
+                                             
+                                            @csrf
+                                          {!! Form::close() !!}
+                                          <p>Not a member ? <a href="{{route('register')}}" style="color:mediumvioletred;">Signup Now</a></p>
+                                                </div>
+  
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+          <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+          <span class="w3-right w3-padding"><a href="{{ route('password.request') }}">Forgot password?</a></span>
+        </div>
+  
+      </div>
+    </div>
          
        </div>
         </footer>
