@@ -158,15 +158,7 @@
 
       share modal end --}}
       
-     <footer class="w3-container">
-          <table class="table table-bordered table-hover ">
-               
-                <tbody class="sys w3-small" style="color:black;">
-                
-                </tbody>
-                 
-                </table>
-      </footer>   
+  
     </div>
     
         {{--
