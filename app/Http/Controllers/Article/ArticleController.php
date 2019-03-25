@@ -31,7 +31,7 @@ class ArticleController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('show');
+        $this->middleware('auth')->except(['show','showTheory']);
     }
 
  
@@ -389,7 +389,7 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function showTheory(Theory $theory,$slug){
-        
+       if( Auth::user()) {
         $user = Auth::user();
       
        $otheruserId = $theory->writtenBy->id;
@@ -429,7 +429,27 @@ class ArticleController extends Controller
          
    
          return view('Article.show_theory')->with($data);
+    }
+    else{
 
+            $otheruserId = $theory->writtenBy->id;
+            
+        
+
+            $data = [
+                'theory' => $theory,
+                //'like'=>$like,
+             
+                //'bookmark'=>$bookmark,
+                //'views'=>$views,
+                // 'theories_of_samewriter'=>$theories_of_samewriter,
+                //'wows'=>$wows,
+              
+            ];
+
+
+            return view('Article.show_theory_not_auth')->with($data);
+    }
         
     }
 
