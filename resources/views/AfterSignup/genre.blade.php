@@ -21,7 +21,7 @@ Signup - choose-category | fluidbN
    @endif 
   
   </div>
-  <div class="box lower-margin w3-hide-large" style="margin-top:5%;">
+  <div class="box lower-margin w3-hide-large" style="margin-top:15%;">
      @if($slug!=NULL)
 <h1 class="w3-xlarge" style="font-weight:bold;font-color:black;">Hi {{ucfirst(Auth::user()->fname)}}, manage your story choices</h1> 
    
