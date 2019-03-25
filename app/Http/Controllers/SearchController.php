@@ -98,7 +98,7 @@ public function searchSuggestion(Request $request){
              //$url7 = '/storage/studio_images/'.$a->title_image;        
             $output1.="<tr>".
              
-             '<td>'.'<a href="'.$url5.'">'.ucfirst($a->title).'</a>'.'</td>'.
+             '<td>'.'<a href="'.$url5.'">'.ucfirst($a->title).'</a>'.' <strong>- Studio Story</strong></td>'.
             "</tr>";
              
             }
@@ -119,7 +119,7 @@ public function searchSuggestion(Request $request){
                       
                     $output1.="<tr>".
 
-                        '<td>'.'<a href="'.$urlT.'">'. ucfirst($a->title).'</a>'.'</td>'.
+                        '<td>'.'<a href="'.$urlT.'">'. ucfirst($a->title).'</a>'.' <strong>- User theory</strong></td>'.
               "</tr>"; 
                   
             }
