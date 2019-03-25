@@ -12,7 +12,7 @@
   
     {{-- search --}}
     <div class="w3-hide-small w3-hide-medium">
-   <div class="w3-display-right" style="margin-right:32%;">
+   <div class="w3-display-right" style="margin-right:20%;">
      <button onclick="document.getElementById('id-search').style.display='block'" class="w3-button" style="background-color:white;"><i class="fa fa-search" style="font-size:30px;"></i></button>
   </div>
   <div id="id-search" class="w3-modal">
@@ -155,7 +155,7 @@
   </div>
   --}}
       <div class="w3-hide-large">
-   <div class="w3-display-right" style="margin-right:32%;">
+   <div class="w3-display-right" style="margin-right:20%;">
      <button onclick="document.getElementById('id-search2').style.display='block'" class="w3-button" style="background-color:white;"><i class="fa fa-search" style="font-size:30px;"></i></button>
   </div>
   <div id="id-search2" class="w3-modal">
