@@ -85,6 +85,10 @@
        
          
        </div>
+         <div class="box w3-center">
+                    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-center w3-padding-large w3-flat-pomegranate" id=""  style="margin-left:20px;margin-top:5px;" type="submit">More wonderful theories</button>
+                    
+          </div> 
         </footer>
     </div>
   
