@@ -1,5 +1,5 @@
 
-@extends('layouts.main2')
+@extends('layouts.main3')
 
 @section('title')
 {{ucfirst($article->title)}} - {{ucfirst($article->writtenBy->fname)}} {{ucfirst($article->writtenBy->lname)}}  | fluidbN
@@ -17,7 +17,7 @@
 <h2 class="featurette-heading w3-center" style="margin-top:10px; color:black;font-weight:bold;font-size:4rem;">{{ucfirst($article->title)}}</h2>
   </div>
      </div>
-  <div class=" w3-hide-large " style="margin-top:2%;" >
+  <div class=" w3-hide-large " style="margin-top:4%;" >
 
 <h2 class="featurette-heading w3-xxlarge w3-center" style="margin-top:20px; color:black;font-weight:bold;">{{ucfirst($article->title)}}</h2>
   </div>
